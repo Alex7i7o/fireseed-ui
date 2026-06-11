@@ -1,75 +1,35 @@
-# React + TypeScript + Vite
+# 🚀 Fireseed UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una librería de componentes interactivos, modulares y de alto rendimiento, diseñada bajo un enfoque estricto de componentes reutilizables tipo "Lego". Pensada para maquetar interfaces con una estética premium, limpia y minimalista.
 
-Currently, two official plugins are available:
+## 🛠️ Stack Tecnológico
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Framework:** React 19 + Vite (TypeScript con `verbatimModuleSyntax` activado).
+- **Estilos:** Tailwind CSS v4 (Nativo, sin dependencias de PostCSS viejas).
+- **Animaciones:** Framer Motion (Física de resortes y gestos premium).
+- **Utilidades:** `clsx` + `tailwind-merge` (Fusión de clases dinámicas inteligente).
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 📐 Reglas de Arquitectura
 
-Note: This will impact Vite dev & build performances.
+1.  **Atomicidad Extrema:** Cada componente es independiente, controla su propio estado visual y delega la lógica pesada a Custom Hooks independientes.
+2.  **Cero CSS Externo:** Todo el diseño está integrado de manera responsiva mediante clases nativas de Tailwind.
+3.  **Tipado Robusto:** Interfaces de TypeScript estrictas, heredando propiedades nativas del DOM o de Framer Motion mediante uniones de tipos literales. Prohibido el uso de `any`.
+4.  **Exportación Nombrada (Barriles):** Arquitectura basada en carpetas por componente con archivos `index.ts` locales y globales para evitar colisiones de nombres.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Estructura del Proyecto
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+src/
+├── components/          # La cuna de los Legos
+│   ├── Button/          # Componente Button
+│   │   ├── Button.tsx   # Lógica y maquetación
+│   │   └── index.ts     # Exportación local
+│   └── index.ts         # Enchufe maestro de la librería
+├── utils/
+│   └── cn.ts            # Función controladora de estilos (clsx + twMerge)
+└── index.css            # Directiva central de Tailwind v4
 ```
