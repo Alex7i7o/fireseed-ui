@@ -15,12 +15,12 @@ export function Button({
   ...props
 }: ButtonProps) {
   
-  const baseStyles = 'shadow-md m-5 inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none cursor-pointer';
+  const baseStyles = 'shadow-md shadow-black/50 m-5 inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none cursor-pointer';
   
   const variants = {
-    primary: 'bg-indigo-800 text-white hover:bg-indigo-600 active:bg-indigo-950',
-    secondary: 'bg-amber-700 text-white hover:bg-amber-500 active:bg-amber-600',
-    outline: 'border-2 border-indigo-800 text-neutral-700 hover:bg-neutral-50 active:bg-neutral-100'
+    primary: 'bg-indigo-800 text-white hover:bg-indigo-600 active:bg-indigo-950 shadow-indigo-800/50',
+    secondary: 'shadow-amber-700/50 bg-amber-700 text-white hover:bg-amber-500 active:bg-amber-600',
+    outline: 'shadow-black/50 border-2 border-indigo-800 text-neutral-700 hover:bg-neutral-50 active:bg-neutral-100'
   };
 
   const sizes = {
@@ -31,8 +31,8 @@ export function Button({
 
   return (
     <motion.button
-      initial={{ scale: 0 }} 
-      animate={{ scale: 1 }}
+      initial={{  opacity: 0, scale: 0 }} 
+      animate={{  opacity: 1, scale: 1 }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       transition={{ type: 'spring', stiffness: 100, damping: 15 }}
