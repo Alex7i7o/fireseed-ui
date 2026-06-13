@@ -8,7 +8,7 @@ function App() {
       <Button variant="primary">Botón Principal</Button>
       <Button variant="secondary">Botón Secundario</Button>
       <Button variant="outline">Botón Outline</Button>
-      <Button variant="primary" className="bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700">
+      <Button variant="primary" className="shadow-xl shadow-emerald-600/50 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700">
         Botón Éxito Personalizado
       </Button>
 

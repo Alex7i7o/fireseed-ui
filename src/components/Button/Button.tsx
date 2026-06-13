@@ -15,12 +15,12 @@ export function Button({
   ...props
 }: ButtonProps) {
   
-  const baseStyles = 'shadow-md shadow-black/50 m-5 inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none cursor-pointer';
+  const baseStyles = 'm-5 inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none cursor-pointer';
   
   const variants = {
-    primary: 'bg-indigo-800 text-white hover:bg-indigo-600 active:bg-indigo-950 shadow-indigo-800/50',
-    secondary: 'shadow-amber-700/50 bg-amber-700 text-white hover:bg-amber-500 active:bg-amber-600',
-    outline: 'shadow-black/50 border-2 border-indigo-800 text-neutral-700 hover:bg-neutral-50 active:bg-neutral-100'
+    primary: 'bg-indigo-800 text-white hover:bg-indigo-600 active:bg-indigo-950',
+    secondary: 'shadow-md shadow-amber-700/50 bg-amber-700 border-2 border-amber-600 text-white hover:bg-amber-500 active:bg-amber-600',
+    outline: 'inset-shadow-sm inset-shadow-black/50 text-neutral-700 hover:bg-neutral-50 active:bg-neutral-100'
   };
 
   const sizes = {
