@@ -3,14 +3,14 @@ import { cn } from '../../utils/cn';
 import {type HTMLMotionProps } from 'framer-motion';
 
 interface ComponentNombreProps extends HTMLMotionProps<'button'> {
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'solid' | 'glow' | 'inset';
   size?: 'sm' | 'md' | 'lg';
 }
 
 export function Button({
   children,
   className,
-  variant = 'primary',
+  variant = 'solid',
   size = 'md',
   ...props
 }: ComponentNombreProps) {
@@ -29,11 +29,16 @@ export function Button({
     lg: 'Tamaños tailwind'
   };
 
+  const defaultAnimation: HTMLMotionProps<'button'> = {
+    whileHover: { scale: 1.02 },
+    whileTap: { scale: 0.98 },
+    transition: { type: 'spring', stiffness: 400, damping: 15 }
+  };
+  
+
   return (
     <motion.button
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+      {...defaultAnimation}
       
       // 4. Combinamos los estilos base, la variante, el tamaño y lo que venga de afuera
       className={cn(baseStyles, variants[variant], sizes[size], className,)}

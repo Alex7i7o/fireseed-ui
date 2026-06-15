@@ -3,25 +3,25 @@ import { cn } from '../../utils/cn';
 import { type HTMLMotionProps } from 'framer-motion';
 
 interface CardProps extends HTMLMotionProps<'div'> {
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'solid' | 'glow' | 'inset';
   size?: 'sm' | 'md' | 'lg';
 }
 
 export function Card({
   children,
   className,
-  variant = 'primary',
+  variant = 'solid',
   size = 'md',
   ...props
 }: CardProps) {
 
-    const baseStyles = 'transition-colors m-5 p-5 shadow-xl rounded-lg items-center justify-center'
+    const baseStyles = 'transition-colors m-5 p-5 rounded-lg'
 
     
     const variants = {
-        primary: 'shadow-black/50 bg-cyan-900 text-white border-2 border-cyan-700',
-        secondary: 'Estilos tailwind',
-        outline: 'Estilos tailwind'
+        solid: 'bg-amber-600 text-white',
+        glow: 'shadow-xl shadow-black/50 bg-cyan-900 text-white border-2 border-cyan-700',
+        inset: 'inset-shadow-sm inset-shadow-black/50 text-neutral-700'
     };
 
   const sizes = {
@@ -30,13 +30,18 @@ export function Card({
     lg: 'w-100 h-auto'
   };
 
+    const defaultAnimation: HTMLMotionProps<'div'> = {
+      initial: { opacity: 0, scale: 0},
+      whileInView: { opacity: 1, scale: 1 },
+      viewport: { once: true, margin: "-50px" },
+      whileHover: { y: -4 },
+      transition: { duration: 1.5, type: 'spring' },
+    };
+
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0}} 
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: "-50px" }}
-      whileHover={{ y: -4 }}
-      transition={{ duration: 1.5, type: 'spring' }}
+      {...defaultAnimation}
+      
       
       // 4. Combinamos los estilos base, la variante, el tamaño y lo que venga de afuera
       className={cn(baseStyles, variants[variant], sizes[size], className,)}
