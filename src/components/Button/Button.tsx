@@ -18,9 +18,9 @@ export function Button({
   const baseStyles = 'm-5 inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none cursor-pointer';
   
   const variants = {
-    solid: 'bg-indigo-800 text-white hover:bg-indigo-600 active:bg-indigo-950',
-    glow: 'shadow-md shadow-amber-700/50 bg-amber-700 border-2 border-amber-600 text-white hover:bg-amber-500 active:bg-amber-600',
-    inset: 'inset-shadow-sm inset-shadow-black/50 text-neutral-700 hover:bg-neutral-50 active:bg-neutral-100'
+    solid: 'bg-accent-main text-primary-main',
+    glow: ' bg-accent-main border-2 border-black/30 text-primary-main glow-bottom',
+    inset: 'inset-shadow-sm inset-shadow-black/70 bg-primary-main bg-linear-to-t from-white/5 to-white/0 text-white'
   };
 
   const sizes = {
@@ -32,8 +32,8 @@ export function Button({
   const defaultAnimation: HTMLMotionProps<'button'> = {
       initial: {  opacity: 0, scale: 0 },
       animate: {  opacity: 1, scale: 1 },
-      whileHover: { scale: 1.02 },
-      whileTap: { scale: 0.98 },
+      whileHover: { scale: 1.02, filter: 'brightness(120%)'},
+      whileTap: { scale: 0.98, filter: 'brightness(150%)' },
       transition: { type: 'spring', stiffness: 100, damping: 15 },
   };
 

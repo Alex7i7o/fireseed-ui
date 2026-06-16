@@ -19,9 +19,9 @@ export function Card({
 
     
     const variants = {
-        solid: 'bg-amber-600 text-white',
-        glow: 'shadow-xl shadow-black/50 bg-cyan-900 text-white border-2 border-cyan-700',
-        inset: 'inset-shadow-sm inset-shadow-black/50 text-neutral-700'
+        solid: 'bg-accent-main text-primary-main',
+        glow: 'bg-accent-main border-2 border-black/50 text-primary-main glow-bottom',
+        inset: 'inset-shadow-sm inset-shadow-black/70 bg-primary-main bg-linear-to-t from-white/5 to-white/0 text-white'
     };
 
   const sizes = {

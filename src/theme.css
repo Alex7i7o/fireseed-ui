@@ -1,13 +1,36 @@
 @theme {
     /* Colores principales */
-    --color-brand: #7c3aed;
-    --color-brand-hover: #6d28d9;
-    --color-brand-glow: rgba(124, 58, 237, 0.5);
+    --color-primary-main:  #110021;
+    --color-accent-main:  #fdcc04;
     
-    /* Colores modo oscuro */
+
+        /* Colores modo oscuro */
 
     /* Tipografias */
 
     
 
 }
+
+
+
+    /* Sombras */
+    @utility shadow-glow {
+    /* Usamos @apply para agrupar todas las clases de la capa fantasma */
+    @apply relative z-0 before:absolute before:-inset-1 before:bg-inherit before:blur-xl before:opacity-50 before:-z-10 before:rounded-[inherit] transition-all duration-300 ease-in-out;
+    }
+
+    /* 1. Glow General Intenso (El que tenés ahora, ideal para botones oscuros) */
+    @utility glow-xl {
+    @apply relative z-0 before:absolute before:-inset-1 before:bg-inherit before:blur-xl before:opacity-40 before:-z-10 before:rounded-[inherit] transition-all duration-300;
+    }
+
+    /* 2. Glow General Sutil (Ideal para tarjetas, menúes o botones claros) */
+    @utility glow-md {
+    @apply relative z-0 before:absolute before:inset-0 before:bg-inherit before:blur-md before:opacity-30 before:-z-10 before:rounded-[inherit] transition-all duration-300;
+    }
+
+    /* 3. Glow Direccional Inferior (La luz cae hacia abajo, imita física real) */
+    @utility glow-bottom {
+    @apply relative z-0 before:absolute before:top-2 before:bottom-[-8px] before:left-2 before:right-2 before:bg-inherit before:blur-lg before:opacity-45 before:-z-10 before:rounded-[inherit] transition-all duration-300;
+    }

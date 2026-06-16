@@ -18,9 +18,10 @@ export function Button({
     const baseStyles = 'estilos base'
     
     const variants = {
-        primary: 'Estilos tailwind',
-        secondary: 'Estilos tailwind',
-        outline: 'Estilos tailwind'
+      solid: 'bg-accent-main text-primary-main',
+      glow: ' bg-accent-main border-2 border-black/30 text-primary-main glow-bottom',
+      inset: 'inset-shadow-sm inset-shadow-black/70 bg-primary-main bg-linear-to-t from-white/5 to-white/0 text-white'
+  
     };
 
   const sizes = {

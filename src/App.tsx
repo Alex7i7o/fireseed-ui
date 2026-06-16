@@ -1,5 +1,5 @@
 import { Button } from './components';
-import {Card} from './components/Card/Card'
+import {Card} from './components'
 function App() {
   
   return (
@@ -21,13 +21,20 @@ function App() {
           </p>
         </Card>
         <Card variant='glow'>
-          <h1 className='font-bold text-xl mb-2 tracking-tight'> Primera Card </h1> 
+          <h1 className='font-bold text-xl mb-2 tracking-tight'> Segunda Card </h1> 
           <p>
             Lorem ipsum dolor quam cupiditate vero consequuntur sapiente odit explicabo dicta sint earum obcaecati sequi qui praesentium maiores est quis?
           </p>
         </Card>
         <Card variant='inset'>
-          <h1 className='font-bold text-xl mb-2 tracking-tight'> Primera Card </h1> 
+          <h1 className='font-bold text-xl mb-2 tracking-tight'> Tercera Card </h1> 
+          <p>
+            Lorem ipsum dolor quam cupiditate vero consequuntur sapiente odit explicabo dicta sint earum obcaecati sequi qui praesentium maiores est quis?
+          </p>
+        </Card>
+
+        <Card variant='glow' className='bg-amber-900 text-white'>
+          <h1 className='font-bold text-xl mb-2 tracking-tight'> Cuarta Card </h1> 
           <p>
             Lorem ipsum dolor quam cupiditate vero consequuntur sapiente odit explicabo dicta sint earum obcaecati sequi qui praesentium maiores est quis?
           </p>
