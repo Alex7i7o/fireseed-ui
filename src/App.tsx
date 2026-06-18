@@ -1,9 +1,52 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Button } from './components';
+import { DocsLayout } from './layouts/DocsLayout';
 import {Card} from './components'
+
+import { InstallationDocs } from './docs/InstallationDocs';
+import { ButtonDocs } from './docs/ButtonDocs';
+import { CardDocs } from './docs/CardDocs';
+
+
 function App() {
   
   return (
     <>
+      <BrowserRouter>
+      <Routes>
+        
+        {/* === RUTA DE BIENVENIDA (OPCIONAL) === */}
+        {/* Si entran a la raíz, los mandamos directo a la instalación */}
+        <Route path="/" element={<Navigate to="/docs/installation" replace />} />
+
+        {/* === SECCIÓN DE DOCUMENTACIÓN CON SU LAYOUT === */}
+        {/* Ponemos el DocsLayout envolviendo a las sub-rutas dinámicas */}
+        <Route
+          path="/docs/*"
+          element={
+            <DocsLayout>
+              <Routes>
+                {/* Lo que pongas acá adentro se va a renderizar en el {children} del centro */}
+                <Route path="installation" element={<InstallationDocs />} />
+                <Route path="button" element={<ButtonDocs />} />
+                <Route path="card" element={<CardDocs />} />
+              </Routes>
+            </DocsLayout>
+          }
+        />
+
+        {/* Podrías tener otras rutas fuera de la docu acá abajo, 
+            por ejemplo una Landing Page de fireseed-ui que use otro diseño */}
+        {/* <Route path="/landing" element={<LandingPage />} /> */}
+
+      </Routes>
+    </BrowserRouter>
+
+
+
+
+
+    {/* ------------------------------------------- */}
       <div className='flex flex-row flex-wrap gap-5 justify-center'>
         <Button variant="solid">Botón Principal</Button>
         <Button variant="glow">Botón Secundario</Button>
