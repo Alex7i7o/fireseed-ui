@@ -11,6 +11,7 @@ export const docsMenu = [
     items: [
       { label: "Button", href: "/docs/button" },
       { label: "Card", href: "/docs/card" },
+      { label: "Sidebar", href: "/docs/sidebar" }
     ],
   },
 ];

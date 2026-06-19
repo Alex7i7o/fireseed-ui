@@ -6,6 +6,7 @@ import {Card} from './components'
 import { InstallationDocs } from './docs/InstallationDocs';
 import { ButtonDocs } from './docs/ButtonDocs';
 import { CardDocs } from './docs/CardDocs';
+import { SidebarDocs } from './docs/SidebarDocs';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                 <Route path="installation" element={<InstallationDocs />} />
                 <Route path="button" element={<ButtonDocs />} />
                 <Route path="card" element={<CardDocs />} />
+                <Route path="sidebar" element={<SidebarDocs />} />
               </Routes>
             </DocsLayout>
           }
