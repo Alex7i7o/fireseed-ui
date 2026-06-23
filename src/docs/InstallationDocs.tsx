@@ -1,4 +1,4 @@
-// src/docs/InstallationDocs.tsx
+import { Inlinecode } from "../components/InlineCode/InlineCode";
 
 export function InstallationDocs() {
   return (
@@ -43,7 +43,8 @@ export function InstallationDocs() {
           Configurar tu Theme
         </h2>
         <p className="text-sm text-white/60">
-          Asegurate de registrar las variables de color globales y las utilidades de resplandor en tu archivo de estilos principal (ej: <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-accent-main text-xs">src/theme.css</code>):
+          Asegurate de registrar las variables de color globales y las utilidades de resplandor en tu archivo de estilos principal 
+          (ej: <Inlinecode variant="solid">src/theme.css</Inlinecode>):
         </p>
 
         <div className="overflow-hidden rounded-xl bg-black/40 border border-white/5 font-mono text-sm text-white/80">

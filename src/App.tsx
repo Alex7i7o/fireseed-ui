@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Button } from './components';
 import { DocsLayout } from './layouts/DocsLayout';
 import {Card} from './components'
+import { Badge } from './components/Badge/Badge';
 
 import { InstallationDocs } from './docs/InstallationDocs';
 import { ButtonDocs } from './docs/ButtonDocs';
@@ -86,6 +87,10 @@ function App() {
         </Card>
 
       </div>
+
+      <Badge variant='solid'>
+        Probadno etiqueta
+      </Badge>
 
 
 
