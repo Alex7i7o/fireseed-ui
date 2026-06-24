@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Sidebar, SidebarMenu } from '../components/Sidebar';
 import { docsMenu } from '../doc-router/docsMenu';
 import { motion, AnimatePresence } from 'framer-motion';
+import { AnimateIn } from '../components/AnimateIn';
 
 export function DocsLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -89,7 +90,9 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
 
         {/* CONTENIDO CENTRAL (Se adapta solo cambiando paddings) */}
         <main className="flex-1 p-6 md:p-10 overflow-y-auto">
-          {children}
+          <AnimateIn variant="glow">
+            {children}
+          </AnimateIn>
         </main>
 
       </div>
