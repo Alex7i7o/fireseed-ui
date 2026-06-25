@@ -14,7 +14,7 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen text-white">
       
       {/* 📱 NAVBAR PARA MOBILE (Solo visible en pantallas chicas) */}
-      <header className="sticky top-0 z-40 flex h-14 w-full items-center justify-between border-b border-white/5 bg-[#110021]/80 px-4 backdrop-blur-md md:hidden">
+      <header className="sticky top-0 z-40 flex h-14 w-full items-center justify-between border-b border-white/5 bg-primary-main/80 px-4 backdrop-blur-md md:hidden">
         <h2 className="text-2xl font-bold tracking-wider">
           fireseed<span className="text-accent-main">.ui</span>
         </h2>
@@ -60,7 +60,7 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
                 animate={{ x: 0 }}
                 exit={{ x: '-100%' }}
                 transition={{ type: 'spring', stiffness: 400, damping: 40 }}
-                className="fixed bottom-0 top-0 left-0 z-50 w-72 bg-[#110021] p-6 border-r border-white/5 overflow-y-auto md:hidden"
+                className="fixed bottom-0 top-0 left-0 z-50 w-72 bg-primary-main p-6 border-r border-white/5 overflow-y-auto md:hidden"
               >
                 {/* Botón para cerrar */}
                 <div className="flex justify-end mb-4">

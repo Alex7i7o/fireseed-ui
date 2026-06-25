@@ -1,5 +1,6 @@
 // src/docs/SidebarDocs.tsx
 import React from 'react';
+import { Callout } from '../components/Callout';
 
 // 🌟 Al guardar el código de ejemplo acá afuera como un string puro, 
 // evitamos al 100% que interfiera con el renderizado de React.
@@ -81,6 +82,16 @@ export function SidebarDocs() {
           Este componente está dividido en tres niveles atómicos: El contenedor estructural (<code className="text-accent-main font-mono text-xs">Sidebar</code>), el iterador inteligente (<code className="text-accent-main font-mono text-xs">SidebarMenu</code>) y el enlace animado individual (<code className="text-accent-main font-mono text-xs">SidebarLink</code>). Esto permite total reutilización en cualquier framework de React.
         </p>
       </div>
+
+
+      <Callout variant='glow'>
+        <h3 className="text-sm font-bold uppercase tracking-wider flex items-center gap-2">
+          💡 Arquitectura Basada en Legos
+        </h3>
+        <p className="text-sm leading-relaxed">
+          Este componente está dividido en tres niveles atómicos: El contenedor estructural (<code className="font-mono text-xs">Sidebar</code>), el iterador inteligente (<code className=" font-mono text-xs">SidebarMenu</code>) y el enlace animado individual (<code className=" font-mono text-xs">SidebarLink</code>). Esto permite total reutilización en cualquier framework de React.
+        </p>
+      </Callout>
 
       {/* 3. EJEMPLO DE USO COMPLETO */}
       <div className="space-y-4">

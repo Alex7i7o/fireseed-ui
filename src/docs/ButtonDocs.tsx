@@ -25,7 +25,7 @@ export function ButtonDocs() {
         </p>
 
         {/* El contenedor donde se lucen tus componentes */}
-        <div className="flex flex-wrap items-center justify-center gap-6 rounded-2xl border border-white/5 bg-white/[0.02] p-8 backdrop-blur-sm">
+        <div className="flex flex-wrap items-center justify-center gap-6 rounded-2xl border border-white/5 bg-white/2 p-8 backdrop-blur-sm">
           
           {/* Sólido */}
           <div className="flex flex-col items-center gap-2">
@@ -77,10 +77,10 @@ export default function App() {
       {/* 4. TABLA DE PROPIEDADES (API) */}
       <div className="space-y-4">
         <h3 className="text-lg font-semibold text-white">Referencia de Props (API)</h3>
-        <div className="overflow-x-auto rounded-xl border border-white/5 bg-white/[0.01]">
+        <div className="overflow-x-auto rounded-xl border border-white/5 bg-white/1">
           <table className="w-full text-left border-collapse text-sm text-white/70">
             <thead>
-              <tr className="border-b border-white/5 bg-white/[0.02] text-xs font-semibold uppercase tracking-wider text-white/50">
+              <tr className="border-b border-white/5 bg-white/2 text-xs font-semibold uppercase tracking-wider text-white/50">
                 <th className="p-4">Propiedad</th>
                 <th className="p-4">Tipo</th>
                 <th className="p-4">Por Defecto</th>
