@@ -1,4 +1,5 @@
 import { Inlinecode } from "../components/InlineCode/InlineCode";
+import { StepBadge } from "../components/StepBadge";
 
 export function InstallationDocs() {
   return (
@@ -19,6 +20,7 @@ export function InstallationDocs() {
       {/* 2. PASO 1: TERMINAL */}
       <div className="space-y-4">
         <h2 className="text-xl font-bold text-white flex items-center gap-3">
+          <StepBadge variant="glow">1</StepBadge>
           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-accent-main/10 text-xs font-mono text-accent-main border border-accent-main/20">1</span>
           Instalar dependencias
         </h2>
