@@ -11,6 +11,7 @@ import { BadgeDocs } from './docs/BadgeDocs';
 import { CalloutDocs } from './docs/CalloutDocs';
 import { InlineCodeDocs } from './docs/InlineCodeDocs';
 import { StepBadgeDocs } from './docs/StepBadgeDocs';
+import { ThemeDocs } from './docs/ThemeDocs';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
               <Routes>
                 {/* Lo que pongas acá adentro se va a renderizar en el {children} del centro */}
                 <Route path="installation" element={<InstallationDocs />} />
+                <Route path="theme" element={<ThemeDocs />} />
                 <Route path="animate-in" element={<AnimateInDocs />} />
                 <Route path="badge" element={<BadgeDocs />} />
                 <Route path="button" element={<ButtonDocs />} />
