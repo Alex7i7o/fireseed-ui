@@ -16,7 +16,7 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
       {/* 📱 NAVBAR PARA MOBILE (Solo visible en pantallas chicas) */}
       <header className="sticky top-0 z-40 flex h-14 w-full items-center justify-between border-b border-white/5 bg-primary-main/80 px-4 backdrop-blur-md md:hidden">
         <h2 className="text-2xl font-bold tracking-wider">
-          fireseed<span className="text-accent-main">.ui</span>
+          fireseed<span className="text-accent-main">-ui</span>
         </h2>
         {/* Botón Hamburguesa */}
         <button 
