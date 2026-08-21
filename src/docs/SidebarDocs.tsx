@@ -1,5 +1,5 @@
 // src/docs/SidebarDocs.tsx
-import React from 'react';
+
 import { Callout } from '../components/Callout';
 
 // 🌟 Al guardar el código de ejemplo acá afuera como un string puro, 

@@ -4,3 +4,12 @@
 body {
     background-color: #110021;
 }
+
+/* Ocultar o estilizar scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}

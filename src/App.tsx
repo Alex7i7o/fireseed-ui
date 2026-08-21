@@ -1,20 +1,23 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { Button } from './components';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { DocsLayout } from './layouts/DocsLayout';
-import {Card} from './components'
-import { Badge } from './components/Badge/Badge';
+
 
 import { InstallationDocs } from './docs/InstallationDocs';
 import { ButtonDocs } from './docs/ButtonDocs';
 import { CardDocs } from './docs/CardDocs';
 import { SidebarDocs } from './docs/SidebarDocs';
+import { AnimateInDocs } from './docs/AnimateInDocs';
+import { BadgeDocs } from './docs/BadgeDocs';
+import { CalloutDocs } from './docs/CalloutDocs';
+import { InlineCodeDocs } from './docs/InlineCodeDocs';
+import { StepBadgeDocs } from './docs/StepBadgeDocs';
 
 
 function App() {
   
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
       <Routes>
         
         {/* === RUTA DE BIENVENIDA (OPCIONAL) === */}
@@ -30,9 +33,14 @@ function App() {
               <Routes>
                 {/* Lo que pongas acá adentro se va a renderizar en el {children} del centro */}
                 <Route path="installation" element={<InstallationDocs />} />
+                <Route path="animate-in" element={<AnimateInDocs />} />
+                <Route path="badge" element={<BadgeDocs />} />
                 <Route path="button" element={<ButtonDocs />} />
+                <Route path="callout" element={<CalloutDocs />} />
                 <Route path="card" element={<CardDocs />} />
+                <Route path="inline-code" element={<InlineCodeDocs />} />
                 <Route path="sidebar" element={<SidebarDocs />} />
+                <Route path="step-badge" element={<StepBadgeDocs />} />
               </Routes>
             </DocsLayout>
           }
@@ -43,54 +51,17 @@ function App() {
         {/* <Route path="/landing" element={<LandingPage />} /> */}
 
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
 
 
 
 
 
     {/* ------------------------------------------- */}
-      <div className='flex flex-row flex-wrap gap-5 justify-center'>
-        <Button variant="solid">Botón Principal</Button>
-        <Button variant="glow">Botón Secundario</Button>
-        <Button variant="inset">Botón Outline</Button>
-        <Button variant="solid" whileHover={{ y: -4 }} initial= {{ opacity: 1, scale: 1}} className="shadow-xl shadow-emerald-600/50 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700">
-          Botón Éxito Personalizado
-        </Button>
 
-      </div>
-      <div className='flex flex-row flex-wrap gap-6 justify-center '>
-        <Card variant='solid'>
-          <h1 className='font-bold text-xl mb-2 tracking-tight'> Primera Card </h1> 
-          <p>
-            Lorem ipsum dolor quam cupiditate vero consequuntur sapiente odit explicabo dicta sint earum obcaecati sequi qui praesentium maiores est quis?
-          </p>
-        </Card>
-        <Card variant='glow'>
-          <h1 className='font-bold text-xl mb-2 tracking-tight'> Segunda Card </h1> 
-          <p>
-            Lorem ipsum dolor quam cupiditate vero consequuntur sapiente odit explicabo dicta sint earum obcaecati sequi qui praesentium maiores est quis?
-          </p>
-        </Card>
-        <Card variant='inset'>
-          <h1 className='font-bold text-xl mb-2 tracking-tight'> Tercera Card </h1> 
-          <p>
-            Lorem ipsum dolor quam cupiditate vero consequuntur sapiente odit explicabo dicta sint earum obcaecati sequi qui praesentium maiores est quis?
-          </p>
-        </Card>
+      
 
-        <Card variant='glow' className='bg-amber-900 text-white'>
-          <h1 className='font-bold text-xl mb-2 tracking-tight'> Cuarta Card </h1> 
-          <p>
-            Lorem ipsum dolor quam cupiditate vero consequuntur sapiente odit explicabo dicta sint earum obcaecati sequi qui praesentium maiores est quis?
-          </p>
-        </Card>
-
-      </div>
-
-      <Badge variant='solid'>
-        Probadno etiqueta
-      </Badge>
+      
 
 
 
