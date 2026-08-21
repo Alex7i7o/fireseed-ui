@@ -35,7 +35,7 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
         <Sidebar variant="solid" size="md" className="hidden md:block">
           <div className="mb-8 px-3 py-2">
             <h2 className="text-3xl -ml-4 font-bold tracking-wider text-white">
-              Fireseed<span className="text-accent-main">.ui</span>
+              Fireseed<span className="text-accent-main">-ui</span>
             </h2>
           </div>
           <SidebarMenu sections={docsMenu} currentPath={location.pathname} linkComponent={Link} />
