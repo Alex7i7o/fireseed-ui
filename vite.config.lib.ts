@@ -9,8 +9,11 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] }),
     dts({ 
-      include: ['src/components', 'src/utils'],
-      insertTypesEntry: true 
+      tsconfigPath: './tsconfig.app.json',
+      compilerOptions: {
+        noEmit: false
+      },
+      rollupTypes: true 
     })
   ],
   build: {
@@ -25,13 +28,15 @@ export default defineConfig({
         'react', 
         'react-dom', 
         'react/jsx-runtime', 
-        'framer-motion'
+        'framer-motion',
+        'lucide-react'
       ],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
-          'framer-motion': 'motion'
+          'framer-motion': 'motion',
+          'lucide-react': 'LucideReact'
         }
       }
     }

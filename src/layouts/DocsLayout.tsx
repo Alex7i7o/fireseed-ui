@@ -1,100 +1,104 @@
-// src/layouts/DocsLayout.tsx
+/* Developed by FireSeed - Fueling Innovation */
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Sidebar, SidebarMenu } from '../components/Sidebar';
 import { docsMenu } from '../doc-router/docsMenu';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AnimateIn } from '../components/AnimateIn';
+import { Navbar } from './Navbar';
+import { CommandMenu } from '../components/CommandMenu';
+import { DocNavigation } from '../docs/DocNavigation';
+import { X } from 'lucide-react';
 
 export function DocsLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
-    <div className="min-h-screen text-white">
-      
-      {/* 📱 NAVBAR PARA MOBILE (Solo visible en pantallas chicas) */}
-      <header className="sticky top-0 z-40 flex h-14 w-full items-center justify-between border-b border-white/5 bg-primary-main/80 px-4 backdrop-blur-md md:hidden">
-        <h2 className="text-2xl font-bold tracking-wider">
-          Fireseed<span className="text-accent-main">-ui</span>
-        </h2>
-        {/* Botón Hamburguesa */}
-        <button 
-          onClick={() => setIsMobileMenuOpen(true)}
-          className="rounded-lg p-2 hover:bg-white/5 text-accent-main"
-        >
-          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </header>
+    <div className="relative min-h-screen text-white bg-[#080210] selection:bg-accent-main selection:text-black">
+      {/* 🌟 Capas de Iluminación Ambiental y Malla de Ingeniería */}
+      <div className="ambient-glow" />
+      <div className="blueprint-grid" />
 
-      <div className="flex">
-        
-        {/* 💻 SIDEBAR PARA ESCRITORIO (Le agregamos 'hidden md:block') */}
+      {/* 🚀 Navbar Superior Unificado (Desktop & Mobile) */}
+      <Navbar
+        onOpenSearch={() => setIsSearchOpen(true)}
+        onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
+      />
+
+      {/* ⌘K Buscador Global Modal */}
+      <CommandMenu isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+
+      <div className="relative z-10 flex max-w-7xl mx-auto">
+        {/* 💻 SIDEBAR PARA ESCRITORIO */}
         <Sidebar variant="solid" size="md" className="hidden md:block">
-          <div className="mb-8 px-3 py-2">
-            <h2 className="text-3xl -ml-4 font-bold tracking-wider text-white">
-              Fireseed<span className="text-accent-main">-ui</span>
-            </h2>
-          </div>
-          <SidebarMenu sections={docsMenu} currentPath={location.pathname} linkComponent={Link} />
+          <SidebarMenu
+            sections={docsMenu}
+            currentPath={location.pathname}
+            linkComponent={Link}
+          />
         </Sidebar>
 
-        {/* 📱 MENU DESPLEGABLE (DRAWER) PARA MOBILE */}
+        {/* 📱 MENU DRAWER PARA MOBILE */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <>
-              {/* Fondo oscuro traslúcido (Backdrop) que cierra el menú al tocarlo */}
-              <motion.div 
+              {/* Backdrop */}
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm md:hidden"
+                className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md md:hidden"
               />
 
-              {/* Contenedor del panel que desliza desde la izquierda */}
-              <motion.div 
+              {/* Drawer */}
+              <motion.div
                 initial={{ x: '-100%' }}
                 animate={{ x: 0 }}
                 exit={{ x: '-100%' }}
-                transition={{ type: 'spring', stiffness: 400, damping: 40 }}
-                className="fixed bottom-0 top-0 left-0 z-50 w-72 bg-primary-main p-6 border-r border-white/5 overflow-y-auto md:hidden"
+                transition={{ type: 'spring', stiffness: 400, damping: 35 }}
+                className="fixed bottom-0 top-0 left-0 z-50 w-80 bg-[#0d041a] p-5 border-r border-white/10 overflow-y-auto md:hidden shadow-2xl flex flex-col"
               >
-                {/* Botón para cerrar */}
-                <div className="flex justify-end mb-4">
-                  <button onClick={() => setIsMobileMenuOpen(false)} className="text-white/40 hover:text-white">
-                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+                  <div className="flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-lg bg-accent-main flex items-center justify-center font-black text-black text-xs">
+                      FS
+                    </div>
+                    <span className="font-bold text-white text-base">FireSeed UI</span>
+                  </div>
+                  <button
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="p-1.5 rounded-lg text-white/50 hover:text-white hover:bg-white/5"
+                  >
+                    <X className="w-5 h-5" />
                   </button>
                 </div>
 
-                {/* Reutilizamos el MISMO SidebarMenu de antes. ¡Un golazo! */}
-                <SidebarMenu 
-                  sections={docsMenu} 
-                  currentPath={location.pathname} 
-                  linkComponent={Link} 
-                  // Cerramos el menú automáticamente al hacer click en un link
-                  onClick={() => {
-                    setTimeout(() => {
-                      setIsMobileMenuOpen(false);
-                    }, 350); // 0.35 segundos es el "sweet spot" para que el resorte termine fluido
-                  }}
+                <SidebarMenu
+                  sections={docsMenu}
+                  currentPath={location.pathname}
+                  linkComponent={Link}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 />
               </motion.div>
             </>
           )}
         </AnimatePresence>
 
-        {/* CONTENIDO CENTRAL (Se adapta solo cambiando paddings) */}
-        <main className="flex-1 p-6 md:p-10 overflow-y-auto">
-          <AnimateIn variant="glow">
+        {/* 📄 CONTENIDO CENTRAL */}
+        <main className="flex-1 px-4 sm:px-8 lg:px-12 py-8 sm:py-12 overflow-y-auto min-w-0">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            className="max-w-4xl mx-auto"
+          >
             {children}
-          </AnimateIn>
+            <DocNavigation />
+          </motion.div>
         </main>
-
       </div>
     </div>
   );

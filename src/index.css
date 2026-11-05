@@ -1,15 +1,66 @@
+/* Developed by FireSeed - Fueling Innovation */
 @import "tailwindcss";
 @import "./theme.css";
 
-body {
-    background-color: #110021;
+:root {
+  color-scheme: dark;
 }
 
-/* Ocultar o estilizar scrollbar */
+body {
+  background-color: #080210;
+  color: #f4f4f5;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Fondo con iluminación ambiental y blueprint grid */
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 40, 200, 0.18), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 85% 10%, rgba(253, 204, 4, 0.08), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 15% 30%, rgba(88, 28, 135, 0.12), transparent 70%);
+}
+
+.blueprint-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 40%, transparent 100%);
+}
+
+/* Scrollbar refinado */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
+  transition: background 0.2s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(253, 204, 4, 0.4);
+}
+
+/* Patrón de tablero de ajedrez sutil para el fondo de pruebas de componentes */
+.preview-checkers {
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+  background-image: 
+    linear-gradient(45deg, rgba(255, 255, 255, 0.015) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.015) 75%, rgba(255, 255, 255, 0.015)),
+    linear-gradient(45deg, rgba(255, 255, 255, 0.015) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.015) 75%, rgba(255, 255, 255, 0.015));
 }

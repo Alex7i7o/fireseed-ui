@@ -1,1 +1,2 @@
-export { Button } from './Button';
+/* Developed by FireSeed - Fueling Innovation */
+export * from './Button';

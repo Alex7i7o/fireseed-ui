@@ -1,74 +1,92 @@
+/* Developed by FireSeed - Fueling Innovation */
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { DocsLayout } from './layouts/DocsLayout';
 
-
+// Primeros Pasos
+import { OverviewDocs } from './docs/OverviewDocs';
 import { InstallationDocs } from './docs/InstallationDocs';
-import { ButtonDocs } from './docs/ButtonDocs';
-import { CardDocs } from './docs/CardDocs';
-import { SidebarDocs } from './docs/SidebarDocs';
-import { AnimateInDocs } from './docs/AnimateInDocs';
-import { BadgeDocs } from './docs/BadgeDocs';
-import { CalloutDocs } from './docs/CalloutDocs';
-import { InlineCodeDocs } from './docs/InlineCodeDocs';
-import { StepBadgeDocs } from './docs/StepBadgeDocs';
 import { ThemeDocs } from './docs/ThemeDocs';
 
+// Átomos
+import { ButtonDocs } from './docs/ButtonDocs';
+import { BadgeDocs } from './docs/BadgeDocs';
+import { InputFieldDocs } from './docs/InputFieldDocs';
+import { SelectFieldDocs } from './docs/SelectFieldDocs';
+import { SkeletonDocs } from './docs/SkeletonDocs';
+import { SwitchDocs } from './docs/SwitchDocs';
+import { InlineCodeDocs } from './docs/InlineCodeDocs';
+import { StepBadgeDocs } from './docs/StepBadgeDocs';
+
+// Moléculas
+import { FeedbackButtonDocs } from './docs/FeedbackButtonDocs';
+import { ModalDocs } from './docs/ModalDocs';
+import { ConfirmModalDocs } from './docs/ConfirmModalDocs';
+import { MultiSelectDocs } from './docs/MultiSelectDocs';
+import { TabsDocs } from './docs/TabsDocs';
+import { PasswordRequirementsDocs } from './docs/PasswordRequirementsDocs';
+import { StarRatingDocs } from './docs/StarRatingDocs';
+import { AccordionDocs } from './docs/AccordionDocs';
+import { StatCardDocs } from './docs/StatCardDocs';
+import { EmptyStateDocs } from './docs/EmptyStateDocs';
+
+// Organismos
+import { CardDocs } from './docs/CardDocs';
+import { CalloutDocs } from './docs/CalloutDocs';
+import { SidebarDocs } from './docs/SidebarDocs';
+import { AnimateInDocs } from './docs/AnimateInDocs';
 
 function App() {
-  
   return (
-    <>
-      <HashRouter>
+    <HashRouter>
       <Routes>
-        
-        {/* === RUTA DE BIENVENIDA (OPCIONAL) === */}
-        {/* Si entran a la raíz, los mandamos directo a la instalación */}
-        <Route path="/" element={<Navigate to="/docs/installation" replace />} />
+        {/* Redirigir la raíz a la Introducción General */}
+        <Route path="/" element={<Navigate to="/docs/overview" replace />} />
 
-        {/* === SECCIÓN DE DOCUMENTACIÓN CON SU LAYOUT === */}
-        {/* Ponemos el DocsLayout envolviendo a las sub-rutas dinámicas */}
+        {/* Layout central de Documentación */}
         <Route
           path="/docs/*"
           element={
             <DocsLayout>
               <Routes>
-                {/* Lo que pongas acá adentro se va a renderizar en el {children} del centro */}
+                {/* Primeros Pasos */}
+                <Route path="overview" element={<OverviewDocs />} />
                 <Route path="installation" element={<InstallationDocs />} />
                 <Route path="theme" element={<ThemeDocs />} />
-                <Route path="animate-in" element={<AnimateInDocs />} />
-                <Route path="badge" element={<BadgeDocs />} />
+
+                {/* Átomos */}
                 <Route path="button" element={<ButtonDocs />} />
-                <Route path="callout" element={<CalloutDocs />} />
-                <Route path="card" element={<CardDocs />} />
+                <Route path="badge" element={<BadgeDocs />} />
+                <Route path="input-field" element={<InputFieldDocs />} />
+                <Route path="select-field" element={<SelectFieldDocs />} />
+                <Route path="skeleton" element={<SkeletonDocs />} />
+                <Route path="switch" element={<SwitchDocs />} />
                 <Route path="inline-code" element={<InlineCodeDocs />} />
-                <Route path="sidebar" element={<SidebarDocs />} />
                 <Route path="step-badge" element={<StepBadgeDocs />} />
+
+                {/* Moléculas */}
+                <Route path="feedback-button" element={<FeedbackButtonDocs />} />
+                <Route path="modal" element={<ModalDocs />} />
+                <Route path="confirm-modal" element={<ConfirmModalDocs />} />
+                <Route path="multiselect" element={<MultiSelectDocs />} />
+                <Route path="tabs" element={<TabsDocs />} />
+                <Route path="password-requirements" element={<PasswordRequirementsDocs />} />
+                <Route path="star-rating" element={<StarRatingDocs />} />
+                <Route path="accordion" element={<AccordionDocs />} />
+                <Route path="stat-card" element={<StatCardDocs />} />
+                <Route path="empty-state" element={<EmptyStateDocs />} />
+
+                {/* Organismos */}
+                <Route path="card" element={<CardDocs />} />
+                <Route path="callout" element={<CalloutDocs />} />
+                <Route path="sidebar" element={<SidebarDocs />} />
+                <Route path="animate-in" element={<AnimateInDocs />} />
               </Routes>
             </DocsLayout>
           }
         />
-
-        {/* Podrías tener otras rutas fuera de la docu acá abajo, 
-            por ejemplo una Landing Page de fireseed-ui que use otro diseño */}
-        {/* <Route path="/landing" element={<LandingPage />} /> */}
-
       </Routes>
     </HashRouter>
-
-
-
-
-
-    {/* ------------------------------------------- */}
-
-      
-
-      
-
-
-
-    </>
-  )
+  );
 }
 
-export default App
+export default App;

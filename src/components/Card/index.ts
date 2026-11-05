@@ -1,1 +1,2 @@
-export { Card } from './Card';
+/* Developed by FireSeed - Fueling Innovation */
+export * from './Card';
