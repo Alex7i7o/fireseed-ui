@@ -42,8 +42,13 @@ export function OverviewDocs() {
       {/* 1. HERO SECTION */}
       <div className="space-y-6 pt-2">
         <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-main/10 border border-accent-main/30 backdrop-blur-md shadow-[0_0_15px_rgba(253,204,4,0.15)]">
-            <img src={isotypeImg} alt="FireSeed Isotipo" className="w-4 h-4 object-contain" />
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-main/10 border border-accent-main/30 backdrop-blur-md shadow-[0_0_15px_rgba(253,204,4,0.15)] shrink-0">
+            <img
+              src={isotypeImg}
+              alt="FireSeed Isotipo"
+              className="h-4 w-auto object-contain shrink-0"
+              style={{ height: '16px', width: 'auto', aspectRatio: '633 / 845' }}
+            />
             <span className="text-xs font-bold text-accent-main tracking-wider uppercase font-mono">
               FIRESEED
             </span>
@@ -230,7 +235,8 @@ export function OverviewDocs() {
               <img
                 src={isotypeImg}
                 alt="Isotipo Oficial FireSeed"
-                className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(253,204,4,0.5)]"
+                className="h-full w-auto object-contain drop-shadow-[0_0_15px_rgba(253,204,4,0.5)]"
+                style={{ aspectRatio: '633 / 845' }}
               />
             </div>
             <div className="relative z-10 space-y-1">

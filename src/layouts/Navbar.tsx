@@ -37,15 +37,16 @@ export function Navbar({ onOpenSearch, onOpenMobileMenu }: NavbarProps) {
             <Menu className="w-5 h-5" />
           </button>
 
-          <Link to="/docs/overview" className="flex items-center gap-2.5 group">
-            <div className="relative flex items-center justify-center">
+          <Link to="/docs/overview" className="flex items-center gap-2.5 group shrink-0">
+            <div className="relative flex items-center justify-center shrink-0">
               <img
                 src={isotypeImg}
                 alt="FireSeed Isotipo"
-                className="w-8 h-8 object-contain drop-shadow-[0_0_12px_rgba(253,204,4,0.45)] group-hover:scale-110 transition-transform duration-300"
+                className="h-8 w-auto object-contain shrink-0 drop-shadow-[0_0_12px_rgba(253,204,4,0.45)] group-hover:scale-110 transition-transform duration-300"
+                style={{ height: '32px', width: 'auto', aspectRatio: '633 / 845' }}
               />
             </div>
-            <div className="flex items-baseline gap-1.5">
+            <div className="flex items-baseline gap-1.5 shrink-0">
               <span className="font-extrabold tracking-tight text-white text-lg sm:text-xl">
                 FIRE<span className="text-accent-main">SEED</span>
               </span>

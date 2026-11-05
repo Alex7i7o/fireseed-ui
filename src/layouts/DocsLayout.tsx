@@ -77,11 +77,12 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
                 className="fixed bottom-0 top-0 left-0 z-50 w-[85vw] max-w-[320px] bg-[#0d041a] p-5 border-r border-white/10 overflow-y-auto md:hidden shadow-2xl flex flex-col"
               >
                 <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
-                  <div className="flex items-center gap-2.5">
+                  <div className="flex items-center gap-2.5 shrink-0">
                     <img
                       src={isotypeImg}
                       alt="FireSeed Isotipo"
-                      className="w-7 h-7 object-contain drop-shadow-[0_0_10px_rgba(253,204,4,0.4)]"
+                      className="h-7 w-auto object-contain shrink-0 drop-shadow-[0_0_10px_rgba(253,204,4,0.4)]"
+                      style={{ height: '28px', width: 'auto', aspectRatio: '633 / 845' }}
                     />
                     <div className="flex items-baseline gap-1.5">
                       <span className="font-extrabold tracking-tight text-white text-base">
