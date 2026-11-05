@@ -2,18 +2,19 @@
 import { useState } from 'react';
 import { SelectField } from '../components/SelectField';
 import { Callout } from '../components/Callout';
+import { ComponentPlayground } from './ComponentPlayground';
 
 const codigoSelect = `import { useState } from 'react';
 import { SelectField } from 'fireseed-ui';
 
 export default function SelectDemo() {
-  const [rol, setRol] = useState('');
+  const [rol, setRol] = useState('profesor');
 
   return (
     <SelectField
       label="Rol de Usuario"
       value={rol}
-      onChange={(e) => setRol(e.target.value)}
+      onChange={setRol}
       placeholder="Elegir rol..."
       options={[
         { value: 'admin', label: 'Administrador' },
@@ -28,51 +29,53 @@ export function SelectFieldDocs() {
   const [val, setVal] = useState('pilates');
 
   return (
-    <div className="max-w-4xl space-y-12 pb-16 text-white">
+    <div className="space-y-12 pb-16 text-white">
+      {/* 1. CABECERA */}
       <div className="space-y-3">
-        <h1 className="text-4xl font-extrabold tracking-tight text-white flex items-center gap-3">
-          SelectField{' '}
-          <span className="text-sm font-mono font-normal text-accent-main bg-accent-main/10 px-2 py-0.5 rounded-md border border-accent-main/20">
-            v1.0.0
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-mono font-semibold text-accent-main bg-accent-main/15 px-2 py-0.5 rounded border border-accent-main/30">
+            Átomo
           </span>
+          <span className="text-xs text-zinc-500 font-mono">Custom Dropdown Menu</span>
+        </div>
+        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-[-0.03em] text-white">
+          SelectField
         </h1>
-        <p className="text-lg text-white/60">
-          Selector desplegable nativo estilizado con chevron decorativo, manejo de opciones tipadas y
-          soporte para estados de validación.
+        <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed">
+          Selector desplegable estilizado con esquinas redondeadas (Apple style), animaciones elásticas de resorte,
+          indicador de tilde dorada en la opción activa y detección de click-outside.
         </p>
       </div>
 
-      <hr className="border-white/5" />
+      <hr className="border-white/10" />
 
-      <Callout variant="glow" title="Ventaja del Select Nativo">
-        A diferencia de librerías que reinventan selectores en JavaScript y rompen el teclado nativo o los pickers
-        de rueda de iOS/Android, SelectField aprovecha el comportamiento nativo del sistema operativo garantizando
-        100% de compatibilidad con lectores de pantalla y autocompletado del navegador.
+      {/* 2. FILOSOFÍA */}
+      <Callout variant="glow" title="Diseño Glassmorphism Redondeado">
+        A diferencia de los selectores nativos del navegador que despliegan ventanas rígidas del sistema operativo con
+        bordes rectos de 90° y colores desalineados, SelectField despliega un menú flotante con esquinas redondeadas
+        (<code>rounded-2xl</code>), desenfoque de fondo y paleta integrada.
       </Callout>
 
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold text-white tracking-tight">Ejemplo de Uso</h2>
-        <div className="overflow-hidden rounded-xl bg-black/40 border border-white/5 font-mono text-sm text-white/80">
-          <div className="flex items-center justify-between bg-black/20 px-4 py-2 border-b border-white/5 text-xs text-white/40">
-            <span>SelectDemo.tsx</span>
-          </div>
-          <pre className="p-4 overflow-x-auto text-white/70">{codigoSelect}</pre>
-        </div>
-
-        <div className="mt-6 space-y-4 rounded-2xl border border-white/5 bg-black/20 p-8 backdrop-blur-sm max-w-md">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-white/60">Selector en Vivo</h3>
+      {/* 3. PLAYGROUND INTERACTIVO */}
+      <ComponentPlayground
+        title="Demostración Interactiva"
+        description="Haz clic en el selector para desplegar el menú de opciones redondeado con microanimación."
+        code={codigoSelect}
+      >
+        <div className="w-full max-w-sm">
           <SelectField
             label="Disciplina Seleccionada"
             value={val}
-            onChange={(e) => setVal(e.target.value)}
+            onChange={setVal}
             options={[
               { value: 'pilates', label: 'Pilates Reformer' },
               { value: 'funcional', label: 'Entrenamiento Funcional' },
-              { value: 'yoga', label: 'Hatha Yoga' }
+              { value: 'yoga', label: 'Hatha Yoga' },
+              { value: 'postural', label: 'Reeducación Postural (RPG)' }
             ]}
           />
         </div>
-      </div>
+      </ComponentPlayground>
     </div>
   );
 }

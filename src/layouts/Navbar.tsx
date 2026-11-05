@@ -27,10 +27,10 @@ export function Navbar({ onOpenSearch, onOpenMobileMenu }: NavbarProps) {
     <header className="sticky top-0 z-40 w-full border-b border-white/10 bg-[#080210]/80 backdrop-blur-xl">
       <div className="flex h-16 items-center justify-between px-4 sm:px-8 max-w-7xl mx-auto">
         {/* Izquierda: Logo y Branding */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
           <button
             onClick={onOpenMobileMenu}
-            className="md:hidden p-2 rounded-xl text-white/70 hover:text-white hover:bg-white/5 active:scale-95 transition-all"
+            className="md:hidden p-2 rounded-xl text-white/70 hover:text-white hover:bg-white/5 active:scale-95 transition-all min-w-[40px] min-h-[40px] flex items-center justify-center cursor-pointer"
             aria-label="Abrir menú"
           >
             <Menu className="w-5 h-5" />
@@ -69,11 +69,11 @@ export function Navbar({ onOpenSearch, onOpenMobileMenu }: NavbarProps) {
         </div>
 
         {/* Derecha: Acciones rápidas (Copiar npm, GitHub) */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3">
           {/* Mobile search trigger */}
           <button
             onClick={onOpenSearch}
-            className="sm:hidden p-2 rounded-xl text-white/70 hover:text-white hover:bg-white/5"
+            className="sm:hidden p-2 rounded-xl text-white/70 hover:text-white hover:bg-white/5 min-w-[40px] min-h-[40px] flex items-center justify-center cursor-pointer"
             aria-label="Buscar"
           >
             <Search className="w-5 h-5" />
