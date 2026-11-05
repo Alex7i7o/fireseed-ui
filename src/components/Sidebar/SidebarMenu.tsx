@@ -1,5 +1,5 @@
 /* Developed by FireSeed - Fueling Innovation */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { SidebarLink } from './SidebarLink';
 import { Search, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -11,21 +11,28 @@ export interface SidebarMenuProps {
   currentPath: string;
   linkComponent?: React.ElementType;
   onClick?: () => void;
+  defaultCollapsed?: boolean;
+  autoScrollActive?: boolean;
 }
 
 export function SidebarMenu({
   sections,
   currentPath,
   linkComponent,
-  onClick
+  onClick,
+  defaultCollapsed = false,
+  autoScrollActive = false
 }: SidebarMenuProps) {
   const [filter, setFilter] = useState('');
+  const activeItemRef = useRef<HTMLLIElement>(null);
 
   // Estado para controlar qué secciones están abiertas/cerradas (acordeón/toggle)
+  // En modo defaultCollapsed (por ejemplo en mobile), todas cerradas salvo la activa
   const [openSections, setOpenSections] = useState<Record<string, boolean>>(() => {
     const initial: Record<string, boolean> = {};
     sections.forEach((sec) => {
-      initial[sec.title] = true; // Por defecto abiertas
+      const hasActive = sec.items.some((item) => item.href === currentPath);
+      initial[sec.title] = defaultCollapsed ? hasActive : true;
     });
     return initial;
   });
@@ -35,10 +42,34 @@ export function SidebarMenu({
     sections.forEach((sec) => {
       const hasActive = sec.items.some((item) => item.href === currentPath);
       if (hasActive) {
-        setOpenSections((prev) => ({ ...prev, [sec.title]: true }));
+        setOpenSections((prev) => {
+          if (defaultCollapsed) {
+            const nextState: Record<string, boolean> = {};
+            sections.forEach((s) => {
+              nextState[s.title] = s.title === sec.title;
+            });
+            return nextState;
+          }
+          return { ...prev, [sec.title]: true };
+        });
       }
     });
-  }, [currentPath, sections]);
+  }, [currentPath, sections, defaultCollapsed]);
+
+  // Scroll enfocado hacia el elemento activo (especialmente en dispositivos móviles)
+  useEffect(() => {
+    if (autoScrollActive) {
+      const timer = setTimeout(() => {
+        if (activeItemRef.current) {
+          activeItemRef.current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }
+      }, 250);
+      return () => clearTimeout(timer);
+    }
+  }, [currentPath, autoScrollActive]);
 
   const toggleSection = (title: string) => {
     haptics.light();
@@ -81,7 +112,7 @@ export function SidebarMenu({
 
       <nav className="space-y-4">
         {filteredSections.map((section) => {
-          const isOpen = filter ? true : openSections[section.title] ?? true;
+          const isOpen = filter ? true : openSections[section.title] ?? false;
 
           return (
             <div key={section.title} className="space-y-1">
@@ -118,15 +149,19 @@ export function SidebarMenu({
                     className="overflow-hidden"
                   >
                     <ul className="space-y-0.5 pt-0.5 pl-3 border-l border-white/5 ml-3" onClick={onClick}>
-                      {section.items.map((item) => (
-                        <SidebarLink
-                          key={item.href}
-                          href={item.href}
-                          label={item.label}
-                          isActive={currentPath === item.href}
-                          as={linkComponent}
-                        />
-                      ))}
+                      {section.items.map((item) => {
+                        const isActive = currentPath === item.href;
+                        return (
+                          <SidebarLink
+                            key={item.href}
+                            href={item.href}
+                            label={item.label}
+                            isActive={isActive}
+                            as={linkComponent}
+                            innerRef={isActive ? activeItemRef : undefined}
+                          />
+                        );
+                      })}
                     </ul>
                   </motion.div>
                 )}

@@ -49,6 +49,7 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
               sections={docsMenu}
               currentPath={location.pathname}
               linkComponent={Link}
+              autoScrollActive={true}
             />
           </Sidebar>
         </div>
@@ -95,6 +96,8 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
                   currentPath={location.pathname}
                   linkComponent={Link}
                   onClick={() => setIsMobileMenuOpen(false)}
+                  defaultCollapsed={true}
+                  autoScrollActive={true}
                 />
               </motion.div>
             </>

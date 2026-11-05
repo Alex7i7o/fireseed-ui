@@ -8,16 +8,18 @@ export interface SidebarLinkProps {
   label: string;
   isActive: boolean;
   as?: React.ElementType;
+  innerRef?: React.Ref<HTMLLIElement>;
 }
 
 export function SidebarLink({
   href,
   label,
   isActive,
-  as: Component = 'a'
+  as: Component = 'a',
+  innerRef
 }: SidebarLinkProps) {
   return (
-    <li className="relative">
+    <li ref={innerRef} className="relative">
       <Component
         {...(Component !== 'a' ? { to: href } : { href })}
         onClick={() => {
