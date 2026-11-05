@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Search, Copy, Check, Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { haptics } from '../utils/haptics';
+import isotypeImg from '../assets/fireseed-isotype.png';
 
 export interface NavbarProps {
   onOpenSearch: () => void;
@@ -36,15 +37,19 @@ export function Navbar({ onOpenSearch, onOpenMobileMenu }: NavbarProps) {
             <Menu className="w-5 h-5" />
           </button>
 
-          <Link to="/docs/overview" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-accent-main via-amber-400 to-amber-600 flex items-center justify-center font-black text-black text-sm shadow-[0_0_15px_rgba(253,204,4,0.4)] group-hover:scale-105 transition-transform">
-              FS
+          <Link to="/docs/overview" className="flex items-center gap-2.5 group">
+            <div className="relative flex items-center justify-center">
+              <img
+                src={isotypeImg}
+                alt="FireSeed Isotipo"
+                className="w-8 h-8 object-contain drop-shadow-[0_0_12px_rgba(253,204,4,0.45)] group-hover:scale-110 transition-transform duration-300"
+              />
             </div>
             <div className="flex items-baseline gap-1.5">
               <span className="font-extrabold tracking-tight text-white text-lg sm:text-xl">
-                FireSeed
+                FIRE<span className="text-accent-main">SEED</span>
               </span>
-              <span className="text-xs font-mono font-semibold text-accent-main bg-accent-main/15 px-1.5 py-0.5 rounded border border-accent-main/30">
+              <span className="text-[11px] font-mono font-bold text-accent-main bg-accent-main/15 px-1.5 py-0.5 rounded border border-accent-main/30">
                 UI
               </span>
             </div>

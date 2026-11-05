@@ -15,9 +15,12 @@ import {
   ArrowRight,
   Copy,
   Check,
-  Terminal
+  Terminal,
+  Flame
 } from 'lucide-react';
 import { haptics } from '../utils/haptics';
+import isotypeImg from '../assets/fireseed-isotype.png';
+import logoImg from '../assets/fireseed-logo.jpg';
 
 export function OverviewDocs() {
   const [copied, setCopied] = useState(false);
@@ -39,6 +42,12 @@ export function OverviewDocs() {
       {/* 1. HERO SECTION */}
       <div className="space-y-6 pt-2">
         <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-main/10 border border-accent-main/30 backdrop-blur-md shadow-[0_0_15px_rgba(253,204,4,0.15)]">
+            <img src={isotypeImg} alt="FireSeed Isotipo" className="w-4 h-4 object-contain" />
+            <span className="text-xs font-bold text-accent-main tracking-wider uppercase font-mono">
+              FIRESEED
+            </span>
+          </div>
           <Badge variant="glow" size="lg" dot>
             v0.1.0 • Producción
           </Badge>
@@ -199,7 +208,73 @@ export function OverviewDocs() {
         </div>
       </div>
 
-      {/* 4. INSTALACIÓN RÁPIDA */}
+      {/* 4. IDENTIDAD DE MARCA OFICIAL */}
+      <div className="space-y-6">
+        <div className="space-y-1">
+          <span className="text-xs font-semibold uppercase tracking-wider text-accent-main font-mono flex items-center gap-1.5">
+            <Flame className="w-3.5 h-3.5 text-accent-main" /> Identidad Visual
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+            Logotipo e Isotipo Oficial FireSeed
+          </h2>
+          <p className="text-sm text-zinc-400">
+            Los activos gráficos oficiales listos para usar en aplicaciones web, móviles y documentación.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Tarjeta Isotipo */}
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0d041a] p-6 flex flex-col items-center justify-center text-center space-y-4 group">
+            <div className="ambient-glow" />
+            <div className="relative z-10 w-28 h-28 flex items-center justify-center p-3 rounded-2xl bg-black/40 border border-white/10 shadow-[0_0_30px_rgba(253,204,4,0.15)] group-hover:scale-105 transition-transform duration-300">
+              <img
+                src={isotypeImg}
+                alt="Isotipo Oficial FireSeed"
+                className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(253,204,4,0.5)]"
+              />
+            </div>
+            <div className="relative z-10 space-y-1">
+              <h3 className="font-bold text-white text-base">Isotipo ("La Llama y Semilla")</h3>
+              <p className="text-xs text-zinc-400 max-w-xs font-mono">
+                public/fireseed-isotype.png (Transparente)
+              </p>
+            </div>
+            <a
+              href={isotypeImg}
+              download="fireseed-isotype.png"
+              className="relative z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all cursor-pointer"
+            >
+              Descargar Isotipo PNG
+            </a>
+          </div>
+
+          {/* Tarjeta Logo Completo */}
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0d041a] p-6 flex flex-col items-center justify-center text-center space-y-4 group">
+            <div className="relative z-10 w-full max-w-[220px] aspect-square rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(120,40,200,0.2)] group-hover:scale-105 transition-transform duration-300">
+              <img
+                src={logoImg}
+                alt="Logotipo Oficial FireSeed"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="relative z-10 space-y-1">
+              <h3 className="font-bold text-white text-base">Logotipo Completo</h3>
+              <p className="text-xs text-zinc-400 max-w-xs font-mono">
+                public/fireseed-logo.jpg (Dark Purple & Gold)
+              </p>
+            </div>
+            <a
+              href={logoImg}
+              download="fireseed-logo.jpg"
+              className="relative z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all cursor-pointer"
+            >
+              Descargar Logotipo JPG
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* 5. INSTALACIÓN RÁPIDA */}
       <div className="space-y-4">
         <h2 className="text-2xl font-bold tracking-tight text-white">Integración en tu Proyecto</h2>
         <Callout variant="glow" title="Configuración en 60 segundos">
