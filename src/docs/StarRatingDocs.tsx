@@ -40,9 +40,9 @@ export function StarRatingDocs() {
 
       <hr className="border-white/5" />
 
-      <Callout variant="glow" title="Extraído de Violett Pilates">
-        Desacoplado del formulario de reseñas de Violett, convirtiéndose en un Lego reutilizable para cualquier
-        módulo de calificaciones, feedback de clases, reseñas de Google o auditorías de servicio.
+      <Callout variant="glow" title="Módulo de Calificación Desacoplado">
+        Construido como una molécula completamente independiente de la lógica de negocio, lista para integrarse en cualquier
+        sistema de valoraciones, encuestas de satisfacción, reseñas de productos o paneles de feedback.
       </Callout>
 
       <div className="space-y-4">

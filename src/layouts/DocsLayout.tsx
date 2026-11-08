@@ -141,21 +141,21 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
             {children}
             <DocNavigation />
 
-            {/* 🛡️ Footer Oficial con Sello de Ingeniería y Garantía Modular */}
+            {/* 🛡️ Footer de Documentación */}
             <footer className="mt-16 pt-10 pb-6 border-t border-[#9EA2E2]/15 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-[#9EA2E2]/70">
               <div className="flex items-center gap-4">
                 <img
                   src={selloEngineered}
-                  alt="Powered by Motor Modular FireSeed Engine™"
+                  alt="Engineered by FireSeed"
                   className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
                 />
               </div>
               <div className="text-center sm:text-right space-y-1">
                 <p className="font-mono text-[#FFF6DF]">
-                  FireSeed UI v0.1.0 • Motor Modular Plug & Play
+                  FireSeed UI v0.1.0 • Librería de Componentes Atómicos
                 </p>
                 <p className="text-[11px] text-[#9EA2E2]/50">
-                  Arquitectura Microkernel de 3 Capas • Terminaciones de Lujo
+                  React 19 • TypeScript • Tailwind CSS v4 • Framer Motion
                 </p>
               </div>
             </footer>

@@ -61,8 +61,8 @@ export function ButtonDocs() {
 
       {/* 2. FILOSOFÍA DE ARQUITECTURA */}
       <Callout variant="glow" title="Arquitectura de Legos & Estándar Nativo">
-        Este componente unifica las mejores prácticas de la Metodología FireSeed: cero márgenes duros externos,
-        resortes físicos de 400ms estilo Apple, áreas ergonómicas para dedos en pantallas táctiles y vibraciones hápticas
+        Este componente unifica las mejores prácticas de ingeniería de interfaz: cero márgenes duros externos,
+        resortes físicos elásticos de alta precisión, áreas ergonómicas para dedos en pantallas táctiles y vibraciones hápticas
         sutiles en dispositivos compatibles con degradación elegante.
       </Callout>
 
@@ -102,7 +102,7 @@ export function ButtonDocs() {
         <h2 className="text-xl font-bold text-white tracking-tight">Escala de Tamaños (Touch Targets)</h2>
         <div className="p-6 rounded-2xl border border-white/10 bg-[#0d041a] flex flex-wrap items-center gap-4">
           <Button size="sm">Small (36px)</Button>
-          <Button size="md">Medium (44px Apple Touch)</Button>
+          <Button size="md">Medium (44px Estándar Táctil)</Button>
           <Button size="lg">Large (48px)</Button>
           <Button size="icon" aria-label="Icon">
             <Send className="w-4 h-4" />

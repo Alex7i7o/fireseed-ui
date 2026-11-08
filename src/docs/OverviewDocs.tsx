@@ -1,195 +1,235 @@
 /* Developed by FireSeed - Fueling Innovation */
 import { useState } from 'react';
-import { Callout } from '../components/Callout';
-import { Card, CardTitle } from '../components/Card';
 import { Button } from '../components/Button';
 import { Badge } from '../components/Badge';
 import { Switch } from '../components/Switch';
-import { FeedbackButton } from '../components/FeedbackButton';
 import { StatCard } from '../components/StatCard';
+import { FeedbackButton } from '../components/FeedbackButton';
+import { Card, CardTitle } from '../components/Card';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
   Copy,
   Check,
   Terminal,
-  Clock,
-  DollarSign,
-  Rocket,
-  ShieldCheck,
-  Download,
-  Flame
+  Layers,
+  Cpu,
+  Smartphone,
+  Sparkles,
+  Code2,
+  Blocks,
+  Gauge
 } from 'lucide-react';
 import { haptics } from '../utils/haptics';
 
-// 🌟 Activos Oficiales del Manual de Marca Master FireSeed
-import isotypeF3Capas from '../assets/brand/01_Isotipo/Isotipo_F_3Capas_Oficial_Dark.svg';
-import logoV1Dark from '../assets/brand/02_Logos/Logo_V1_FIRESEED_FSE_Modificadas_Dark.svg';
-import logoV2Dark from '../assets/brand/02_Logos/Logo_V2_FIRESEED_con_Isotipo_F_3Capas_Dark.svg';
-import selloEngineered from '../assets/brand/04_Sellos_Subrayados/sello_oficial_engineered_by_fireseed.svg';
+// Subrayado arquitectónico del diseño de la web
 import subrayado3Capas from '../assets/brand/04_Sellos_Subrayados/subrayado_02_encastre_3capas_crema_oro_periwinkle.svg';
 
-// 🎨 Iconos Oficiales de UI (128x128 Vectoriales)
-import iconCroquis from '../assets/brand/06_Iconos/01_icon_croquis_arquitectura.svg';
-import iconAuditoria from '../assets/brand/06_Iconos/02_icon_auditoria_escaner.svg';
-import iconPlugPlay from '../assets/brand/06_Iconos/03_icon_plug_and_play_switch.svg';
-import iconEscudo from '../assets/brand/06_Iconos/04_icon_escudo_garantia.svg';
-import iconTiempo from '../assets/brand/06_Iconos/05_icon_tiempo_240hs_reloj.svg';
-import iconMotorLego from '../assets/brand/06_Iconos/06_icon_motor_3capas_lego.svg';
-import iconAhorroUsd from '../assets/brand/06_Iconos/09_icon_pagos_ahorro_usd.svg';
-import iconCohete from '../assets/brand/06_Iconos/20_icon_implementacion_1mes_cohete.svg';
+const codigoEjemploRapido = `import {
+  Card, CardHeader, CardTitle, CardContent,
+  InputField, SelectField, FeedbackButton, Badge
+} from 'fireseed-ui';
 
-export function OverviewDocs() {
-  const [copied, setCopied] = useState(false);
-  const [demoSwitch, setDemoSwitch] = useState(true);
-
-  const copyInstall = async () => {
-    try {
-      await navigator.clipboard.writeText('npm install fireseed-ui');
-      haptics.success();
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // Fallback
-    }
+export function PanelConfiguracion() {
+  const guardarCambios = async () => {
+    await api.sincronizarPreferencias(); // Gestión automática de carga, éxito o error
   };
 
   return (
-    <div className="space-y-20 pb-20 text-[#FFF6DF]">
+    <Card hoverEffect className="max-w-md">
+      <CardHeader className="flex items-center justify-between">
+        <CardTitle>Módulo de Preferencias</CardTitle>
+        <Badge variant="glow">Activo</Badge>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <InputField
+          label="Nombre del Espacio"
+          placeholder="Ej. Estudio Central"
+        />
+        <SelectField
+          label="Modo de Renderizado"
+          options={[
+            { value: 'strict', label: 'Alta Precisión (60 FPS)' },
+            { value: 'eco', label: 'Ahorro de Energía' }
+          ]}
+        />
+        <FeedbackButton
+          variant="glow"
+          className="w-full"
+          initialText="Guardar Configuración"
+          successText="¡Preferencias guardadas!"
+          onClick={guardarCambios}
+        />
+      </CardContent>
+    </Card>
+  );
+}`;
+
+export function OverviewDocs() {
+  const [copiedInstall, setCopiedInstall] = useState(false);
+  const [copiedCode, setCopiedCode] = useState(false);
+  const [demoSwitch, setDemoSwitch] = useState(true);
+
+  const handleCopyInstall = () => {
+    navigator.clipboard.writeText('npm install fireseed-ui framer-motion');
+    haptics.light();
+    setCopiedInstall(true);
+    setTimeout(() => setCopiedInstall(false), 2000);
+  };
+
+  const handleCopyCode = () => {
+    navigator.clipboard.writeText(codigoEjemploRapido);
+    haptics.light();
+    setCopiedCode(true);
+    setTimeout(() => setCopiedCode(false), 2000);
+  };
+
+  const simulateAsyncAction = () =>
+    new Promise((resolve) => setTimeout(resolve, 1400));
+
+  return (
+    <div className="space-y-16 sm:space-y-24 pb-20 text-[#FFF6DF]">
       {/* =========================================================================
-          1. HERO PRINCIPAL — VOZ DE MARCA & ARQUITECTURA DE 3 CAPAS
+          1. HERO SECTION — NARRATIVA DE IDENTIDAD Y ARQUITECTURA ATÓMICA
          ========================================================================= */}
-      <div className="space-y-6 pt-2">
-        {/* Pastillas Superiores (UI Pills) */}
-        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#241142]/80 border border-[#9EA2E2]/25 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-[#FBBF24] animate-pulse" />
-            <span className="text-[11px] font-mono font-bold tracking-wider text-[#FBBF24] uppercase">
-              PLUG & PLAY • &lt; 1 MES
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#120524] border border-[#9EA2E2]/20">
-            <span className="text-[11px] font-mono text-[#9EA2E2]">
-              ● 01 // TIEMPO • +240 HS LIBRES AL AÑO
-            </span>
-          </div>
-
-          <span className="text-[11px] font-mono text-[#9EA2E2]/60 hidden md:inline">
-            React 19 • Tailwind v4 • Framer Motion
+      <div className="relative pt-2 sm:pt-6 space-y-6 sm:space-y-8">
+        {/* Etiqueta Superior */}
+        <div className="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#241142]/90 border border-[#9EA2E2]/30 shadow-[0_0_25px_rgba(251,191,36,0.12)]">
+          <span className="w-2 h-2 rounded-full bg-[#FBBF24] animate-pulse" />
+          <span className="text-[11px] sm:text-xs font-mono font-bold tracking-wider uppercase text-[#FBBF24]">
+            ● FIRESEED UI v0.1.0 // SISTEMA DE DISEÑO ATÓMICO
+          </span>
+          <span className="hidden sm:inline text-[#9EA2E2]/40">•</span>
+          <span className="hidden sm:inline text-[11px] font-mono font-semibold text-[#FFF6DF]">
+            REACT 19 • TYPESCRIPT • TAILWIND V4
           </span>
         </div>
 
-        {/* Titular Principal de Alto Nivel */}
-        <div className="space-y-2 max-w-4xl">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-['PosteramaCustom',sans-serif] font-black tracking-wide text-[#FFF6DF] leading-[1.12]">
-            MOTORES DE SOFTWARE PREFABRICADOS{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FBBF24] via-amber-300 to-[#E67E22]">
-              DE 3 CAPAS
+        {/* Titular Principal en Posterama 2001 Bold Custom */}
+        <div className="space-y-4">
+          <h1
+            className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-wider text-[#FFF6DF] leading-[1.08] uppercase"
+            style={{ fontFamily: "'PosteramaCustom', 'Plus Jakarta Sans', sans-serif" }}
+          >
+            DONDE LA INGENIERÍA DE{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFF6DF] via-[#FBBF24] to-[#E67E22]">
+              PRECISIÓN SE VISTE DE GALA.
             </span>
-            , ADAPTADOS A MEDIDA.
           </h1>
 
-          {/* Subrayado Modular Oficial a 45° */}
-          <div className="pt-1 pb-2">
-            <img
-              src={subrayado3Capas}
-              alt="Subrayado Modular Encastre 3 Capas FireSeed"
-              className="h-5 sm:h-6 w-auto max-w-md opacity-90"
-            />
-          </div>
+          {/* Subrayado Modular a 45° */}
+          <img
+            src={subrayado3Capas}
+            alt="Subrayado Modular"
+            className="h-2.5 sm:h-3.5 w-auto object-contain opacity-95"
+          />
         </div>
 
-        {/* Subtítulo: Explicación de Negocio Clara + Rigor de Ingeniería */}
-        <p className="text-base sm:text-xl text-[#FFF6DF]/80 leading-relaxed max-w-3xl font-normal">
-          <strong className="text-[#FFF6DF] font-semibold">FireSeed UI</strong> es el sistema
-          maestro de componentes atómicos del ecosistema <strong>FireSeed</strong>. Diseñado bajo la
-          doble metáfora rectora:{' '}
-          <span className="text-[#FBBF24] font-semibold">Por dentro somos Intel Inside</span> (garantía
-          de ingeniería modular de 3 capas, arquitectura Microkernel y bloques Lego) y{' '}
-          <span className="text-[#FFF6DF] font-semibold">por fuera somos Apple</span> (fricción cero,
-          microvibraciones hápticas, física de resortes y terminaciones de ultra lujo).
+        {/* Manifiesto de la Librería: Claro para cualquier persona y riguroso en lo técnico */}
+        <p className="text-base sm:text-lg text-[#9EA2E2] max-w-3xl leading-relaxed font-normal">
+          Durante demasiado tiempo, construir una aplicación web obligó a elegir entre dos extremos:
+          interfaces genéricas sin carácter propio, o semanas enteras desperdiciadas programando desde
+          cero cada botón, selector y ventana emergente.{' '}
+          <span className="text-[#FFF6DF] font-semibold">FireSeed UI</span> nace para erradicar esa
+          falsa elección. Es una librería de{' '}
+          <span className="text-[#FBBF24] font-semibold">componentes atómicos en React</span> donde
+          cada pieza funciona como un bloque de encastre perfecto: accesible a primera vista para
+          cualquier usuario, pero gobernada por dentro con físicas de resorte reales, tipado estricto
+          en TypeScript y ergonomía táctil nativa.
         </p>
 
-        {/* Action Buttons & Terminal Snippet */}
-        <div className="flex flex-wrap items-center gap-4 pt-3">
-          <Link to="/docs/button">
-            <Button
-              variant="solid"
-              size="lg"
-              rightIcon={<ArrowRight className="w-4 h-4" />}
-              className="bg-gradient-to-r from-[#FBBF24] to-[#E67E22] text-[#120524] font-bold shadow-[0_0_25px_rgba(251,191,36,0.35)] hover:shadow-[0_0_35px_rgba(251,191,36,0.5)] border-none"
-            >
-              Explorar Catálogo de Legos
+        {/* Barra de Comando NPM & CTAs Principales */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+          <button
+            onClick={handleCopyInstall}
+            className="group flex items-center justify-between gap-4 px-4 py-3.5 rounded-2xl bg-[#120524] hover:bg-[#241142]/80 border border-[#9EA2E2]/25 hover:border-[#FBBF24]/50 transition-all font-mono text-xs sm:text-sm text-[#FFF6DF]/90 cursor-pointer shadow-lg"
+          >
+            <span className="flex items-center gap-2.5 truncate">
+              <Terminal className="w-4 h-4 text-[#FBBF24] shrink-0" />
+              <span className="text-[#9EA2E2]/50 select-none">$</span>
+              <span className="truncate">npm i fireseed-ui framer-motion</span>
+            </span>
+            <span className="flex items-center gap-1.5 text-xs text-[#9EA2E2]/60 group-hover:text-[#FBBF24] transition-colors shrink-0">
+              {copiedInstall ? (
+                <>
+                  <Check className="w-4 h-4 text-emerald-400" />
+                  <span className="text-emerald-400 font-sans font-medium">Copiado</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-4 h-4" />
+                  <span className="hidden sm:inline font-sans">Copiar</span>
+                </>
+              )}
+            </span>
+          </button>
+
+          <Link to="/docs/button" className="w-full sm:w-auto">
+            <Button variant="glow" size="lg" className="w-full sm:w-auto gap-2 font-bold">
+              Explorar Componentes
+              <ArrowRight className="w-4 h-4" />
             </Button>
           </Link>
 
-          <button
-            onClick={copyInstall}
-            className="flex items-center gap-3 px-5 py-3 rounded-xl bg-[#241142]/40 hover:bg-[#241142]/70 border border-[#9EA2E2]/25 text-[#FFF6DF] font-mono text-xs sm:text-sm transition-all active:scale-95 cursor-pointer shadow-sm group"
-          >
-            <Terminal className="w-4 h-4 text-[#FBBF24]" />
-            <span>npm i fireseed-ui</span>
-            {copied ? (
-              <Check className="w-4 h-4 text-emerald-400 stroke-[3]" />
-            ) : (
-              <Copy className="w-4 h-4 text-[#9EA2E2]/60 group-hover:text-[#FFF6DF] transition-colors" />
-            )}
-          </button>
+          <Link to="/docs/installation" className="w-full sm:w-auto">
+            <Button variant="inset" size="lg" className="w-full sm:w-auto">
+              Guía de Instalación
+            </Button>
+          </Link>
         </div>
       </div>
 
       {/* =========================================================================
-          2. MÉTRICAS CUANTIFICABLES DE NEGOCIO (ROI & IMPACTO REAL)
+          2. ESPECIFICACIONES TÉCNICAS DE LA LIBRERÍA (MÉTRICAS DE INGENIERÍA UI)
          ========================================================================= */}
-      <div className="space-y-6">
+      <div className="space-y-5">
         <div className="space-y-1">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#FBBF24] font-mono">
-            ● 01 // TIEMPO & PLATA • PROPUESTA DE VALOR CUANTIFICABLE
+            ● 01 // TELEMETRÍA DEL SISTEMA • ESTÁNDARES DE CONSTRUCCIÓN
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#FFF6DF]">
-            Números Concretos. Sin Verso.
+            Rigor Técnico en Cada Pieza
           </h2>
           <p className="text-sm text-[#9EA2E2]/80 max-w-2xl">
-            Un dueño de negocio no compra "páginas web"; invierte en recuperar su vida y eliminar
-            costos operativos innecesarios.
+            Cada componente del catálogo fue sometido a pruebas de latencia visual, accesibilidad por
+            teclado y adaptación táctil antes de formar parte del paquete distribuido.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <StatCard
-            title="Tiempo Recuperado"
-            value="+240 hs"
-            changePeriod="20 días enteros de vida al año"
-            icon={<Clock className="w-5 h-5 text-[#FBBF24]" />}
-            change="+20 Días"
+            title="Catálogo Modular"
+            value="22+ Legos"
+            changePeriod="Átomos, Moléculas y Organismos"
+            icon={<Blocks className="w-5 h-5 text-[#FBBF24]" />}
+            change="Atomic Design"
             trend="up"
           />
 
           <StatCard
-            title="Ahorro Operativo Anual"
-            value="$4,600 - $10k"
-            changePeriod="Reemplaza contratación manual"
-            icon={<DollarSign className="w-5 h-5 text-emerald-400" />}
-            change="USD / Año"
+            title="Física de Animación"
+            value="60/120 FPS"
+            changePeriod="Resortes elásticos en GPU"
+            icon={<Gauge className="w-5 h-5 text-emerald-400" />}
+            change="Spring Motion"
             trend="up"
           />
 
           <StatCard
-            title="Entrega Llave en Mano"
-            value="< 1 Mes"
-            changePeriod="Motor probado y adaptado"
-            icon={<Rocket className="w-5 h-5 text-[#FBBF24]" />}
-            change="Plug & Play"
+            title="Ergonomía Táctil"
+            value="≥ 44 px"
+            changePeriod="Área activa mínima y Haptics"
+            icon={<Smartphone className="w-5 h-5 text-[#FBBF24]" />}
+            change="Mobile-First"
             trend="up"
           />
 
           <StatCard
-            title="Disponibilidad Continua"
-            value="24/7"
-            changePeriod="Señas, reservas y WhatsApp"
-            icon={<ShieldCheck className="w-5 h-5 text-[#9EA2E2]" />}
-            change="Zero Downtime"
+            title="Empaquetado Limpio"
+            value="100% TS"
+            changePeriod="ESM & CJS con Tree-Shaking"
+            icon={<Code2 className="w-5 h-5 text-[#9EA2E2]" />}
+            change="Strict Types"
             trend="neutral"
           />
         </div>
@@ -201,377 +241,290 @@ export function OverviewDocs() {
       <div className="rounded-3xl border border-[#9EA2E2]/20 bg-gradient-to-b from-[#241142]/40 to-[#120524]/80 p-6 sm:p-8 backdrop-blur-xl shadow-2xl relative overflow-hidden space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#9EA2E2]/15 pb-5">
           <div className="space-y-1">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#FBBF24] font-mono">
-              Live Showcase • Ergonomía Native-First
+            <span className="text-xs font-mono uppercase tracking-wider text-[#FBBF24] font-semibold flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5" /> Laboratorio en Tiempo Real
             </span>
-            <h3 className="text-xl font-bold text-[#FFF6DF] tracking-tight">
-              Los Legos en Acción Simultánea
+            <h3 className="text-xl font-bold text-[#FFF6DF]">
+              Probá la Física y Respuesta de los Componentes
             </h3>
           </div>
-          <Badge variant="outline" className="border-[#9EA2E2]/30 text-[#9EA2E2]">
-            Interactúa con los controles
-          </Badge>
+          <Badge variant="glow">Interactivo • 60fps</Badge>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-          {/* Card 1 */}
-          <div className="p-5 rounded-2xl bg-[#120524] border border-[#9EA2E2]/20 space-y-3 shadow-lg">
-            <span className="text-xs text-[#9EA2E2] block font-mono">
-              01. Botón Háptico Asíncrono
-            </span>
+          {/* Demo 1: FeedbackButton */}
+          <div className="p-5 rounded-2xl bg-[#120524]/90 border border-[#9EA2E2]/20 space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-mono text-[#9EA2E2]">01. FeedbackButton</span>
+              <span className="text-[10px] font-mono text-[#FBBF24] bg-[#FBBF24]/10 px-2 py-0.5 rounded border border-[#FBBF24]/20">
+                Async State
+              </span>
+            </div>
+            <p className="text-xs text-[#9EA2E2]/80">
+              Resuelve promesas asíncronas bloqueando dobles clics y animando su propio estado:
+            </p>
             <FeedbackButton
-              initialText="Simular Reserva 24/7"
-              successText="¡Turno Apartado!"
-              variant="solid"
+              variant="glow"
               className="w-full"
-              onClick={async () => {
-                await new Promise((r) => setTimeout(r, 1200));
-              }}
+              initialText="Ejecutar Prueba Asíncrona"
+              successText="¡Módulos sincronizados!"
+              onClick={simulateAsyncAction}
             />
           </div>
 
-          {/* Card 2 */}
-          <div className="p-5 rounded-2xl bg-[#120524] border border-[#9EA2E2]/20 space-y-3 shadow-lg">
-            <span className="text-xs text-[#9EA2E2] block font-mono">
-              02. Switch iOS con Resortes
-            </span>
-            <Switch
-              checked={demoSwitch}
-              onChange={setDemoSwitch}
-              label="Notificar por WhatsApp"
-              description="Aviso automático 24hs antes"
-            />
+          {/* Demo 2: Switch Háptico */}
+          <div className="p-5 rounded-2xl bg-[#120524]/90 border border-[#9EA2E2]/20 space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-mono text-[#9EA2E2]">02. Switch (Toggle)</span>
+              <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                Haptic Ready
+              </span>
+            </div>
+            <p className="text-xs text-[#9EA2E2]/80">
+              Transición gobernada por tensión y fricción elástica con pulso háptico en móviles:
+            </p>
+            <div className="pt-1">
+              <Switch
+                checked={demoSwitch}
+                onChange={setDemoSwitch}
+                label="Aceleración por Hardware"
+                description={demoSwitch ? 'Física de resorte activa' : 'Modo estático'}
+              />
+            </div>
           </div>
 
-          {/* Card 3 */}
-          <div className="p-5 rounded-2xl bg-[#120524] border border-[#9EA2E2]/20 space-y-3 shadow-lg">
-            <span className="text-xs text-[#9EA2E2] block font-mono">
-              03. Estado Semántico Luminoso
-            </span>
+          {/* Demo 3: Badges Semánticos */}
+          <div className="p-5 rounded-2xl bg-[#120524]/90 border border-[#9EA2E2]/20 space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-mono text-[#9EA2E2]">03. Badges & Estados</span>
+              <span className="text-[10px] font-mono text-[#FFF6DF]/70 bg-white/5 px-2 py-0.5 rounded">
+                Semánticos
+              </span>
+            </div>
+            <p className="text-xs text-[#9EA2E2]/80">
+              Indicadores de telemetría de alto contraste sobre superficies oscuras:
+            </p>
             <div className="flex flex-wrap gap-2 pt-1">
-              <Badge variant="success" dot>
-                Online 24/7
-              </Badge>
-              <Badge variant="warning" dot>
-                Últimos 2 Cupos
-              </Badge>
-              <Badge variant="glow">Sello VIP</Badge>
+              <Badge variant="glow">v0.1.0 Stable</Badge>
+              <Badge variant="success">Tree-Shaking</Badge>
+              <Badge variant="warning">Strict TS</Badge>
+              <Badge variant="solid">SSR Safe</Badge>
             </div>
           </div>
         </div>
       </div>
 
       {/* =========================================================================
-          4. LA ARQUITECTURA DE LAS 3 CAPAS DEL MOTOR (ORIGEN DE LA "F")
+          4. LA TRÍADA DEL DISEÑO ATÓMICO (EXPLICADO SIMPLE Y TÉCNICO)
          ========================================================================= */}
       <div className="space-y-6">
-        <div className="space-y-1">
+        <div className="space-y-2">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#FBBF24] font-mono">
-            ● 03 // MOTOR MODULAR • ANATOMÍA DE LA F DE 3 CAPAS
+            ● 02 // METODOLOGÍA DE ENSAMBLAJE • ATOMIC DESIGN
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#FFF6DF]">
-            La Arquitectura de las 3 Capas Encastrables
+            Cómo Funciona la Arquitectura de Legos
           </h2>
-          <p className="text-sm text-[#9EA2E2]/80 max-w-3xl">
-            Todo el sistema de FireSeed se fundamenta en 3 capas encastrables. Esta arquitectura es
-            exactamente la que da origen a la geometría sagrada de nuestro isotipo oficial.
+          <p className="text-sm sm:text-base text-[#9EA2E2]/85 max-w-3xl leading-relaxed">
+            Para que cualquier persona pueda comprenderlo y cualquier ingeniero pueda escalarlo sin
+            caos, dividimos la librería siguiendo los principios del{' '}
+            <strong className="text-[#FFF6DF]">Diseño Atómico</strong>. Así como en la naturaleza los
+            átomos se unen para formar moléculas y organismos, nuestras piezas se organizan en tres
+            niveles claros de responsabilidad:
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Capa 1 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {/* Nivel 1: Átomos */}
           <Card hoverEffect className="p-6 space-y-4 bg-[#120524] border-[#9EA2E2]/20">
             <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-xl bg-white/10 text-[#FFF6DF] flex items-center justify-center font-black">
-                C1
+              <div className="w-10 h-10 rounded-xl bg-[#FFF6DF]/10 text-[#FFF6DF] flex items-center justify-center font-black font-mono">
+                01
               </div>
-              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-white/10 text-[#FFF6DF]">
-                #FFF6DF • Superior
+              <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded bg-[#FFF6DF]/10 text-[#FFF6DF]">
+                8 Componentes Base
               </span>
             </div>
             <div>
-              <CardTitle>Capa 1 — Estética de Lujo</CardTitle>
-              <p className="text-xs text-[#9EA2E2] font-mono mt-0.5">La cara visible ante el cliente</p>
+              <CardTitle>Átomos — La Materia Prima</CardTitle>
+              <p className="text-xs text-[#FBBF24] font-mono mt-0.5">
+                Button • InputField • SelectField • Switch • Badge
+              </p>
             </div>
             <p className="text-sm text-[#FFF6DF]/75 leading-relaxed">
-              Interfaz visual impecable, terminaciones de ultra lujo inspiradas en Apple, microvibraciones
-              táctiles, tipografía Posterama Custom y física de resortes elásticos sin parpadeos.
+              Son los ladrillos fundamentales que no se pueden dividir más sin perder su función. Un
+              botón, un campo de texto o una etiqueta. Ya traen resueltos los bordes, el foco por
+              teclado, los mensajes de error y el tamaño táctil ideal.
             </p>
           </Card>
 
-          {/* Capa 2 */}
-          <Card hoverEffect className="p-6 space-y-4 bg-[#120524] border-[#FBBF24]/30 shadow-[0_0_25px_rgba(251,191,36,0.12)]">
+          {/* Nivel 2: Moléculas */}
+          <Card hoverEffect className="p-6 space-y-4 bg-[#241142]/60 border-[#FBBF24]/40">
             <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-xl bg-[#FBBF24]/15 text-[#FBBF24] flex items-center justify-center font-black">
-                C2
+              <div className="w-10 h-10 rounded-xl bg-[#FBBF24] text-[#120524] flex items-center justify-center font-black font-mono shadow-[0_0_20px_rgba(251,191,36,0.4)]">
+                02
               </div>
-              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#FBBF24]/20 text-[#FBBF24]">
-                #FBBF24 • Chispa Solar
+              <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded bg-[#FBBF24] text-[#120524]">
+                10 Módulos Interactivos
               </span>
             </div>
             <div>
-              <CardTitle className="text-[#FBBF24]">Capa 2 — Módulos Adaptables ("Legos")</CardTitle>
-              <p className="text-xs text-[#9EA2E2] font-mono mt-0.5">Plugins funcionales a medida</p>
+              <CardTitle>Moléculas — Piezas Inteligentes</CardTitle>
+              <p className="text-xs text-[#FBBF24] font-mono mt-0.5">
+                Modal • MultiSelect • Tabs • Accordion • StatCard
+              </p>
             </div>
-            <p className="text-sm text-[#FFF6DF]/75 leading-relaxed">
-              Bloques modulares que se encastran según el negocio: Agenda 24/7, cobro de señas por
-              transferencia o tarjeta, recordatorios automáticos por WhatsApp y panel de métricas operativas.
+            <p className="text-sm text-[#FFF6DF]/85 leading-relaxed">
+              Combinan varios átomos para resolver una tarea completa. Por ejemplo, un selector
+              múltiple con buscador integrado o una ventana modal que en celulares se convierte sola en
+              una hoja deslizable desde abajo (*Bottom Sheet*).
             </p>
           </Card>
 
-          {/* Capa 3 */}
+          {/* Nivel 3: Organismos */}
           <Card hoverEffect className="p-6 space-y-4 bg-[#120524] border-[#9EA2E2]/20">
             <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-xl bg-[#9EA2E2]/15 text-[#9EA2E2] flex items-center justify-center font-black">
-                C3
+              <div className="w-10 h-10 rounded-xl bg-[#9EA2E2]/15 text-[#9EA2E2] flex items-center justify-center font-black font-mono">
+                03
               </div>
-              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#9EA2E2]/20 text-[#9EA2E2]">
-                #FFF6DF • Cimiento
+              <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded bg-[#9EA2E2]/20 text-[#9EA2E2]">
+                4 Estructuras Maestras
               </span>
             </div>
             <div>
-              <CardTitle>Capa 3 — Motor Base Prefabricado</CardTitle>
-              <p className="text-xs text-[#9EA2E2] font-mono mt-0.5">Grado militar & Microkernel</p>
+              <CardTitle>Organismos — Estructuras Completas</CardTitle>
+              <p className="text-xs text-[#9EA2E2] font-mono mt-0.5">
+                Card Modular • Sidebar • Callout • AnimateIn
+              </p>
             </div>
             <p className="text-sm text-[#FFF6DF]/75 leading-relaxed">
-              El núcleo técnico sólido y seguro ya construido y probado en batalla. Permite entregar
-              sistemas de alta complejidad en menos de 1 mes con cero errores de cimiento.
+              Secciones enteras de una interfaz listas para albergar contenido complejo. Barras de
+              navegación lateral con filtro en vivo, tarjetas compuestas y orquestadores de entrada en
+              cascada.
             </p>
           </Card>
         </div>
       </div>
 
       {/* =========================================================================
-          5. EL MÉTODO COMERCIAL EN 3 PASOS (ESTRUCTURA OFICIAL)
+          5. LOS 3 PILARES DE INGENIERÍA INTERNA (POR QUÉ SE SIENTE DIFERENTE)
          ========================================================================= */}
       <div className="space-y-6">
         <div className="space-y-1">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#FBBF24] font-mono">
-            ● 02 // MÉTODO • CÓMO TRABAJA FIRESEED
+            ● 03 // ARQUITECTURA INTERNA • BAJO EL CAPÓ
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#FFF6DF]">
-            El Método en 3 Pasos
+            Tres Decisiones de Ingeniería que Marcan la Diferencia
           </h2>
           <p className="text-sm text-[#9EA2E2]/80 max-w-2xl">
-            "Nosotros nos encargamos de todo, vos solo disfrutás."
+            La excelencia de una interfaz no está solo en cómo luce en una captura estática, sino en
+            cómo responde en los primeros 100 milisegundos de contacto.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="relative p-6 rounded-2xl bg-[#120524] border border-[#9EA2E2]/20 space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-[#241142] p-2.5 border border-[#9EA2E2]/25">
-              <img src={iconAuditoria} alt="Auditoría Operativa" className="w-full h-full object-contain" />
+            <div className="w-12 h-12 rounded-2xl bg-[#241142] p-3 border border-[#9EA2E2]/25 flex items-center justify-center text-[#FBBF24]">
+              <Layers className="w-6 h-6" />
             </div>
             <div className="space-y-1">
-              <span className="text-xs font-mono font-bold text-[#FBBF24]">01 // FASE</span>
-              <h3 className="font-bold text-lg text-[#FFF6DF]">Auditoría Operativa</h3>
+              <span className="text-xs font-mono font-bold text-[#FBBF24]">I // MOVIMIENTO</span>
+              <h3 className="font-bold text-lg text-[#FFF6DF]">Física de Resortes Reales</h3>
             </div>
             <p className="text-sm text-[#9EA2E2]/80 leading-relaxed">
-              Analizamos tu negocio para detectar exactamente por dónde se te están escapando horas,
-              clientes y plata agendando manualmente.
+              En el mundo físico nada se mueve a velocidad constante. Reemplazamos las curvas de tiempo
+              artificiales por ecuaciones de tensión y fricción (<code className="text-[#FFF6DF] font-mono text-xs">stiffness: 400, damping: 30</code>),
+              logrando que cada menú y modal conserve su inercia natural incluso si el usuario cambia
+              de opinión a mitad del gesto.
             </p>
           </div>
 
-          <div className="relative p-6 rounded-2xl bg-gradient-to-br from-[#241142] to-[#120524] border border-[#FBBF24]/30 space-y-4 shadow-[0_0_30px_rgba(251,191,36,0.12)]">
-            <div className="w-12 h-12 rounded-2xl bg-[#FBBF24]/15 p-2.5 border border-[#FBBF24]/30">
-              <img src={iconCroquis} alt="Croquis a Medida" className="w-full h-full object-contain" />
+          <div className="relative p-6 rounded-2xl bg-[#120524] border border-[#FBBF24]/30 space-y-4 shadow-[0_0_30px_rgba(251,191,36,0.06)]">
+            <div className="w-12 h-12 rounded-2xl bg-[#241142] p-3 border border-[#FBBF24]/40 flex items-center justify-center text-[#FBBF24]">
+              <Smartphone className="w-6 h-6" />
             </div>
             <div className="space-y-1">
-              <span className="text-xs font-mono font-bold text-[#FBBF24]">02 // FASE (SIN CARGO)</span>
-              <h3 className="font-bold text-lg text-[#FFF6DF]">Croquis a Medida</h3>
+              <span className="text-xs font-mono font-bold text-[#FBBF24]">II // TACTO & HAPTICS</span>
+              <h3 className="font-bold text-lg text-[#FFF6DF]">Ergonomía Mobile-First</h3>
             </div>
-            <p className="text-sm text-[#FFF6DF]/80 leading-relaxed">
-              Armamos el plano visual y funcional de tu sistema antes de que inviertas un peso, para que
-              veas con tus propios ojos cómo se adapta a tus reglas.
+            <p className="text-sm text-[#9EA2E2]/80 leading-relaxed">
+              Cada control fue diseñado desde el pulgar hacia el cursor. Las zonas interactivas
+              respetan un mínimo estricto de <code className="text-[#FFF6DF] font-mono text-xs">44×44px</code>,
+              los desplegables previenen desbordes en pantallas pequeñas y las acciones clave emiten
+              pulsos hápticos sutiles en dispositivos compatibles.
             </p>
           </div>
 
           <div className="relative p-6 rounded-2xl bg-[#120524] border border-[#9EA2E2]/20 space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-[#241142] p-2.5 border border-[#9EA2E2]/25">
-              <img src={iconCohete} alt="Motor Plug and Play" className="w-full h-full object-contain" />
+            <div className="w-12 h-12 rounded-2xl bg-[#241142] p-3 border border-[#9EA2E2]/25 flex items-center justify-center text-[#FBBF24]">
+              <Cpu className="w-6 h-6" />
             </div>
             <div className="space-y-1">
-              <span className="text-xs font-mono font-bold text-[#FBBF24]">03 // FASE (&lt; 1 MES)</span>
-              <h3 className="font-bold text-lg text-[#FFF6DF]">Motor Plug & Play</h3>
+              <span className="text-xs font-mono font-bold text-[#FBBF24]">III // RENDIMIENTO</span>
+              <h3 className="font-bold text-lg text-[#FFF6DF]">Tokens CSS sin Sobrecarga</h3>
             </div>
             <p className="text-sm text-[#9EA2E2]/80 leading-relaxed">
-              Encastramos los módulos, aplicamos terminaciones de lujo y te entregamos el sistema andando
-              24/7. Llave en mano y sin dolores de cabeza.
+              Aprovechamos la directiva nativa <code className="text-[#FFF6DF] font-mono text-xs">@theme</code> de
+              Tailwind CSS v4 para inyectar colores y resplandores directamente en la hoja de estilos.
+              Sin proveedores de contexto pesados en JavaScript ni recálculos innecesarios en el árbol
+              de React.
             </p>
           </div>
         </div>
       </div>
 
       {/* =========================================================================
-          6. GALERÍA DE ACTIVOS DE MARCA OFICIALES (DESCARGABLES EN SVG)
-         ========================================================================= */}
-      <div className="space-y-6">
-        <div className="space-y-1">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#FBBF24] font-mono flex items-center gap-1.5">
-            <Flame className="w-3.5 h-3.5 text-[#FBBF24]" /> Universo Gráfico Master
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#FFF6DF]">
-            Logotipos, Isotipo y Sellos Oficiales
-          </h2>
-          <p className="text-sm text-[#9EA2E2]/80 max-w-2xl">
-            Activos vectoriales oficiales construidos con precisión geométrica a 45°. Listos para
-            producción web, aplicaciones y documentos.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* 1. Isotipo F 3 Capas */}
-          <div className="p-5 rounded-2xl bg-[#120524] border border-[#9EA2E2]/20 space-y-4 flex flex-col items-center text-center group">
-            <div className="w-20 h-20 p-2.5 rounded-2xl bg-[#241142]/60 border border-[#9EA2E2]/20 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-              <img src={isotypeF3Capas} alt="Isotipo Oficial F de 3 Capas" className="w-full h-full object-contain" />
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-bold text-sm text-[#FFF6DF]">Isotipo F 3 Capas</h3>
-              <p className="text-[11px] text-[#9EA2E2]/60 font-mono">01_Isotipo_Oficial</p>
-            </div>
-            <p className="text-xs text-[#9EA2E2]/80 leading-relaxed">
-              3 barras horizontales del motor. Franja central en Oro Solar (#FBBF24).
-            </p>
-            <a
-              href={isotypeF3Capas}
-              download="Isotipo_F_3Capas_Oficial_Dark.svg"
-              className="mt-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#241142] hover:bg-[#241142]/80 border border-[#9EA2E2]/30 text-[#FFF6DF] transition-all cursor-pointer"
-            >
-              <Download className="w-3.5 h-3.5 text-[#FBBF24]" /> Descargar
-            </a>
-          </div>
-
-          {/* 2. Logo V1 FSE Modificadas */}
-          <div className="p-5 rounded-2xl bg-[#120524] border border-[#9EA2E2]/20 space-y-4 flex flex-col items-center text-center group">
-            <div className="w-full h-20 p-3 rounded-2xl bg-[#241142]/60 border border-[#9EA2E2]/20 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-              <img src={logoV1Dark} alt="Logo V1 FIRESEED FSE Modificadas" className="w-full h-auto object-contain" />
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-bold text-sm text-[#FFF6DF]">Logo V1 (Bevel 45°)</h3>
-              <p className="text-[11px] text-[#9EA2E2]/60 font-mono">02_Logotipos_V1</p>
-            </div>
-            <p className="text-xs text-[#9EA2E2]/80 leading-relaxed">
-              FIRE Crema, SEED Oro Solar. Usar cuando el isotipo esté cerca.
-            </p>
-            <a
-              href={logoV1Dark}
-              download="Logo_V1_FIRESEED_FSE_Modificadas_Dark.svg"
-              className="mt-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#241142] hover:bg-[#241142]/80 border border-[#9EA2E2]/30 text-[#FFF6DF] transition-all cursor-pointer"
-            >
-              <Download className="w-3.5 h-3.5 text-[#FBBF24]" /> Descargar
-            </a>
-          </div>
-
-          {/* 3. Logo V2 con Isotipo F */}
-          <div className="p-5 rounded-2xl bg-[#120524] border border-[#9EA2E2]/20 space-y-4 flex flex-col items-center text-center group">
-            <div className="w-full h-20 p-3 rounded-2xl bg-[#241142]/60 border border-[#9EA2E2]/20 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-              <img src={logoV2Dark} alt="Logo V2 FIRESEED con Isotipo F de 3 Capas" className="w-full h-auto object-contain" />
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-bold text-sm text-[#FFF6DF]">Logo V2 Integrado</h3>
-              <p className="text-[11px] text-[#9EA2E2]/60 font-mono">02_Logotipos_V2</p>
-            </div>
-            <p className="text-xs text-[#9EA2E2]/80 leading-relaxed">
-              Incorpora la F de 3 capas como letra inicial de FIRESEED.
-            </p>
-            <a
-              href={logoV2Dark}
-              download="Logo_V2_FIRESEED_con_Isotipo_F_3Capas_Dark.svg"
-              className="mt-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#241142] hover:bg-[#241142]/80 border border-[#9EA2E2]/30 text-[#FFF6DF] transition-all cursor-pointer"
-            >
-              <Download className="w-3.5 h-3.5 text-[#FBBF24]" /> Descargar
-            </a>
-          </div>
-
-          {/* 4. Sello Oficial Engineered by FireSeed */}
-          <div className="p-5 rounded-2xl bg-[#120524] border border-[#9EA2E2]/20 space-y-4 flex flex-col items-center text-center group">
-            <div className="w-full h-20 p-2 rounded-2xl bg-[#241142]/60 border border-[#9EA2E2]/20 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-              <img src={selloEngineered} alt="Sello Oficial Engineered by FireSeed" className="w-full h-auto object-contain" />
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-bold text-sm text-[#FFF6DF]">Sello "Intel Inside"</h3>
-              <p className="text-[11px] text-[#9EA2E2]/60 font-mono">04_Sellos_Oficiales</p>
-            </div>
-            <p className="text-xs text-[#9EA2E2]/80 leading-relaxed">
-              Firma oficial para footers, propuestas y software a medida.
-            </p>
-            <a
-              href={selloEngineered}
-              download="sello_oficial_engineered_by_fireseed.svg"
-              className="mt-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#241142] hover:bg-[#241142]/80 border border-[#9EA2E2]/30 text-[#FFF6DF] transition-all cursor-pointer"
-            >
-              <Download className="w-3.5 h-3.5 text-[#FBBF24]" /> Descargar
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* =========================================================================
-          7. PACK DE 20 ICONOS PROPIOS DE UI (MUESTRARIO VISUAL)
-         ========================================================================= */}
-      <div className="space-y-6">
-        <div className="space-y-1">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#FBBF24] font-mono">
-            ● 06 // ICONOS OFICIALES • SISTEMA DE 128x128px
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#FFF6DF]">
-            Iconografía Oficial del Ecosistema
-          </h2>
-          <p className="text-sm text-[#9EA2E2]/80 max-w-2xl">
-            Construidos sobre grilla de 128px con Crema (#FFF6DF), Periwinkle (#9EA2E2) y chispa central en Oro Solar (#FBBF24).
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
-          {[
-            { img: iconCroquis, name: 'Croquis Arquitectura' },
-            { img: iconAuditoria, name: 'Auditoría Escáner' },
-            { img: iconPlugPlay, name: 'Plug & Play Switch' },
-            { img: iconEscudo, name: 'Escudo Garantía' },
-            { img: iconTiempo, name: '240hs Tiempo' },
-            { img: iconMotorLego, name: 'Motor 3 Capas' },
-            { img: iconAhorroUsd, name: 'Ahorro USD' },
-            { img: iconCohete, name: 'Entrega 1 Mes' },
-          ].map((ico, idx) => (
-            <div
-              key={idx}
-              className="p-3 rounded-2xl bg-[#120524] border border-[#9EA2E2]/15 hover:border-[#FBBF24]/40 flex flex-col items-center text-center gap-2 transition-all hover:scale-105"
-            >
-              <img src={ico.img} alt={ico.name} className="w-10 h-10 object-contain" />
-              <span className="text-[10px] text-[#9EA2E2]/70 font-mono leading-tight">
-                {ico.name}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* =========================================================================
-          8. INSTALACIÓN RÁPIDA & FIRMA EN CONSOLA
+          6. CÓDIGO DE INTEGRACIÓN (COMPOSICIÓN EN UN ARCHIVO)
          ========================================================================= */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-bold tracking-tight text-[#FFF6DF]">Integración en tu Proyecto</h2>
-        <Callout variant="glow" title="Configuración Plug & Play en 60 Segundos">
-          Importa los bloques Lego directamente en cualquier aplicación React con Tailwind CSS v4. Todos los
-          estilos compilan de forma atómica y los tipos TypeScript vienen listos para autocompletar en tu IDE.
-        </Callout>
-
-        <div className="overflow-hidden rounded-2xl bg-[#120524] border border-[#9EA2E2]/20 font-mono text-xs sm:text-sm text-zinc-300 p-5 space-y-3">
-          <p className="text-[#9EA2E2]/60">// 1. Importación nombrada de Legos:</p>
-          <p className="text-[#FBBF24]">
-            import &#123; Button, Modal, FeedbackButton, MultiSelect &#125; from 'fireseed-ui';
-          </p>
-          <p className="text-[#9EA2E2]/60 pt-2">// 2. Uso en JSX con Tokens Semánticos:</p>
-          <pre className="text-[#FFF6DF] overflow-x-auto">
-{`<Button variant="glow" onClick={() => setIsOpen(true)}>
-  Apartar Turno 24/7
-</Button>`}
-          </pre>
-          <p className="text-[#9EA2E2]/60 pt-2">// 3. Firma Oficial Automática en Consola (F12):</p>
-          <div className="p-2.5 rounded-lg bg-[#0D041A] border border-[#9EA2E2]/15 text-[11px] flex items-center gap-2">
-            <span className="bg-[#FBBF24] text-[#120524] font-black px-1.5 py-0.5 rounded">FS</span>
-            <span className="text-[#9EA2E2]">Engineered by FireSeed™ — Motor Modular Plug & Play</span>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#FBBF24] font-mono">
+              ● 04 // COMPOSICIÓN DECLARATIVA • DEVELOPER EXPERIENCE
+            </span>
+            <h2 className="text-2xl font-extrabold tracking-tight text-[#FFF6DF]">
+              De Cero a Interfaz Completa en Segundos
+            </h2>
           </div>
+          <Link
+            to="/docs/installation"
+            className="text-xs font-semibold text-[#FBBF24] hover:underline inline-flex items-center gap-1"
+          >
+            Ver configuración paso a paso <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
+        <div className="rounded-2xl overflow-hidden border border-[#9EA2E2]/20 bg-[#090212] shadow-2xl">
+          <div className="flex items-center justify-between px-4 py-3 bg-[#120524] border-b border-[#9EA2E2]/15">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-rose-500/60" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500/60" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/60" />
+              <span className="ml-2 text-xs font-mono text-[#9EA2E2]/60">
+                PanelConfiguracion.tsx
+              </span>
+            </div>
+            <button
+              onClick={handleCopyCode}
+              className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#241142] hover:bg-[#241142]/80 border border-[#9EA2E2]/20 text-xs text-[#FFF6DF]/80 hover:text-[#FFF6DF] transition-colors cursor-pointer"
+            >
+              {copiedCode ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  <span className="text-emerald-400">Copiado</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5 text-[#FBBF24]" />
+                  <span>Copiar ejemplo</span>
+                </>
+              )}
+            </button>
+          </div>
+          <pre className="p-4 sm:p-6 text-xs sm:text-sm font-mono text-[#FFF6DF]/85 overflow-x-auto leading-relaxed">
+            <code>{codigoEjemploRapido}</code>
+          </pre>
         </div>
       </div>
     </div>

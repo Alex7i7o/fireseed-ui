@@ -42,7 +42,7 @@ export function SelectFieldDocs() {
           SelectField
         </h1>
         <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed">
-          Selector desplegable estilizado con esquinas redondeadas (Apple style), animaciones elásticas de resorte,
+          Selector desplegable estilizado con esquinas redondeadas, animaciones elásticas de resorte,
           indicador de tilde dorada en la opción activa y detección de click-outside.
         </p>
       </div>

@@ -38,7 +38,7 @@ export function TabsDocs() {
         </h1>
         <p className="text-lg text-white/60">
           Control segmentado de pestañas con indicador activo deslizante mediante resortes físicos de Framer
-          Motion (<code>layoutId</code> estilo macOS/iOS).
+          Motion (<code>layoutId</code> compartido).
         </p>
       </div>
 

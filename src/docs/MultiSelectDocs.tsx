@@ -61,10 +61,10 @@ export function MultiSelectDocs() {
 
       <hr className="border-white/5" />
 
-      <Callout variant="glow" title="100% Desacoplado de la Base de Datos">
-        En Violett Pilates, <code>MultiSelectAlumnos</code> contenía llamadas HTTP directas. Este nuevo Lego
+      <Callout variant="glow" title="100% Desacoplado del Origen de Datos">
+        Diseñado sin acoplamiento a servicios de red ni estructuras fijas: este componente
         es completamente agnóstico a cualquier tipo de dato mediante genéricos de TypeScript (<code>&lt;T&gt;</code>)
-        y funciones extractor de etiqueta/valor (<code>getLabel</code> / <code>getValue</code>).
+        y funciones extractoras de etiqueta/valor (<code>getLabel</code> / <code>getValue</code>).
       </Callout>
 
       <div className="space-y-4">

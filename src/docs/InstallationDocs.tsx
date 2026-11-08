@@ -10,16 +10,15 @@ export function InstallationDocs() {
       <div className="space-y-3">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FBBF24]/10 border border-[#FBBF24]/30 text-xs font-mono font-medium text-[#FBBF24]">
           <span className="w-2 h-2 rounded-full bg-[#FBBF24] animate-pulse"></span>
-          GUÍA DE INTEGRACIÓN • MOTOR PLUG & PLAY
+          PRIMEROS PASOS • CONFIGURACIÓN EN REACT
         </div>
 
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#FFF6DF] font-['PosteramaCustom',sans-serif]">
-          Instalación & Despliegue
+          Instalación
         </h1>
         
         <p className="text-lg text-[#FFF6DF]/75 leading-relaxed font-sans">
-          Integrá el motor modular de <strong>fireseed-ui</strong> en tu stack de React con Tailwind CSS v4 en menos de 2 minutos.
-          Sin configuraciones crípticas: instalás, importás y ensamblás tus legos con estética de lujo preconfigurada.
+          Integrá <strong>fireseed-ui</strong> en tu proyecto de React con TypeScript y Tailwind CSS v4 en tres pasos simples. Cada componente se exporta de forma modular con soporte completo para <em>tree-shaking</em>, por lo que tu aplicación solo incluirá en el paquete final las piezas que realmente importes.
         </p>
       </div>
 
@@ -29,16 +28,16 @@ export function InstallationDocs() {
       <div className="space-y-4">
         <h2 className="text-xl font-bold text-[#FFF6DF] flex items-center gap-3 font-['PosteramaCustom',sans-serif]">
           <StepBadge variant="glow">1</StepBadge>
-          Instalar dependencias del motor
+          Instalar el paquete y su motor de animaciones
         </h2>
         <p className="text-sm text-[#FFF6DF]/70">
-          Ejecutá el siguiente comando en la raíz de tu proyecto para descargar la librería y sus motores de animación gestual:
+          Ejecutá el siguiente comando en la raíz de tu proyecto para instalar la librería junto con <Inlinecode variant="solid">framer-motion</Inlinecode>, encargado de las físicas de resorte y transiciones de los componentes:
         </p>
         
         <div className="overflow-hidden rounded-2xl bg-[#120524] border border-[#9EA2E2]/25 font-mono text-sm shadow-xl">
           <div className="flex items-center justify-between bg-[#241142]/60 px-4 py-2 border-b border-[#9EA2E2]/20 text-xs text-[#9EA2E2]">
             <span>Terminal (npm / pnpm / bun)</span>
-            <span className="text-[#FBBF24] text-[11px]">Core Package</span>
+            <span className="text-[#FBBF24] text-[11px]">Dependencias</span>
           </div>
           <pre className="p-4 overflow-x-auto text-[#FBBF24]">
 {`npm install fireseed-ui framer-motion`}
@@ -49,11 +48,11 @@ export function InstallationDocs() {
       {/* 3. PASO 2: CONFIGURACIÓN CSS */}
       <div className="space-y-4">
         <h2 className="text-xl font-bold text-[#FFF6DF] flex items-center gap-3 font-['PosteramaCustom',sans-serif]">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#FBBF24]/10 text-xs font-mono text-[#FBBF24] border border-[#FBBF24]/30">2</span>
-          Configurar Tokens en tu Hoja de Estilos
+          <StepBadge variant="glow">2</StepBadge>
+          Declarar las variables en tu hoja de estilos
         </h2>
         <p className="text-sm text-[#FFF6DF]/70">
-          Registrá los colores maestros de FireSeed en tu archivo CSS principal (ej: <Inlinecode variant="solid">src/theme.css</Inlinecode> o <Inlinecode variant="solid">src/index.css</Inlinecode>):
+          Registrá las variables cromáticas y las utilidades de resplandor en tu archivo CSS principal (por ejemplo, <Inlinecode variant="solid">src/theme.css</Inlinecode> o <Inlinecode variant="solid">src/index.css</Inlinecode>):
         </p>
 
         <div className="overflow-hidden rounded-2xl bg-[#120524] border border-[#9EA2E2]/25 font-mono text-sm shadow-xl">
@@ -65,14 +64,14 @@ export function InstallationDocs() {
 {`@import "tailwindcss";
 
 @theme {
-  --color-primary-main: #120524; /* Midnight Violet */
-  --color-accent-main: #FBBF24;  /* Solar Gold */
+  --color-primary-main: #120524;
+  --color-accent-main: #FBBF24;
   --color-royal-aubergine: #241142;
   --color-periwinkle-tech: #9EA2E2;
   --color-silk-cream: #FFF6DF;
 }
 
-/* Efectos de resplandor atómicos */
+/* Utilidades de iluminación para variantes glow */
 @utility glow-bottom {
   position: relative;
   z-index: 0;
@@ -95,11 +94,11 @@ export function InstallationDocs() {
       {/* 4. PASO 3: EJEMPLO DE USO */}
       <div className="space-y-4">
         <h2 className="text-xl font-bold text-[#FFF6DF] flex items-center gap-3 font-['PosteramaCustom',sans-serif]">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#FBBF24]/10 text-xs font-mono text-[#FBBF24] border border-[#FBBF24]/30">3</span>
-          ¡Listo para ensamblar!
+          <StepBadge variant="glow">3</StepBadge>
+          Importar y ensamblar componentes
         </h2>
         <p className="text-sm text-[#FFF6DF]/70">
-          Importá y utilizá los componentes atómicos en cualquier pantalla de tu software. Cero fricción, 100% tipado con TypeScript:
+          Importá los átomos, moléculas u organismos directamente desde <Inlinecode variant="solid">fireseed-ui</Inlinecode> con autocompletado completo de propiedades en TypeScript:
         </p>
 
         <div className="overflow-hidden rounded-2xl bg-[#120524] border border-[#9EA2E2]/25 font-mono text-sm shadow-xl">
@@ -108,22 +107,25 @@ export function InstallationDocs() {
             <span className="text-[#FBBF24]">React + TypeScript</span>
           </div>
           <pre className="p-4 overflow-x-auto text-[#FFF6DF]/80 text-xs leading-relaxed">
-{`import { Button, StatCard, Badge } from 'fireseed-ui';
+{`import { Card, CardHeader, CardTitle, CardContent, Button, Badge } from 'fireseed-ui';
 
 export default function App() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-[#120524] text-[#FFF6DF] p-6 space-y-6">
-      <Badge variant="glow">Engineered by FireSeed™</Badge>
-      
-      <StatCard 
-        label="Horas Liberadas al Año"
-        value="+240 hs"
-        description="Automatización de turnos y cobros sin fricción manual"
-      />
-
-      <Button variant="glow" onClick={() => alert("¡Motor activado!")}>
-        Desplegar Motor Plug & Play
-      </Button>
+    <div className="flex min-h-screen items-center justify-center bg-[#120524] text-[#FFF6DF] p-6">
+      <Card hoverEffect className="max-w-sm space-y-4">
+        <CardHeader className="flex items-center justify-between">
+          <CardTitle>Módulo Listo</CardTitle>
+          <Badge variant="glow">v0.1.0</Badge>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <p className="text-sm text-[#9EA2E2]">
+            Tus componentes atómicos ya están configurados y listos para usar.
+          </p>
+          <Button variant="glow" className="w-full">
+            Confirmar Acción
+          </Button>
+        </CardContent>
+      </Card>
     </div>
   );
 }`}

@@ -56,7 +56,7 @@ export function InputFieldDocs() {
 
       <Callout variant="glow" title="Accesibilidad y Ergonomía Táctil">
         Ambos componentes aseguran una altura mínima de 44px para evitar errores al tocar en dispositivos
-        móviles, anulan el zoom molesto de iOS configurando un font-size adecuado (14-16px) y conectan
+        móviles, previenen el auto-zoom indeseado del navegador móvil configurando un font-size adecuado (14-16px) y conectan
         semánticamente la etiqueta con el input mediante identificadores dinámicos.
       </Callout>
 

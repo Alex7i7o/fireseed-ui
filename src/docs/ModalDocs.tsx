@@ -55,8 +55,8 @@ export function ModalDocs() {
       <hr className="border-white/5" />
 
       <Callout variant="glow" title="Diseño Mobile-First Verdadero">
-        Siguiendo las Human Interface Guidelines de Apple, en pantallas móviles abrir un modal rígido centrado
-        es incómodo para los pulgares. FireSeed UI detecta dinámicamente el viewport y lo renderiza pegado
+        Bajo los principios modernos de ergonomía táctil, en pantallas móviles abrir un modal rígido centrado
+        resulta incómodo para el alcance natural del pulgar. FireSeed UI detecta dinámicamente el viewport y lo renderiza anclado
         a la base de la pantalla con soporte para zona segura (<code>env(safe-area-inset-bottom)</code>).
       </Callout>
 

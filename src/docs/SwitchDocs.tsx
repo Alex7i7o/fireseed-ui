@@ -33,7 +33,7 @@ export function SwitchDocs() {
           </span>
         </h1>
         <p className="text-lg text-white/60">
-          Interruptor tipo iOS con animación física de resorte (Framer Motion spring), accesibilidad de teclado
+          Interruptor deslizable con animación física de resorte (Framer Motion spring), accesibilidad de teclado
           (<code>role="switch"</code>) y feedback háptico táctil.
         </p>
       </div>
@@ -42,7 +42,7 @@ export function SwitchDocs() {
 
       <Callout variant="glow" title="Física Táctil">
         El interruptor reacciona con un resorte elástico (stiffness: 500, damping: 30) imitando la tensión
-        mecánica real de los conmutadores de Apple, con vibración ligera al conmutar.
+        mecánica real de un conmutador físico de precisión, con vibración ligera al conmutar.
       </Callout>
 
       <div className="space-y-4">
