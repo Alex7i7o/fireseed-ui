@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none">
+  <title>13_icon_nube_sincronizacion</title>
+  
+      <path d="M 38 96 H 90 C 103 96 112 86 112 74 C 112 63 104 54 93 52 C 89 35 74 24 56 24 C 36 24 20 40 20 60 C 20 62 20 64 21 66 C 14 70 14 80 20 88" stroke="#FFF6DF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="48" y="60" width="32" height="14" rx="7" fill="#FBBF24"/>
+      <circle cx="34" cy="67" r="6" fill="#9EA2E2"/>
+    
+</svg>

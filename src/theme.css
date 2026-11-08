@@ -1,27 +1,83 @@
 /* Developed by FireSeed - Fueling Innovation */
 
 @theme {
-  /* Tokens de Marca / Theme Semántico de FireSeed */
-  --color-primary-main: var(--fs-primary-main, #0d041a);
-  --color-primary-surface: #140827;
-  --color-primary-hover: #1e0d38;
-  --color-primary-light: #f3e8ff;
+  /* 🌟 Los 6 Colores Oficiales del Manual de Marca Master FireSeed */
+  --color-primary-main: #120524;       /* 1. Midnight Violet (Fondo Principal) */
+  --color-primary-surface: #241142;    /* 2. Royal Aubergine (Superficies secundarias, luz interior) */
+  --color-primary-hover: #31165a;
+  --color-primary-light: #9EA2E2;
 
-  --color-accent-main: var(--fs-accent-main, #fdcc04);
-  --color-accent-hover: var(--fs-accent-hover, #e5b800);
-  --color-accent-glow: rgba(253, 204, 4, 0.35);
+  --color-accent-main: #FBBF24;        /* 4. Solar Gold (Acento Principal 'SEED', CTAs) */
+  --color-accent-hover: #f59e0b;
+  --color-accent-amber: #E67E22;       /* 5. Flame Amber (Energía Cálida, degradados) */
+  --color-accent-glow: rgba(251, 191, 36, 0.35);
 
-  /* Superficies y Neutros */
-  --color-background: var(--fs-background, #080210);
-  --color-card: var(--fs-card, #120622);
-  --color-foreground: var(--fs-foreground, #f4f4f5);
-  --color-muted: var(--fs-muted, #a1a1aa);
-  --color-border: var(--fs-border, rgba(255, 255, 255, 0.08));
+  --color-tech-periwinkle: #9EA2E2;    /* 3. Periwinkle Tech (Color Técnico de UI, bordes, grillas) */
+  --color-cream-silk: #FFF6DF;         /* 6. Warm Silk Cream (Luz y Texto Principal 'FIRE') */
 
-  /* Sombras y Elevaciones */
-  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.25);
-  --shadow-glass: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 35px -5px rgba(253, 204, 4, 0.3);
+  /* Superficies y Neutros del Ecosistema */
+  --color-background: #0D041A;
+  --color-card: #120524;
+  --color-foreground: #FFF6DF;
+  --color-muted: #9EA2E2;
+  --color-border: rgba(158, 162, 226, 0.22);
+
+  /* Tipografías del Sistema */
+  --font-display: 'PosteramaCustom', system-ui, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Sombras y Elevaciones de Lujo */
+  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
+  --shadow-glass: 0 10px 40px -10px rgba(0, 0, 0, 0.55);
+  --shadow-glow: 0 0 35px -5px rgba(251, 191, 36, 0.3);
+  --shadow-card-elevated: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* 🎨 CLASES MAESTRAS DEL MANUAL DE MARCA FIRESEED */
+
+/* A. Superficie Amarilla / Oro Solar (Tarjetas de Alto Impacto, Banners) */
+@utility fs-surface-gold {
+  background: linear-gradient(160deg, #FBBF24 0%, #E67E22 100%);
+  color: #120524;
+  border-radius: 24px;
+  border: none;
+}
+
+/* B. Botón Primario Dorado Oficial */
+@utility fs-btn-gold {
+  background: linear-gradient(90deg, #FBBF24 0%, #E67E22 100%);
+  color: #120524;
+  font-weight: 700;
+  border-radius: 9999px;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.35);
+  transition: all 0.2s ease-in-out;
+}
+
+/* C. Superficie Violeta Hero (Foco de Luz Radial) */
+@utility fs-surface-violet-hero {
+  background: radial-gradient(circle at 20% 20%, #241142 0%, #120524 75%);
+  color: #FFF6DF;
+  border-radius: 24px;
+  border: 1px solid rgba(158, 162, 226, 0.22);
+}
+
+/* D. Superficie Violeta Elevada (Tarjetas de Sistema) */
+@utility fs-surface-violet-card {
+  background: linear-gradient(180deg, #241142 0%, #150726 100%);
+  color: #FFF6DF;
+  border-radius: 20px;
+  border: 1px solid rgba(158, 162, 226, 0.20);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* E. Grilla Técnica de Puntos (Dot Matrix) */
+@utility fs-surface-tech-grid {
+  background-color: #120524;
+  background-image: radial-gradient(rgba(158, 162, 226, 0.22) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+  border-radius: 24px;
+  border: 1px solid rgba(158, 162, 226, 0.28);
 }
 
 /* Sombras y Resplandores (Glow Effects) */
@@ -41,11 +97,11 @@
   @apply relative z-0 before:absolute before:top-2 before:bottom-[-8px] before:left-2 before:right-2 before:bg-inherit before:blur-lg before:opacity-45 before:-z-10 before:rounded-[inherit] transition-all duration-300;
 }
 
-/* Glassmorphism de Lujo */
+/* Glassmorphism Técnico Periwinkle */
 @utility glass-panel {
-  @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
+  @apply bg-[#120524]/80 backdrop-blur-xl border border-[#9EA2E2]/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)];
 }
 
 @utility glass-card {
-  @apply bg-white/[0.02] hover:bg-white/[0.04] backdrop-blur-lg border border-white/[0.06] hover:border-white/[0.12] transition-all duration-200;
+  @apply bg-[#241142]/40 hover:bg-[#241142]/60 backdrop-blur-lg border border-[#9EA2E2]/15 hover:border-[#FBBF24]/40 transition-all duration-200;
 }

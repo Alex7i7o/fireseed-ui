@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none">
+  <title>16_icon_soporte_acompanamiento</title>
+  
+      <path d="M 24 68 V 58 C 24 36 42 18 64 18 C 86 18 104 36 104 58 V 68" stroke="#FFF6DF" stroke-width="10" stroke-linecap="round"/>
+      <rect x="16" y="62" width="20" height="32" rx="8" fill="#9EA2E2"/>
+      <rect x="92" y="62" width="20" height="32" rx="8" fill="#FBBF24"/>
+      <path d="M 102 90 C 102 102 88 110 68 110" stroke="#FFF6DF" stroke-width="9" stroke-linecap="round"/>
+    
+</svg>

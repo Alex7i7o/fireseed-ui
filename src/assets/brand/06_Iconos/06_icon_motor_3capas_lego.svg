@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none">
+  <title>06_icon_motor_3capas_lego</title>
+  
+      <path d="M 28 24 H 106 L 90 42 H 22 V 30 C 22 26.7 24.7 24 28 24 Z" fill="#FFF6DF"/>
+      <path d="M 22 54 H 86 L 70 72 H 22 V 54 Z" fill="#FBBF24"/>
+      <rect x="22" y="84" width="32" height="20" rx="6" fill="#9EA2E2"/>
+      <path d="M 66 84 H 106 V 98 C 106 101.3 103.3 104 100 104 H 50 L 66 84 Z" fill="#FBBF24"/>
+    
+</svg>

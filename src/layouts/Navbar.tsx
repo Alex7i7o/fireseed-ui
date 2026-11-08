@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Search, Copy, Check, Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { haptics } from '../utils/haptics';
-import isotypeImg from '../assets/fireseed-isotype.png';
+import isotypeF3Capas from '../assets/brand/01_Isotipo/Isotipo_F_3Capas_Oficial_Dark.svg';
 
 export interface NavbarProps {
   onOpenSearch: () => void;
@@ -25,32 +25,33 @@ export function Navbar({ onOpenSearch, onOpenMobileMenu }: NavbarProps) {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-white/10 bg-[#080210]/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 w-full border-b border-[#9EA2E2]/15 bg-[#120524]/85 backdrop-blur-xl transition-colors">
       <div className="flex h-16 items-center justify-between px-4 sm:px-8 max-w-7xl mx-auto">
-        {/* Izquierda: Logo y Branding */}
+        {/* Izquierda: Logo y Branding Oficial FireSeed */}
         <div className="flex items-center gap-3 sm:gap-4">
           <button
             onClick={onOpenMobileMenu}
-            className="md:hidden p-2 rounded-xl text-white/70 hover:text-white hover:bg-white/5 active:scale-95 transition-all min-w-[40px] min-h-[40px] flex items-center justify-center cursor-pointer"
+            className="md:hidden p-2 rounded-xl text-[#9EA2E2] hover:text-[#FFF6DF] hover:bg-white/5 active:scale-95 transition-all min-w-[40px] min-h-[40px] flex items-center justify-center cursor-pointer"
             aria-label="Abrir menú"
           >
             <Menu className="w-5 h-5" />
           </button>
 
-          <Link to="/docs/overview" className="flex items-center gap-2.5 group shrink-0">
+          <Link to="/docs/overview" className="flex items-center gap-3 group shrink-0">
+            {/* Isotipo Oficial: F de 3 Capas */}
             <div className="relative flex items-center justify-center shrink-0">
               <img
-                src={isotypeImg}
-                alt="FireSeed Isotipo"
-                className="h-8 w-auto object-contain shrink-0 drop-shadow-[0_0_12px_rgba(253,204,4,0.45)] group-hover:scale-110 transition-transform duration-300"
-                style={{ height: '32px', width: 'auto', aspectRatio: '633 / 845' }}
+                src={isotypeF3Capas}
+                alt="FireSeed Isotipo Oficial F de 3 Capas"
+                className="w-8 h-8 object-contain drop-shadow-[0_0_14px_rgba(251,191,36,0.45)] group-hover:scale-105 transition-transform duration-300"
               />
             </div>
+            {/* Logotipo Oficial Tipográfico con Posterama */}
             <div className="flex items-baseline gap-1.5 shrink-0">
-              <span className="font-extrabold tracking-tight text-white text-lg sm:text-xl">
-                FIRE<span className="text-accent-main">SEED</span>
+              <span className="font-['PosteramaCustom',sans-serif] font-extrabold tracking-wider text-[#FFF6DF] text-xl">
+                FIRE<span className="text-[#FBBF24]">SEED</span>
               </span>
-              <span className="text-[11px] font-mono font-bold text-accent-main bg-accent-main/15 px-1.5 py-0.5 rounded border border-accent-main/30">
+              <span className="text-[10px] font-mono font-bold tracking-widest text-[#120524] bg-gradient-to-r from-[#FBBF24] to-[#E67E22] px-1.5 py-0.5 rounded shadow-sm">
                 UI
               </span>
             </div>
@@ -61,13 +62,13 @@ export function Navbar({ onOpenSearch, onOpenMobileMenu }: NavbarProps) {
         <div className="hidden sm:flex items-center flex-1 max-w-md mx-6">
           <button
             onClick={onOpenSearch}
-            className="w-full flex items-center justify-between px-3.5 py-2 text-xs text-white/50 bg-white/[0.04] hover:bg-white/[0.07] border border-white/10 hover:border-white/20 rounded-xl transition-all cursor-pointer shadow-inner group"
+            className="w-full flex items-center justify-between px-3.5 py-2 text-xs text-[#9EA2E2]/70 bg-[#241142]/40 hover:bg-[#241142]/70 border border-[#9EA2E2]/20 hover:border-[#FBBF24]/40 rounded-xl transition-all cursor-pointer shadow-inner group"
           >
             <div className="flex items-center gap-2.5">
-              <Search className="w-4 h-4 text-white/40 group-hover:text-accent-main transition-colors" />
+              <Search className="w-4 h-4 text-[#9EA2E2]/50 group-hover:text-[#FBBF24] transition-colors" />
               <span>Buscar componentes...</span>
             </div>
-            <kbd className="flex items-center gap-0.5 px-2 py-0.5 font-mono text-[10px] text-white/60 bg-white/10 rounded-md border border-white/10 shadow-sm">
+            <kbd className="flex items-center gap-0.5 px-2 py-0.5 font-mono text-[10px] text-[#9EA2E2] bg-[#120524] rounded-md border border-[#9EA2E2]/25 shadow-sm">
               <span>⌘</span>
               <span>K</span>
             </kbd>
@@ -79,7 +80,7 @@ export function Navbar({ onOpenSearch, onOpenMobileMenu }: NavbarProps) {
           {/* Mobile search trigger */}
           <button
             onClick={onOpenSearch}
-            className="sm:hidden p-2 rounded-xl text-white/70 hover:text-white hover:bg-white/5 min-w-[40px] min-h-[40px] flex items-center justify-center cursor-pointer"
+            className="sm:hidden p-2 rounded-xl text-[#9EA2E2] hover:text-[#FFF6DF] hover:bg-white/5 min-w-[40px] min-h-[40px] flex items-center justify-center cursor-pointer"
             aria-label="Buscar"
           >
             <Search className="w-5 h-5" />
@@ -88,15 +89,15 @@ export function Navbar({ onOpenSearch, onOpenMobileMenu }: NavbarProps) {
           {/* Botón rápido para copiar comando de instalación */}
           <button
             onClick={copyInstall}
-            className="hidden lg:flex items-center gap-2 px-3 py-1.5 text-xs font-mono rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 text-white/80 transition-all active:scale-95 cursor-pointer"
+            className="hidden lg:flex items-center gap-2 px-3 py-1.5 text-xs font-mono rounded-xl bg-[#241142]/40 hover:bg-[#241142]/70 border border-[#9EA2E2]/20 hover:border-[#FBBF24]/40 text-[#FFF6DF] transition-all active:scale-95 cursor-pointer"
             title="Copiar npm install fireseed-ui"
           >
-            <span className="text-accent-main select-none">$</span>
+            <span className="text-[#FBBF24] select-none">$</span>
             <span>npm i fireseed-ui</span>
             {copied ? (
               <Check className="w-3.5 h-3.5 text-emerald-400 stroke-[3]" />
             ) : (
-              <Copy className="w-3.5 h-3.5 text-white/40" />
+              <Copy className="w-3.5 h-3.5 text-[#9EA2E2]/60" />
             )}
           </button>
 
@@ -105,7 +106,7 @@ export function Navbar({ onOpenSearch, onOpenMobileMenu }: NavbarProps) {
             href="https://github.com/Alex7i7o/fireseed-ui"
             target="_blank"
             rel="noreferrer"
-            className="p-2 sm:px-3 sm:py-1.5 rounded-xl text-white/70 hover:text-white hover:bg-white/5 border border-transparent hover:border-white/10 transition-all flex items-center gap-2 text-xs font-medium"
+            className="p-2 sm:px-3 sm:py-1.5 rounded-xl text-[#9EA2E2] hover:text-[#FFF6DF] hover:bg-white/5 border border-transparent hover:border-[#9EA2E2]/20 transition-all flex items-center gap-2 text-xs font-medium"
             title="Ver repositorio en GitHub"
           >
             <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">

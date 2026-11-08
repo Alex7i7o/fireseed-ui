@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none">
+  <title>02_icon_auditoria_escaner</title>
+  
+      <path d="M 22 44 V 30 C 22 24.5 26.5 20 32 20 H 46 M 82 20 H 96 C 101.5 20 106 24.5 106 30 V 44 M 106 84 V 98 C 106 103.5 101.5 108 96 108 H 82 M 46 108 H 32 C 26.5 108 22 103.5 22 98 V 84" stroke="#FFF6DF" stroke-width="10" stroke-linecap="round"/>
+      <line x1="42" y1="46" x2="86" y2="46" stroke="#9EA2E2" stroke-width="10" stroke-linecap="round"/>
+      <line x1="42" y1="64" x2="70" y2="64" stroke="#FBBF24" stroke-width="10" stroke-linecap="round"/>
+      <line x1="42" y1="82" x2="86" y2="82" stroke="#FFF6DF" stroke-width="10" stroke-linecap="round"/>
+    
+</svg>

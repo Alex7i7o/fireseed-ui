@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 600" width="320" height="600" fill="none">
+  <title>tramado_01_borde_lateral_vertical_escalonado</title>
+  
+      <!-- 5 Parallel Vertical Lego Bars stepping up at 45° from bottom/top -->
+      <path d="M 36 0 V 460 L 68 428 V 0 H 36 Z" fill="#241142"/>
+      <path d="M 88 0 V 520 L 120 488 V 0 H 88 Z" fill="#9EA2E2" fill-opacity="0.35"/>
+      <path d="M 140 0 V 380 L 172 348 V 0 H 140 Z" fill="#FBBF24"/>
+      <path d="M 140 404 L 172 372 V 600 H 140 V 404 Z" fill="#241142"/>
+      <path d="M 192 0 V 450 L 224 418 V 0 H 192 Z" fill="#E67E22"/>
+      <path d="M 192 474 L 224 442 V 600 H 192 V 474 Z" fill="#FFF6DF" fill-opacity="0.9"/>
+      <path d="M 244 0 V 310 L 276 278 V 0 H 244 Z" fill="#9EA2E2"/>
+      <path d="M 244 334 L 276 302 V 600 H 244 V 334 Z" fill="#FBBF24"/>
+    
+</svg>

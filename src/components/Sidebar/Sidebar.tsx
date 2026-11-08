@@ -15,12 +15,12 @@ export function Sidebar({
   ...props
 }: SidebarProps) {
   const baseStyles =
-    'sticky top-16 h-[calc(100vh-4rem)] shrink-0 overflow-y-auto p-4 sm:p-5 border-r border-white/10 bg-[#080210]/60 backdrop-blur-2xl transition-all duration-300 custom-scrollbar';
+    'sticky top-16 h-[calc(100vh-4rem)] shrink-0 overflow-y-auto p-4 sm:p-5 border-r border-[#9EA2E2]/15 bg-[#120524]/75 backdrop-blur-2xl transition-all duration-300 custom-scrollbar text-[#FFF6DF]';
 
   const variants: Record<string, string> = {
-    solid: 'text-white',
-    glow: 'border-r border-accent-main/20 text-white',
-    inset: 'bg-black/40 text-white'
+    solid: 'text-[#FFF6DF]',
+    glow: 'border-r border-[#FBBF24]/30 text-[#FFF6DF]',
+    inset: 'bg-[#120524]/90 text-[#FFF6DF]'
   };
 
   const sizes: Record<string, string> = {

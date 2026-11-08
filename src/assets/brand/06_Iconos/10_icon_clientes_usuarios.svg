@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none">
+  <title>10_icon_clientes_usuarios</title>
+  
+      <circle cx="52" cy="42" r="18" stroke="#FFF6DF" stroke-width="10"/>
+      <path d="M 20 106 C 20 86 34 74 52 74 C 70 74 84 86 84 106" stroke="#FFF6DF" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="90" cy="46" r="12" fill="#FBBF24"/>
+      <path d="M 88 76 C 100 78 108 88 108 104" stroke="#9EA2E2" stroke-width="10" stroke-linecap="round"/>
+    
+</svg>

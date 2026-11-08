@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none">
+  <title>04_icon_escudo_garantia</title>
+  
+      <path d="M 64 16 L 104 32 V 62 C 104 88 86 106 64 114 C 42 106 24 88 24 62 V 32 L 64 16 Z" stroke="#FFF6DF" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M 48 64 L 60 76 L 82 50" stroke="#FBBF24" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    
+</svg>

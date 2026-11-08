@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 260" width="600" height="260" fill="none">
+  <title>tramado_02_cascada_horizontal_legos</title>
+  
+      <!-- 4 Parallel Horizontal Rows of Interlocking Lego Pills (Microkernel Cascade) -->
+      <!-- Row 1 -->
+      <path d="M 20 20 H 340 L 308 52 H 20 C 11 52 4 45 4 36 C 4 27 11 20 20 20 Z" fill="#FFF6DF"/>
+      <path d="M 364 20 H 580 C 589 20 596 27 596 36 C 596 45 589 52 580 52 H 332 L 364 20 Z" fill="#FBBF24"/>
+      <!-- Row 2 -->
+      <path d="M 20 76 H 230 L 198 108 H 20 C 11 108 4 101 4 92 C 4 83 11 76 20 76 Z" fill="#FBBF24"/>
+      <path d="M 254 76 H 490 L 458 108 H 222 L 254 76 Z" fill="#9EA2E2"/>
+      <path d="M 514 76 H 580 C 589 76 596 83 596 92 C 596 101 589 108 580 108 H 482 L 514 76 Z" fill="#241142"/>
+      <!-- Row 3 -->
+      <path d="M 20 132 H 410 L 378 164 H 20 C 11 164 4 157 4 148 C 4 139 11 132 20 132 Z" fill="#241142"/>
+      <path d="M 434 132 H 580 C 589 132 596 139 596 148 C 596 157 589 164 580 164 H 402 L 434 132 Z" fill="#E67E22"/>
+      <!-- Row 4 -->
+      <path d="M 20 188 H 160 L 128 220 H 20 C 11 220 4 213 4 204 C 4 195 11 188 20 188 Z" fill="#9EA2E2"/>
+      <path d="M 184 188 H 360 L 328 220 H 152 L 184 188 Z" fill="#FFF6DF"/>
+      <path d="M 384 188 H 580 C 589 188 596 195 596 204 C 596 213 589 220 580 220 H 352 L 384 188 Z" fill="#FBBF24"/>
+    
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 48" width="120" height="48" fill="none">
+  <title>FireSeed Flecha Stencil Posterama</title>
+  <!-- Shaft with 45-degree stencil cut -->
+  <path d="M8 18 H68 L56 30 H8 C4.7 30 2 27.3 2 24 C2 20.7 4.7 18 8 18 Z" fill="#FFF6DF"/>
+  <!-- Golden Arrowhead -->
+  <path d="M74 6 L112 24 L74 42 L84 24 L74 6 Z" fill="#FBBF24"/>
+</svg>

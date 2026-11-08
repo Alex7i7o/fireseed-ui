@@ -3,6 +3,13 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css';
 
+// 🚀 Firma Oficial en Consola — Estándar de Ingeniería FireSeed (System Trademark)
+console.log(
+  "%c [FS] %c Engineered by FireSeed™ — Motor Modular Plug & Play ",
+  "background:#FBBF24; color:#120524; font-weight:800; padding:4px 6px; border-radius:4px 0 0 4px; font-family:sans-serif;",
+  "background:#241142; color:#FFF6DF; font-weight:600; padding:4px 10px; border-radius:0 4px 4px 0; border-left:2px solid #FBBF24; font-family:sans-serif;"
+);
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />

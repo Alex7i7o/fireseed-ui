@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none">
+  <title>01_icon_croquis_arquitectura</title>
+  
+      <rect x="18" y="18" width="54" height="40" rx="10" stroke="#FFF6DF" stroke-width="10"/>
+      <rect x="18" y="72" width="38" height="38" rx="10" stroke="#9EA2E2" stroke-width="10"/>
+      <rect x="70" y="66" width="40" height="44" rx="10" fill="#FBBF24"/>
+      <circle cx="92" cy="38" r="10" fill="#FBBF24"/>
+    
+</svg>

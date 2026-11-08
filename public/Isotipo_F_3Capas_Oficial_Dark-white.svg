@@ -1,0 +1,9 @@
+<svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256"><title>FireSeed</title>
+  
+  <!-- Capa 1: Barra Superior Crema (#FFF6DF) con esquina redondeada y bisel a 45° -->
+  <path d="M 56 32 H 220 L 170 82 H 38 V 50 C 38 40 46 32 56 32 Z" fill="#ffffff"/>
+  <!-- Capa 2: Barra Media Oro Solar (#FBBF24) recortada y alineada en la misma diagonal a 45° -->
+  <path d="M 38 104 H 164 L 114 154 H 38 V 104 Z" fill="#ffffff"/>
+  <!-- Capa 3: Bloque Base Crema (#FFF6DF) con esquina inferior redondeada -->
+  <path d="M 38 176 H 90 V 224 H 56 C 46 224 38 216 38 206 V 176 Z" fill="#ffffff"/>
+</svg>

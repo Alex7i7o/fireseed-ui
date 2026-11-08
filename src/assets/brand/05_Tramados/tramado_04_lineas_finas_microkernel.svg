@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" width="600" height="220" fill="none">
+  <title>tramado_04_lineas_finas_microkernel</title>
+  
+      <!-- 5 sleek parallel lines with 45° bevel breaks and capsule nodes -->
+      <path d="M 0 30 H 240 L 260 50 H 600" stroke="#9EA2E2" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-opacity="0.4"/>
+      <path d="M 0 70 H 180 L 210 100 H 460 L 490 70 H 600" stroke="#FBBF24" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M 0 115 H 340" stroke="#FFF6DF" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <path d="M 375 115 H 600" stroke="#E67E22" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <path d="M 0 160 H 120 L 150 190 H 390" stroke="#9EA2E2" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M 425 190 H 600" stroke="#FBBF24" stroke-width="8" stroke-linecap="round" fill="none"/>
+      <circle cx="357" cy="115" r="6" fill="#FBBF24"/>
+      <circle cx="407" cy="190" r="6" fill="#FFF6DF"/>
+    
+</svg>
