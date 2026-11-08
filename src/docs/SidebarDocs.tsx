@@ -1,6 +1,7 @@
 // src/docs/SidebarDocs.tsx
 
 import { Callout } from '../components/Callout';
+import { CodeBlock } from '../components/CodeBlock/CodeBlock';
 
 // 🌟 Al guardar el código de ejemplo acá afuera como un string puro, 
 // evitamos al 100% que interfiera con el renderizado de React.
@@ -102,15 +103,11 @@ export function SidebarDocs() {
           Así es como integrás el ecosistema del Sidebar completo en tu archivo de Layout global para habilitar el comportamiento de escritorio y el menú desplegable en celulares:
         </p>
 
-        <div className="overflow-hidden rounded-xl bg-black/40 border border-white/5 font-mono text-sm">
-          <div className="flex items-center justify-between bg-black/20 px-4 py-2 border-b border-white/5 text-xs text-white/40">
-            <span>src/layouts/DocsLayout.tsx</span>
-          </div>
-          {/* Inyectamos de forma segura la constante de texto limpia */}
-          <pre className="p-4 overflow-x-auto text-white/80 text-xs leading-relaxed">
-            {codigoEjemploLayout}
-          </pre>
-        </div>
+        <CodeBlock
+          code={codigoEjemploLayout}
+          language="tsx"
+          filename="src/layouts/DocsLayout.tsx"
+        />
       </div>
 
       {/* 4. TABLA DE API / PROPS */}

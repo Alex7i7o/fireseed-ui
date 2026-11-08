@@ -6,6 +6,7 @@ import { Switch } from '../components/Switch';
 import { StatCard } from '../components/StatCard';
 import { FeedbackButton } from '../components/FeedbackButton';
 import { Card, CardTitle } from '../components/Card';
+import { CodeBlock } from '../components/CodeBlock/CodeBlock';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -67,7 +68,6 @@ export function PanelConfiguracion() {
 
 export function OverviewDocs() {
   const [copiedInstall, setCopiedInstall] = useState(false);
-  const [copiedCode, setCopiedCode] = useState(false);
   const [demoSwitch, setDemoSwitch] = useState(true);
 
   const handleCopyInstall = () => {
@@ -75,13 +75,6 @@ export function OverviewDocs() {
     haptics.light();
     setCopiedInstall(true);
     setTimeout(() => setCopiedInstall(false), 2000);
-  };
-
-  const handleCopyCode = () => {
-    navigator.clipboard.writeText(codigoEjemploRapido);
-    haptics.light();
-    setCopiedCode(true);
-    setTimeout(() => setCopiedCode(false), 2000);
   };
 
   const simulateAsyncAction = () =>
@@ -495,37 +488,11 @@ export function OverviewDocs() {
           </Link>
         </div>
 
-        <div className="rounded-2xl overflow-hidden border border-[#9EA2E2]/20 bg-[#090212] shadow-2xl">
-          <div className="flex items-center justify-between px-4 py-3 bg-[#120524] border-b border-[#9EA2E2]/15">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-rose-500/60" />
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-500/60" />
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/60" />
-              <span className="ml-2 text-xs font-mono text-[#9EA2E2]/60">
-                PanelConfiguracion.tsx
-              </span>
-            </div>
-            <button
-              onClick={handleCopyCode}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#241142] hover:bg-[#241142]/80 border border-[#9EA2E2]/20 text-xs text-[#FFF6DF]/80 hover:text-[#FFF6DF] transition-colors cursor-pointer"
-            >
-              {copiedCode ? (
-                <>
-                  <Check className="w-3.5 h-3.5 text-emerald-400" />
-                  <span className="text-emerald-400">Copiado</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-3.5 h-3.5 text-[#FBBF24]" />
-                  <span>Copiar ejemplo</span>
-                </>
-              )}
-            </button>
-          </div>
-          <pre className="p-4 sm:p-6 text-xs sm:text-sm font-mono text-[#FFF6DF]/85 overflow-x-auto leading-relaxed">
-            <code>{codigoEjemploRapido}</code>
-          </pre>
-        </div>
+        <CodeBlock
+          code={codigoEjemploRapido}
+          language="tsx"
+          filename="PanelConfiguracion.tsx"
+        />
       </div>
     </div>
   );

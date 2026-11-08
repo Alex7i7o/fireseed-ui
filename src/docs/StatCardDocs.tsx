@@ -1,6 +1,7 @@
 /* Developed by FireSeed - Fueling Innovation */
 import { StatCard } from '../components/StatCard';
 import { Callout } from '../components/Callout';
+import { CodeBlock } from '../components/CodeBlock/CodeBlock';
 import { DollarSign, Users, CalendarCheck } from 'lucide-react';
 
 const codigoStat = `import { StatCard } from 'fireseed-ui';
@@ -53,12 +54,7 @@ export function StatCardDocs() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold text-white tracking-tight">Ejemplo de Uso</h2>
-        <div className="overflow-hidden rounded-xl bg-black/40 border border-white/5 font-mono text-sm text-white/80">
-          <div className="flex items-center justify-between bg-black/20 px-4 py-2 border-b border-white/5 text-xs text-white/40">
-            <span>StatCardDemo.tsx</span>
-          </div>
-          <pre className="p-4 overflow-x-auto text-white/70">{codigoStat}</pre>
-        </div>
+        <CodeBlock code={codigoStat} language="tsx" filename="StatCardDemo.tsx" />
 
         <div className="mt-6 space-y-4 rounded-2xl border border-white/5 bg-black/20 p-8 backdrop-blur-sm">
           <h3 className="text-sm font-semibold uppercase tracking-wider text-white/60">Tarjetas en Vivo</h3>

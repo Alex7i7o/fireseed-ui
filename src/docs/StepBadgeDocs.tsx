@@ -1,5 +1,6 @@
 import { StepBadge } from '../components/StepBadge/StepBadge';
 import { Callout } from '../components/Callout';
+import { CodeBlock } from '../components/CodeBlock/CodeBlock';
 
 const codigoEjemploStep = `import { StepBadge } from 'fireseed-ui';
 
@@ -57,14 +58,11 @@ export function StepBadgeDocs() {
           Crea guías interactivas con facilidad combinando StepBadges:
         </p>
 
-        <div className="overflow-hidden rounded-xl bg-black/40 border border-white/5 font-mono text-sm">
-          <div className="flex items-center justify-between bg-black/20 px-4 py-2 border-b border-white/5 text-xs text-white/40">
-            <span>Ejemplo de uso</span>
-          </div>
-          <pre className="p-4 overflow-x-auto text-white/80 text-xs leading-relaxed">
-            {codigoEjemploStep}
-          </pre>
-        </div>
+        <CodeBlock
+          code={codigoEjemploStep}
+          language="tsx"
+          filename="ListaPasos.tsx"
+        />
         
         <div className="mt-4 p-6 border border-white/5 rounded-xl bg-black/20 flex flex-col gap-4">
           <div className="flex items-center gap-3 text-white/80">

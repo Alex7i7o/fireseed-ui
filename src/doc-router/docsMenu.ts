@@ -16,6 +16,7 @@ export const docsMenu: MenuSection[] = [
     items: [
       { label: '¿Qué es FireSeed UI?', href: '/docs/overview' },
       { label: 'Instalación', href: '/docs/installation' },
+      { label: 'Modo de Uso', href: '/docs/usage' },
       { label: 'Temas & Tokens', href: '/docs/theme' }
     ]
   },

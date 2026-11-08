@@ -1,77 +1,27 @@
 /* Developed by FireSeed - Fueling Innovation */
 import { Inlinecode } from "../components/InlineCode/InlineCode";
 import { StepBadge } from "../components/StepBadge";
+import { Callout } from "../components/Callout";
+import { CodeBlock } from "../components/CodeBlock/CodeBlock";
+import { Link } from "react-router-dom";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
-export function InstallationDocs() {
-  return (
-    <div className="max-w-4xl space-y-10 pb-20 text-[#FFF6DF]">
-      
-      {/* 1. CABECERA */}
-      <div className="space-y-3">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FBBF24]/10 border border-[#FBBF24]/30 text-xs font-mono font-medium text-[#FBBF24]">
-          <span className="w-2 h-2 rounded-full bg-[#FBBF24] animate-pulse"></span>
-          PRIMEROS PASOS • CONFIGURACIÓN EN REACT
-        </div>
+const codigoTerminal = `npm install fireseed-ui framer-motion lucide-react`;
 
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#FFF6DF] font-['PosteramaCustom',sans-serif]">
-          Instalación
-        </h1>
-        
-        <p className="text-lg text-[#FFF6DF]/75 leading-relaxed font-sans">
-          Integrá <strong>fireseed-ui</strong> en tu proyecto de React con TypeScript y Tailwind CSS v4 en tres pasos simples. Cada componente se exporta de forma modular con soporte completo para <em>tree-shaking</em>, por lo que tu aplicación solo incluirá en el paquete final las piezas que realmente importes.
-        </p>
-      </div>
-
-      <hr className="border-[#9EA2E2]/15" />
-
-      {/* 2. PASO 1: TERMINAL */}
-      <div className="space-y-4">
-        <h2 className="text-xl font-bold text-[#FFF6DF] flex items-center gap-3 font-['PosteramaCustom',sans-serif]">
-          <StepBadge variant="glow">1</StepBadge>
-          Instalar el paquete y su motor de animaciones
-        </h2>
-        <p className="text-sm text-[#FFF6DF]/70">
-          Ejecutá el siguiente comando en la raíz de tu proyecto para instalar la librería junto con <Inlinecode variant="solid">framer-motion</Inlinecode>, encargado de las físicas de resorte y transiciones de los componentes:
-        </p>
-        
-        <div className="overflow-hidden rounded-2xl bg-[#120524] border border-[#9EA2E2]/25 font-mono text-sm shadow-xl">
-          <div className="flex items-center justify-between bg-[#241142]/60 px-4 py-2 border-b border-[#9EA2E2]/20 text-xs text-[#9EA2E2]">
-            <span>Terminal (npm / pnpm / bun)</span>
-            <span className="text-[#FBBF24] text-[11px]">Dependencias</span>
-          </div>
-          <pre className="p-4 overflow-x-auto text-[#FBBF24]">
-{`npm install fireseed-ui framer-motion`}
-          </pre>
-        </div>
-      </div>
-
-      {/* 3. PASO 2: CONFIGURACIÓN CSS */}
-      <div className="space-y-4">
-        <h2 className="text-xl font-bold text-[#FFF6DF] flex items-center gap-3 font-['PosteramaCustom',sans-serif]">
-          <StepBadge variant="glow">2</StepBadge>
-          Declarar las variables en tu hoja de estilos
-        </h2>
-        <p className="text-sm text-[#FFF6DF]/70">
-          Registrá las variables cromáticas y las utilidades de resplandor en tu archivo CSS principal (por ejemplo, <Inlinecode variant="solid">src/theme.css</Inlinecode> o <Inlinecode variant="solid">src/index.css</Inlinecode>):
-        </p>
-
-        <div className="overflow-hidden rounded-2xl bg-[#120524] border border-[#9EA2E2]/25 font-mono text-sm shadow-xl">
-          <div className="flex items-center justify-between bg-[#241142]/60 px-4 py-2 border-b border-[#9EA2E2]/20 text-xs text-[#9EA2E2]">
-            <span>src/theme.css</span>
-            <span className="text-[#FFF6DF]/50">Tailwind CSS v4</span>
-          </div>
-          <pre className="p-4 overflow-x-auto text-[#FFF6DF]/80 text-xs leading-relaxed">
-{`@import "tailwindcss";
+const codigoThemeCSS = `@import "tailwindcss";
 
 @theme {
-  --color-primary-main: #120524;
-  --color-accent-main: #FBBF24;
+  /* ============================================================
+     VARIABLES GLOBALES DE FIRESEED UI (CSS NATIVO)
+     ============================================================ */
+  --color-primary-main: #120524; /* Fondo principal de tarjetas y modales */
+  --color-accent-main: #FBBF24;  /* Color de acción para botones primarios y acentos */
   --color-royal-aubergine: #241142;
   --color-periwinkle-tech: #9EA2E2;
   --color-silk-cream: #FFF6DF;
 }
 
-/* Utilidades de iluminación para variantes glow */
+/* Efectos de resplandor óptico (Glow Utilities) */
 @utility glow-bottom {
   position: relative;
   z-index: 0;
@@ -86,51 +36,172 @@ export function InstallationDocs() {
   z-index: -10;
   border-radius: inherit;
   transition: all 0.3s;
-}`}
-          </pre>
-        </div>
-      </div>
+}
 
-      {/* 4. PASO 3: EJEMPLO DE USO */}
-      <div className="space-y-4">
-        <h2 className="text-xl font-bold text-[#FFF6DF] flex items-center gap-3 font-['PosteramaCustom',sans-serif]">
-          <StepBadge variant="glow">3</StepBadge>
-          Importar y ensamblar componentes
-        </h2>
-        <p className="text-sm text-[#FFF6DF]/70">
-          Importá los átomos, moléculas u organismos directamente desde <Inlinecode variant="solid">fireseed-ui</Inlinecode> con autocompletado completo de propiedades en TypeScript:
-        </p>
+@utility glow-md {
+  position: relative;
+  z-index: 0;
+}
+@utility glow-md::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(8px);
+  opacity: 0.3;
+  z-index: -10;
+  border-radius: inherit;
+  transition: all 0.3s;
+}`;
 
-        <div className="overflow-hidden rounded-2xl bg-[#120524] border border-[#9EA2E2]/25 font-mono text-sm shadow-xl">
-          <div className="flex items-center justify-between bg-[#241142]/60 px-4 py-2 border-b border-[#9EA2E2]/20 text-xs text-[#9EA2E2]">
-            <span>src/App.tsx</span>
-            <span className="text-[#FBBF24]">React + TypeScript</span>
-          </div>
-          <pre className="p-4 overflow-x-auto text-[#FFF6DF]/80 text-xs leading-relaxed">
-{`import { Card, CardHeader, CardTitle, CardContent, Button, Badge } from 'fireseed-ui';
+const codigoPrimerUso = `import { Button, Card, CardHeader, CardTitle, CardContent, Badge } from 'fireseed-ui';
 
-export default function App() {
+export default function MiApp() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#120524] text-[#FFF6DF] p-6">
-      <Card hoverEffect className="max-w-sm space-y-4">
+    <div className="min-h-screen bg-[#120524] text-[#FFF6DF] flex items-center justify-center p-6">
+      <Card hoverEffect className="max-w-sm space-y-4 p-6 bg-[#241142]/60 border border-[#9EA2E2]/25">
         <CardHeader className="flex items-center justify-between">
-          <CardTitle>Módulo Listo</CardTitle>
-          <Badge variant="glow">v0.1.0</Badge>
+          <CardTitle>Mi Primer Componente</CardTitle>
+          <Badge variant="glow">Activo</Badge>
         </CardHeader>
         <CardContent className="space-y-4">
           <p className="text-sm text-[#9EA2E2]">
-            Tus componentes atómicos ya están configurados y listos para usar.
+            ¡Tu entorno ya está configurado y funcionando!
           </p>
           <Button variant="glow" className="w-full">
-            Confirmar Acción
+            Probar Botón con Glow
           </Button>
         </CardContent>
       </Card>
     </div>
   );
-}`}
-          </pre>
+}`;
+
+export function InstallationDocs() {
+  return (
+    <div className="max-w-4xl space-y-12 pb-20 text-[#FFF6DF]">
+      
+      {/* 1. CABECERA */}
+      <div className="space-y-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FBBF24]/10 border border-[#FBBF24]/30 text-xs font-mono font-medium text-[#FBBF24]">
+          <span className="w-2 h-2 rounded-full bg-[#FBBF24] animate-pulse"></span>
+          GUÍA RÁPIDA • INSTALACIÓN PASO A PASO
         </div>
+
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#FFF6DF] font-['PosteramaCustom',sans-serif]">
+          Instalación
+        </h1>
+        
+        <p className="text-lg text-[#FFF6DF]/75 leading-relaxed font-sans">
+          Configurá <strong>fireseed-ui</strong> en tu proyecto de React con TypeScript y Tailwind CSS en menos de 2 minutos. Todo el proceso está guiado paso a paso para que no tengas dudas ni fricciones.
+        </p>
+      </div>
+
+      <hr className="border-[#9EA2E2]/15" />
+
+      {/* 2. PASO 1: INSTALAR DEPENDENCIAS */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-3">
+          <StepBadge variant="glow">1</StepBadge>
+          <div>
+            <h2 className="text-xl font-bold text-[#FFF6DF] font-['PosteramaCustom',sans-serif]">
+              Instalar Dependencias en tu Terminal
+            </h2>
+            <p className="text-xs text-[#9EA2E2]/70">
+              Instala la librería junto a Framer Motion (para físicas táctiles elásticas) y Lucide React (para iconografía).
+            </p>
+          </div>
+        </div>
+
+        <CodeBlock
+          code={codigoTerminal}
+          language="bash"
+          filename="Terminal (npm / pnpm / yarn / bun)"
+        />
+      </div>
+
+      {/* 3. PASO 2: CONFIGURACIÓN CSS (THEME.CSS) */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-3">
+          <StepBadge variant="glow">2</StepBadge>
+          <div>
+            <h2 className="text-xl font-bold text-[#FFF6DF] font-['PosteramaCustom',sans-serif]">
+              Registrar los Colores y Efectos en tu CSS
+            </h2>
+            <p className="text-xs text-[#9EA2E2]/70">
+              ¿Por qué es necesario este paso? Los componentes consumen variables CSS para que puedas cambiar los colores fácilmente.
+            </p>
+          </div>
+        </div>
+
+        <Callout variant="glow">
+          <div className="space-y-2 text-xs leading-relaxed text-[#FFF6DF]/85">
+            <p className="font-semibold text-sm text-[#FBBF24] flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4" /> ¿Cómo funciona la hoja de temas?
+            </p>
+            <p>
+              La librería utiliza <strong>Tailwind CSS v4</strong> con la directiva <Inlinecode variant="solid">@theme</Inlinecode>. 
+              Si declarás estas variables en tu archivo CSS principal (por ejemplo <Inlinecode variant="solid">src/theme.css</Inlinecode> o <Inlinecode variant="solid">src/index.css</Inlinecode>), todos los componentes adoptarán automáticamente los fondos oscuros profundos y los botones de alta visibilidad.
+            </p>
+            <p className="text-[#9EA2E2]">
+              <strong>¿Querés usar tus propios colores de marca?</strong> Podés cambiar <Inlinecode variant="solid">--color-accent-main</Inlinecode> por el color que quieras (azul, verde, rojo, etc.) o sobrescribir cualquier color directamente en cada componente usando <Inlinecode variant="solid">className="bg-..."</Inlinecode>.
+            </p>
+          </div>
+        </Callout>
+
+        <div className="space-y-2">
+          <div className="flex items-center justify-between text-xs text-[#9EA2E2]/80">
+            <span>Podés copiar el código a continuación o descargarlo listo con un clic:</span>
+          </div>
+
+          <CodeBlock
+            code={codigoThemeCSS}
+            language="css"
+            filename="src/theme.css"
+            allowDownload={true}
+            downloadFilename="theme.css"
+          />
+        </div>
+      </div>
+
+      {/* 4. PASO 3: IMPORTAR Y USAR */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-3">
+          <StepBadge variant="glow">3</StepBadge>
+          <div>
+            <h2 className="text-xl font-bold text-[#FFF6DF] font-['PosteramaCustom',sans-serif]">
+              Importar y Probar tu Primer Componente
+            </h2>
+            <p className="text-xs text-[#9EA2E2]/70">
+              Importá los componentes atómicos en cualquier pantalla o vista de tu aplicación:
+            </p>
+          </div>
+        </div>
+
+        <CodeBlock
+          code={codigoPrimerUso}
+          language="tsx"
+          filename="src/App.tsx"
+        />
+      </div>
+
+      {/* 5. PRÓXIMO PASO: IR A LA GUÍA DE USO */}
+      <div className="p-6 rounded-2xl bg-gradient-to-r from-[#241142] to-[#120524] border border-[#FBBF24]/30 shadow-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="space-y-1">
+          <span className="text-xs font-mono font-bold text-[#FBBF24] uppercase">¿Listo para personalizar?</span>
+          <h3 className="text-lg font-bold text-[#FFF6DF]">Aprende a cambiar colores con Tailwind y Props</h3>
+          <p className="text-xs text-[#9EA2E2]/80 max-w-lg">
+            Mirá la nueva guía interactiva donde mostramos ejemplos prácticos de cómo cambiar colores sobre la marcha usando <Inlinecode variant="solid">className</Inlinecode>.
+          </p>
+        </div>
+
+        <Link
+          to="/docs/usage"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-xs bg-[#FBBF24] hover:bg-[#FBBF24]/90 text-[#120524] shadow-lg transition-all shrink-0 cursor-pointer"
+        >
+          Ver Guía de Uso & Personalización
+          <ArrowRight className="w-4 h-4" />
+        </Link>
       </div>
 
     </div>

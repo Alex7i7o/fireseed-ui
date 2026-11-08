@@ -1,5 +1,6 @@
 import { AnimateIn } from '../components/AnimateIn';
 import { Callout } from '../components/Callout';
+import { CodeBlock } from '../components/CodeBlock/CodeBlock';
 
 const codigoEjemploAnimateIn = `import { AnimateIn } from 'fireseed-ui';
 
@@ -47,14 +48,11 @@ export function AnimateInDocs() {
           Así es como puedes usar AnimateIn para darle vida a tu contenido:
         </p>
 
-        <div className="overflow-hidden rounded-xl bg-black/40 border border-white/5 font-mono text-sm">
-          <div className="flex items-center justify-between bg-black/20 px-4 py-2 border-b border-white/5 text-xs text-white/40">
-            <span>Ejemplo de uso</span>
-          </div>
-          <pre className="p-4 overflow-x-auto text-white/80 text-xs leading-relaxed">
-            {codigoEjemploAnimateIn}
-          </pre>
-        </div>
+        <CodeBlock
+          code={codigoEjemploAnimateIn}
+          language="tsx"
+          filename="MiComponente.tsx"
+        />
         
         <div className="mt-4 p-6 border border-white/5 rounded-xl bg-black/20">
           <AnimateIn variant="solid" size="md">

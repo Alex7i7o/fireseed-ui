@@ -27,6 +27,7 @@ export * from './Card';
 export * from './Callout';
 export * from './Sidebar';
 export * from './AnimateIn';
+export * from './CodeBlock';
 
 // Utilidades
 export * from '../utils/cn';

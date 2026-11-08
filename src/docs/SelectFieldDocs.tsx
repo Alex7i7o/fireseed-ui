@@ -61,6 +61,8 @@ export function SelectFieldDocs() {
         title="Demostración Interactiva"
         description="Haz clic en el selector para desplegar el menú de opciones redondeado con microanimación."
         code={codigoSelect}
+        previewClassName="min-h-[380px] items-start pt-8 pb-36"
+        filename="SelectDemo.tsx"
       >
         <div className="w-full max-w-sm">
           <SelectField

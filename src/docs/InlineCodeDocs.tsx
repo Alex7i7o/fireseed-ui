@@ -1,5 +1,6 @@
 import { Inlinecode } from '../components/InlineCode/InlineCode';
 import { Callout } from '../components/Callout';
+import { CodeBlock } from '../components/CodeBlock/CodeBlock';
 
 const codigoEjemploInline = `import { Inlinecode } from 'fireseed-ui';
 
@@ -46,14 +47,11 @@ export function InlineCodeDocs() {
           Úsalo para resaltar variables, nombres de archivos o comandos de terminal:
         </p>
 
-        <div className="overflow-hidden rounded-xl bg-black/40 border border-white/5 font-mono text-sm">
-          <div className="flex items-center justify-between bg-black/20 px-4 py-2 border-b border-white/5 text-xs text-white/40">
-            <span>Ejemplo de uso</span>
-          </div>
-          <pre className="p-4 overflow-x-auto text-white/80 text-xs leading-relaxed">
-            {codigoEjemploInline}
-          </pre>
-        </div>
+        <CodeBlock
+          code={codigoEjemploInline}
+          language="tsx"
+          filename="TextoTecnico.tsx"
+        />
         
         <div className="mt-4 p-6 border border-white/5 rounded-xl bg-black/20">
           <p className="text-white/80">

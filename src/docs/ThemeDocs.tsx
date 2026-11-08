@@ -1,6 +1,7 @@
 /* Developed by FireSeed - Fueling Innovation */
 import { Callout } from '../components/Callout';
 import { Inlinecode } from '../components/InlineCode/InlineCode';
+import { CodeBlock } from '../components/CodeBlock/CodeBlock';
 
 const codigoThemeMaster = `@import "tailwindcss";
 
@@ -293,18 +294,13 @@ export function ThemeDocs() {
           Incluí este bloque en la hoja de estilos raíz de tu proyecto para habilitar todos los tokens y utilidades de la librería:
         </p>
 
-        <div className="overflow-hidden rounded-2xl bg-[#120524] border border-[#9EA2E2]/25 font-mono text-sm shadow-2xl">
-          <div className="flex items-center justify-between bg-[#241142]/60 px-4 py-2.5 border-b border-[#9EA2E2]/20 text-xs text-[#9EA2E2]">
-            <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#FBBF24]"></span>
-              src/theme.css
-            </span>
-            <span className="text-[#FFF6DF]/50">Tailwind CSS v4</span>
-          </div>
-          <pre className="p-5 overflow-x-auto text-[#FFF6DF]/85 leading-relaxed text-xs">
-            {codigoThemeMaster}
-          </pre>
-        </div>
+        <CodeBlock
+          code={codigoThemeMaster}
+          language="css"
+          filename="src/theme.css"
+          allowDownload={true}
+          downloadFilename="theme.css"
+        />
       </div>
 
     </div>

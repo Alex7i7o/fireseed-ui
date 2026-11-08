@@ -155,7 +155,7 @@ export function SelectField({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.98 }}
             transition={{ type: 'spring', duration: 0.22, bounce: 0 }}
-            className="absolute z-50 w-full mt-2 p-1.5 rounded-2xl border border-white/15 bg-[#120526]/95 backdrop-blur-2xl shadow-[0_12px_40px_rgba(0,0,0,0.6)] overflow-hidden space-y-0.5"
+            className="absolute z-50 w-full mt-2 p-1.5 rounded-2xl border border-white/15 bg-[#120526]/95 backdrop-blur-2xl shadow-[0_12px_40px_rgba(0,0,0,0.6)] max-h-60 overflow-y-auto custom-scrollbar space-y-0.5"
             role="listbox"
           >
             {options.map((opt) => {

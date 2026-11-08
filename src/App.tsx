@@ -5,6 +5,7 @@ import { DocsLayout } from './layouts/DocsLayout';
 // Primeros Pasos
 import { OverviewDocs } from './docs/OverviewDocs';
 import { InstallationDocs } from './docs/InstallationDocs';
+import { UsageDocs } from './docs/UsageDocs';
 import { ThemeDocs } from './docs/ThemeDocs';
 
 // Átomos
@@ -51,6 +52,7 @@ function App() {
                 {/* Primeros Pasos */}
                 <Route path="overview" element={<OverviewDocs />} />
                 <Route path="installation" element={<InstallationDocs />} />
+                <Route path="usage" element={<UsageDocs />} />
                 <Route path="theme" element={<ThemeDocs />} />
 
                 {/* Átomos */}

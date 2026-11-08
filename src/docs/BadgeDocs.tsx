@@ -1,6 +1,7 @@
 /* Developed by FireSeed - Fueling Innovation */
 import { Badge } from '../components/Badge';
 import { Callout } from '../components/Callout';
+import { CodeBlock } from '../components/CodeBlock/CodeBlock';
 
 const codigoEjemploBadge = `import { Badge } from 'fireseed-ui';
 
@@ -45,14 +46,7 @@ export function BadgeDocs() {
       {/* 3. EJEMPLO */}
       <div className="space-y-4">
         <h2 className="text-2xl font-bold text-white tracking-tight">Ejemplo de Uso</h2>
-        <div className="overflow-hidden rounded-xl bg-black/40 border border-white/5 font-mono text-sm">
-          <div className="flex items-center justify-between bg-black/20 px-4 py-2 border-b border-white/5 text-xs text-white/40">
-            <span>BadgeDemo.tsx</span>
-          </div>
-          <pre className="p-4 overflow-x-auto text-white/80 text-xs leading-relaxed">
-            {codigoEjemploBadge}
-          </pre>
-        </div>
+        <CodeBlock code={codigoEjemploBadge} language="tsx" filename="BadgeDemo.tsx" />
 
         <div className="mt-4 flex flex-wrap gap-3 p-6 border border-white/5 rounded-xl bg-black/20">
           <Badge variant="solid">Sólido</Badge>

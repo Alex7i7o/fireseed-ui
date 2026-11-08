@@ -1,4 +1,5 @@
 import { Callout } from '../components/Callout';
+import { CodeBlock } from '../components/CodeBlock/CodeBlock';
 
 const codigoEjemploCallout = `import { Callout } from 'fireseed-ui';
 
@@ -46,14 +47,11 @@ export function CalloutDocs() {
           Puedes usar el Callout para notas, alertas o recomendaciones dentro de tus artículos:
         </p>
 
-        <div className="overflow-hidden rounded-xl bg-black/40 border border-white/5 font-mono text-sm">
-          <div className="flex items-center justify-between bg-black/20 px-4 py-2 border-b border-white/5 text-xs text-white/40">
-            <span>Ejemplo de uso</span>
-          </div>
-          <pre className="p-4 overflow-x-auto text-white/80 text-xs leading-relaxed">
-            {codigoEjemploCallout}
-          </pre>
-        </div>
+        <CodeBlock
+          code={codigoEjemploCallout}
+          language="tsx"
+          filename="Mensajes.tsx"
+        />
         
         <div className="mt-4 p-2 border border-white/5 rounded-xl bg-black/20">
           <Callout variant="glow">

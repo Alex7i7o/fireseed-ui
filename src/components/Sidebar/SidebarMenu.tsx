@@ -20,14 +20,14 @@ export function SidebarMenu({
   currentPath,
   linkComponent,
   onClick,
-  defaultCollapsed = false,
+  defaultCollapsed = true,
   autoScrollActive = false
 }: SidebarMenuProps) {
   const [filter, setFilter] = useState('');
   const activeItemRef = useRef<HTMLLIElement>(null);
 
   // Estado para controlar qué secciones están abiertas/cerradas (acordeón/toggle)
-  // En modo defaultCollapsed (por ejemplo en mobile), todas cerradas salvo la activa
+  // Por defecto, solo se abre la sección donde estamos parados (tanto en desktop como en mobile)
   const [openSections, setOpenSections] = useState<Record<string, boolean>>(() => {
     const initial: Record<string, boolean> = {};
     sections.forEach((sec) => {
@@ -37,22 +37,15 @@ export function SidebarMenu({
     return initial;
   });
 
-  // Asegurar que la sección que contiene la ruta actual siempre se expanda automáticamente
+  // Asegurar que al cambiar de ruta, se actualice el estado acorde a defaultCollapsed
   useEffect(() => {
-    sections.forEach((sec) => {
-      const hasActive = sec.items.some((item) => item.href === currentPath);
-      if (hasActive) {
-        setOpenSections((prev) => {
-          if (defaultCollapsed) {
-            const nextState: Record<string, boolean> = {};
-            sections.forEach((s) => {
-              nextState[s.title] = s.title === sec.title;
-            });
-            return nextState;
-          }
-          return { ...prev, [sec.title]: true };
-        });
-      }
+    setOpenSections(() => {
+      const nextState: Record<string, boolean> = {};
+      sections.forEach((sec) => {
+        const hasActive = sec.items.some((item) => item.href === currentPath);
+        nextState[sec.title] = defaultCollapsed ? hasActive : true;
+      });
+      return nextState;
     });
   }, [currentPath, sections, defaultCollapsed]);
 
