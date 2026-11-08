@@ -131,44 +131,56 @@ export function OverviewDocs() {
           en TypeScript y ergonomía táctil nativa.
         </p>
 
-        {/* Barra de Comando NPM & CTAs Principales */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
-          <button
-            onClick={handleCopyInstall}
-            className="group flex items-center justify-between gap-4 px-4 py-3.5 rounded-2xl bg-[#120524] hover:bg-[#241142]/80 border border-[#9EA2E2]/25 hover:border-[#FBBF24]/50 transition-all font-mono text-xs sm:text-sm text-[#FFF6DF]/90 cursor-pointer shadow-lg"
-          >
-            <span className="flex items-center gap-2.5 truncate">
-              <Terminal className="w-4 h-4 text-[#FBBF24] shrink-0" />
-              <span className="text-[#9EA2E2]/50 select-none">$</span>
-              <span className="truncate">npm i fireseed-ui framer-motion</span>
-            </span>
-            <span className="flex items-center gap-1.5 text-xs text-[#9EA2E2]/60 group-hover:text-[#FBBF24] transition-colors shrink-0">
-              {copiedInstall ? (
-                <>
-                  <Check className="w-4 h-4 text-emerald-400" />
-                  <span className="text-emerald-400 font-sans font-medium">Copiado</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-4 h-4" />
-                  <span className="hidden sm:inline font-sans">Copiar</span>
-                </>
-              )}
-            </span>
-          </button>
+        {/* Barra de Comando NPM & Acciones Principales */}
+        <div className="space-y-4 pt-2">
+          {/* Comando NPM en terminal limpia */}
+          <div>
+            <button
+              onClick={handleCopyInstall}
+              className="group inline-flex items-center justify-between gap-6 px-4 py-3 rounded-2xl bg-[#120524] hover:bg-[#241142]/90 border border-[#9EA2E2]/25 hover:border-[#FBBF24]/50 transition-all font-mono text-xs sm:text-sm text-[#FFF6DF]/90 cursor-pointer shadow-lg w-full sm:w-auto min-w-[300px] max-w-md"
+            >
+              <span className="flex items-center gap-2.5 truncate">
+                <Terminal className="w-4 h-4 text-[#FBBF24] shrink-0" />
+                <span className="text-[#9EA2E2]/50 select-none">$</span>
+                <span className="truncate">npm i fireseed-ui framer-motion</span>
+              </span>
+              <span className="flex items-center gap-1.5 text-xs text-[#9EA2E2]/60 group-hover:text-[#FBBF24] transition-colors shrink-0">
+                {copiedInstall ? (
+                  <>
+                    <Check className="w-4 h-4 text-emerald-400" />
+                    <span className="text-emerald-400 font-sans font-medium">Copiado</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4" />
+                    <span className="hidden sm:inline font-sans">Copiar</span>
+                  </>
+                )}
+              </span>
+            </button>
+          </div>
 
-          <Link to="/docs/button" className="w-full sm:w-auto">
-            <Button variant="glow" size="lg" className="w-full sm:w-auto gap-2 font-bold">
-              Explorar Componentes
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-          </Link>
+          {/* Botones de Navegación con tipografía limpia en 1 sola línea */}
+          <div className="flex flex-wrap items-center gap-3">
+            <Link to="/docs/button" className="w-full sm:w-auto">
+              <Button variant="glow" size="lg" className="w-full sm:w-auto gap-2 font-bold whitespace-nowrap px-6">
+                Explorar Componentes
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
 
-          <Link to="/docs/installation" className="w-full sm:w-auto">
-            <Button variant="inset" size="lg" className="w-full sm:w-auto">
-              Guía de Instalación
-            </Button>
-          </Link>
+            <Link to="/docs/usage" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2 font-semibold whitespace-nowrap px-5">
+                Modo de Uso & Playground
+              </Button>
+            </Link>
+
+            <Link to="/docs/installation" className="w-full sm:w-auto">
+              <Button variant="inset" size="lg" className="w-full sm:w-auto font-semibold whitespace-nowrap px-5">
+                Guía de Instalación
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
 

@@ -8,7 +8,7 @@ Una librería de componentes interactivos, modulares y de alto rendimiento, dise
 
 - **Framework:** React 19 + TypeScript (Strict mode, sin `any`).
 - **Estilos:** Tailwind CSS v4 (Design Tokens semánticos y CSS variables dinámicas).
-- **Animaciones:** Framer Motion (Física de resortes elásticos Apple de 200ms a 400ms).
+- **Animaciones:** Framer Motion (Física de resortes elásticos con amortiguación natural de 200ms a 400ms).
 - **Iconografía:** Lucide React.
 - **Utilidades:** `clsx` + `tailwind-merge` (`cn`), `haptics` (vibración táctil segura para móviles).
 
@@ -21,9 +21,9 @@ Una librería de componentes interactivos, modulares y de alto rendimiento, dise
 - **`Badge`:** Etiquetas de estado (`solid`, `secondary`, `outline`, `success`, `warning`, `error`, `glow`) con indicador de pulso luminoso (`dot`).
 - **`InputField`:** Campo de texto con etiquetas accesibles, iconos izquierdo/derecho y mensajes de error con `aria-invalid`.
 - **`Textarea`:** Área de texto multilínea autoajustable.
-- **`SelectField`:** Selector nativo estilizado que preserva la accesibilidad y los selectores nativos de iOS y Android.
+- **`SelectField`:** Selector nativo estilizado que preserva la accesibilidad y los selectores nativos de dispositivos táctiles.
 - **`Skeleton`:** Efecto de carga shimmer para evitar saltos de pantalla (CLS).
-- **`Switch`:** Interruptor tipo iOS con transición física de resorte y feedback háptico.
+- **`Switch`:** Interruptor ergonómico con transición física de resorte y feedback háptico.
 - **`InlineCode` & `StepBadge`:** Decoradores de código y pasos numerados.
 
 ### 🔸 Moléculas

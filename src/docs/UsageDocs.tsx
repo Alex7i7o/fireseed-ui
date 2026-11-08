@@ -1,5 +1,5 @@
 /* Developed by FireSeed - Fueling Innovation */
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Button } from '../components/Button';
 import { Badge } from '../components/Badge';
 import { Switch } from '../components/Switch';
@@ -7,7 +7,76 @@ import { Card, CardHeader, CardTitle, CardContent } from '../components/Card';
 import { Callout } from '../components/Callout';
 import { CodeBlock } from '../components/CodeBlock/CodeBlock';
 import { Inlinecode } from '../components/InlineCode/InlineCode';
-import { Sparkles, Palette, Sliders, Paintbrush } from 'lucide-react';
+import {
+  Sparkles,
+  Palette,
+  Sliders,
+  Paintbrush,
+  ArrowRight,
+  Send,
+  Zap
+} from 'lucide-react';
+import { haptics } from '../utils/haptics';
+
+interface ColorPreset {
+  id: string;
+  name: string;
+  colorSwatch: string;
+  classes: string;
+  badge: string;
+}
+
+const COLOR_PRESETS: ColorPreset[] = [
+  {
+    id: 'solar',
+    name: 'Solar Gold',
+    colorSwatch: '#FBBF24',
+    classes: 'bg-[#FBBF24] hover:bg-[#f59e0b] text-[#120524] font-bold',
+    badge: 'Firma FireSeed'
+  },
+  {
+    id: 'emerald',
+    name: 'Esmeralda Neón',
+    colorSwatch: '#10B981',
+    classes: 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/25',
+    badge: 'Éxito / Confirmación'
+  },
+  {
+    id: 'sky',
+    name: 'Celeste Sky',
+    colorSwatch: '#0EA5E9',
+    classes: 'bg-sky-500 hover:bg-sky-600 text-slate-950 font-bold',
+    badge: 'Acción Rápida'
+  },
+  {
+    id: 'purple',
+    name: 'Púrpura Imperial',
+    colorSwatch: '#A855F7',
+    classes: 'bg-purple-600 hover:bg-purple-700 text-purple-100 shadow-lg shadow-purple-500/25',
+    badge: 'Gama Alta'
+  },
+  {
+    id: 'rose',
+    name: 'Rubí Carmesí',
+    colorSwatch: '#F43F5E',
+    classes: 'bg-rose-500 hover:bg-rose-600 text-white shadow-lg shadow-rose-500/25',
+    badge: 'Alerta / Destructivo'
+  },
+  {
+    id: 'gradient',
+    name: 'Degradado Fuego',
+    colorSwatch: 'linear-gradient(135deg, #FBBF24, #E67E22)',
+    classes: 'bg-gradient-to-r from-[#FBBF24] via-[#f59e0b] to-[#E67E22] text-[#120524] font-extrabold',
+    badge: 'Conversión Máxima'
+  },
+  {
+    id: 'border-tech',
+    name: 'Borde Neón Translúcido',
+    colorSwatch: '#9EA2E2',
+    classes: 'border-2 border-[#9EA2E2]/40 bg-[#9EA2E2]/10 hover:bg-[#9EA2E2]/20 text-[#FFF6DF]',
+    badge: 'Secundario'
+  }
+];
 
 const codigoTailwindOverride = `import { Button, Card, Badge } from 'fireseed-ui';
 
@@ -67,8 +136,7 @@ const codigoGlobalTheme = `/* src/theme.css — Tailwind CSS v4 */
 @import "tailwindcss";
 
 @theme {
-  /* ¿Tu marca usa Azul y Púrpura en lugar de Violeta y Dorado?
-     Simplemente cambia estas variables y TODA la librería adoptará tus colores: */
+  /* Si tu marca usa Azul en lugar de Dorado, cambiá esta variable: */
   --color-primary-main: #0B1120;  /* Fondo oscuro azulado */
   --color-accent-main: #3B82F6;   /* Azul Eléctrico para botones y acentos */
   --color-royal-aubergine: #1E293B;
@@ -79,8 +147,54 @@ const codigoGlobalTheme = `/* src/theme.css — Tailwind CSS v4 */
 export function UsageDocs() {
   const [demoSwitch, setDemoSwitch] = useState(true);
 
+  // Estados del Playground Interactivo de Botones
+  const [btnText, setBtnText] = useState('Mi Botón Personalizado');
+  const [selectedColor, setSelectedColor] = useState<ColorPreset>(COLOR_PRESETS[0]);
+  const [selectedSize, setSelectedSize] = useState<'sm' | 'md' | 'lg'>('md');
+  const [selectedRadius, setSelectedRadius] = useState<'rounded-xl' | 'rounded-full' | 'rounded-2xl' | 'rounded-md'>('rounded-xl');
+  const [hasIcon, setHasIcon] = useState<'none' | 'arrow' | 'sparkles' | 'send'>('arrow');
+  const [applyGlow, setApplyGlow] = useState(false);
+
+  // Generador de código JSX dinámico en tiempo real
+  const generatedCode = useMemo(() => {
+    const classes = [selectedColor.classes, selectedRadius, applyGlow ? 'glow-bottom' : '']
+      .filter(Boolean)
+      .join(' ');
+
+    const iconImport =
+      hasIcon === 'arrow'
+        ? `\nimport { ArrowRight } from 'lucide-react';`
+        : hasIcon === 'sparkles'
+        ? `\nimport { Sparkles } from 'lucide-react';`
+        : hasIcon === 'send'
+        ? `\nimport { Send } from 'lucide-react';`
+        : '';
+
+    const iconProp =
+      hasIcon === 'arrow'
+        ? `\n  rightIcon={<ArrowRight className="w-4 h-4" />}`
+        : hasIcon === 'sparkles'
+        ? `\n  leftIcon={<Sparkles className="w-4 h-4" />}`
+        : hasIcon === 'send'
+        ? `\n  rightIcon={<Send className="w-4 h-4" />}`
+        : '';
+
+    return `import { Button } from 'fireseed-ui';${iconImport}
+
+export function MiBoton() {
   return (
-    <div className="max-w-4xl space-y-14 pb-20 text-[#FFF6DF]">
+    <Button
+      size="${selectedSize}"${iconProp}
+      className="${classes}"
+    >
+      ${btnText}
+    </Button>
+  );
+}`;
+  }, [btnText, selectedColor, selectedSize, selectedRadius, hasIcon, applyGlow]);
+
+  return (
+    <div className="max-w-4xl space-y-16 pb-20 text-[#FFF6DF]">
       
       {/* 1. CABECERA */}
       <div className="space-y-4">
@@ -130,6 +244,204 @@ export function UsageDocs() {
           <p className="text-xs text-[#FFF6DF]/70 leading-relaxed">
             Cambiá los colores en tu archivo <Inlinecode variant="solid">theme.css</Inlinecode> para transformar toda tu aplicación de una sola vez.
           </p>
+        </div>
+      </div>
+
+      {/* =========================================================================
+          🔥 NUEVO PLAYGROUND INTERACTIVO: DISEÑÁ TU BOTÓN EN VIVO
+         ========================================================================= */}
+      <div className="space-y-6 pt-4">
+        <div className="space-y-1">
+          <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#FBBF24] uppercase tracking-wider">
+            <Zap className="w-3.5 h-3.5" /> Laboratorio Interactivo
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#FFF6DF] font-['PosteramaCustom',sans-serif]">
+            Playground: Diseña tu Botón en Tiempo Real
+          </h2>
+          <p className="text-sm text-[#9EA2E2]/80 max-w-2xl">
+            Elegí colores, tamaños, esquinas redondeadas y efectos para ver cómo reacciona el componente y copiá el código JSX generado al instante:
+          </p>
+        </div>
+
+        {/* Contenedor del Playground */}
+        <div className="rounded-3xl border border-[#9EA2E2]/25 bg-[#090213] overflow-hidden shadow-2xl">
+          {/* Canvas de Previsualización */}
+          <div className="preview-checkers min-h-[180px] sm:min-h-[220px] p-8 flex flex-col items-center justify-center gap-3 border-b border-[#9EA2E2]/15 relative">
+            <span className="text-[11px] font-mono text-[#9EA2E2]/60 absolute top-3 left-4 select-none">
+              Vista Previa en Vivo (Haz click para sentir la física de resorte)
+            </span>
+
+            <Button
+              size={selectedSize}
+              className={`${selectedColor.classes} ${selectedRadius} ${applyGlow ? 'glow-bottom' : ''}`}
+              leftIcon={hasIcon === 'sparkles' ? <Sparkles className="w-4 h-4" /> : undefined}
+              rightIcon={
+                hasIcon === 'arrow' ? (
+                  <ArrowRight className="w-4 h-4" />
+                ) : hasIcon === 'send' ? (
+                  <Send className="w-4 h-4" />
+                ) : undefined
+              }
+              onClick={() => haptics.success()}
+            >
+              {btnText}
+            </Button>
+
+            <span className="text-[10px] font-mono text-[#9EA2E2]/50 pt-2">
+              Color: {selectedColor.name} • Tamaño: {selectedSize.toUpperCase()} • Esquinas: {selectedRadius}
+            </span>
+          </div>
+
+          {/* Panel de Controles */}
+          <div className="p-6 sm:p-8 bg-[#120524]/90 space-y-6">
+            
+            {/* Control 1: Texto del botón */}
+            <div className="space-y-2">
+              <label className="text-xs font-mono font-bold uppercase text-[#FFF6DF] block">
+                Texto del Botón
+              </label>
+              <input
+                type="text"
+                value={btnText}
+                onChange={(e) => setBtnText(e.target.value)}
+                placeholder="Escribe el texto..."
+                className="w-full sm:max-w-md px-4 py-2.5 rounded-xl bg-[#241142]/60 border border-[#9EA2E2]/20 text-[#FFF6DF] text-sm focus:outline-none focus:border-[#FBBF24] transition-colors"
+              />
+            </div>
+
+            {/* Control 2: Paletas de Color Preconfiguradas */}
+            <div className="space-y-2.5">
+              <label className="text-xs font-mono font-bold uppercase text-[#FFF6DF] block">
+                1. Paleta de Color (Tailwind Preset)
+              </label>
+              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
+                {COLOR_PRESETS.map((preset) => (
+                  <button
+                    key={preset.id}
+                    onClick={() => {
+                      haptics.light();
+                      setSelectedColor(preset);
+                    }}
+                    className={`flex flex-col items-center gap-1.5 p-2.5 rounded-xl border text-center transition-all cursor-pointer ${
+                      selectedColor.id === preset.id
+                        ? 'border-[#FBBF24] bg-[#241142] shadow-md ring-1 ring-[#FBBF24]/50'
+                        : 'border-[#9EA2E2]/15 bg-[#120524] hover:border-[#9EA2E2]/40'
+                    }`}
+                  >
+                    <span
+                      className="w-6 h-6 rounded-full border border-white/20 shrink-0 shadow-sm"
+                      style={{ background: preset.colorSwatch }}
+                    />
+                    <span className="text-[11px] font-semibold text-[#FFF6DF] leading-tight truncate w-full">
+                      {preset.name}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Fila de controles: Tamaño, Esquinas e Ícono */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-1">
+              {/* Tamaño */}
+              <div className="space-y-2">
+                <label className="text-xs font-mono font-bold uppercase text-[#FFF6DF] block">
+                  2. Tamaño (`size`)
+                </label>
+                <div className="flex gap-1.5 bg-[#241142]/60 p-1 rounded-xl border border-[#9EA2E2]/20">
+                  {(['sm', 'md', 'lg'] as const).map((s) => (
+                    <button
+                      key={s}
+                      onClick={() => {
+                        haptics.light();
+                        setSelectedSize(s);
+                      }}
+                      className={`flex-1 py-1.5 text-xs font-mono font-bold rounded-lg transition-colors cursor-pointer ${
+                        selectedSize === s
+                          ? 'bg-[#FBBF24] text-[#120524]'
+                          : 'text-[#9EA2E2] hover:text-[#FFF6DF]'
+                      }`}
+                    >
+                      {s.toUpperCase()}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Esquinas Redondeadas */}
+              <div className="space-y-2">
+                <label className="text-xs font-mono font-bold uppercase text-[#FFF6DF] block">
+                  3. Borde Redondeado
+                </label>
+                <div className="grid grid-cols-2 gap-1.5">
+                  {[
+                    { id: 'rounded-xl', label: '12px (xl)' },
+                    { id: 'rounded-2xl', label: '16px (2xl)' },
+                    { id: 'rounded-full', label: 'Píldora' },
+                    { id: 'rounded-md', label: '8px (md)' }
+                  ].map((r) => (
+                    <button
+                      key={r.id}
+                      onClick={() => {
+                        haptics.light();
+                        setSelectedRadius(r.id as any);
+                      }}
+                      className={`py-1.5 px-2 text-[11px] font-mono font-semibold rounded-lg border transition-colors cursor-pointer ${
+                        selectedRadius === r.id
+                          ? 'border-[#FBBF24] bg-[#FBBF24]/15 text-[#FBBF24]'
+                          : 'border-[#9EA2E2]/15 bg-[#241142]/40 text-[#9EA2E2] hover:text-[#FFF6DF]'
+                      }`}
+                    >
+                      {r.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Ícono & Glow */}
+              <div className="space-y-2">
+                <label className="text-xs font-mono font-bold uppercase text-[#FFF6DF] block">
+                  4. Ícono y Efecto Glow
+                </label>
+                <div className="flex gap-2">
+                  <select
+                    value={hasIcon}
+                    onChange={(e) => setHasIcon(e.target.value as any)}
+                    className="flex-1 px-3 py-1.5 rounded-xl bg-[#241142]/60 border border-[#9EA2E2]/20 text-[#FFF6DF] text-xs font-mono focus:outline-none focus:border-[#FBBF24]"
+                  >
+                    <option value="none">Sin Ícono</option>
+                    <option value="arrow">Flecha Derecha</option>
+                    <option value="sparkles">Destellos (Sparkles)</option>
+                    <option value="send">Enviar (Send)</option>
+                  </select>
+
+                  <button
+                    onClick={() => {
+                      haptics.light();
+                      setApplyGlow((prev) => !prev);
+                    }}
+                    className={`px-3 py-1.5 rounded-xl border font-mono text-xs font-bold transition-all cursor-pointer ${
+                      applyGlow
+                        ? 'border-[#FBBF24] bg-[#FBBF24] text-[#120524]'
+                        : 'border-[#9EA2E2]/20 bg-[#241142]/40 text-[#9EA2E2] hover:text-[#FFF6DF]'
+                    }`}
+                  >
+                    GLOW
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Snippet Generado Automáticamente */}
+          <div className="p-0 border-t border-[#9EA2E2]/20">
+            <CodeBlock
+              code={generatedCode}
+              language="tsx"
+              filename="MiBotonGenerado.tsx"
+              className="border-0 rounded-none shadow-none"
+            />
+          </div>
         </div>
       </div>
 

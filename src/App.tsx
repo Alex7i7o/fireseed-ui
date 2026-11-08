@@ -35,6 +35,7 @@ import { CardDocs } from './docs/CardDocs';
 import { CalloutDocs } from './docs/CalloutDocs';
 import { SidebarDocs } from './docs/SidebarDocs';
 import { AnimateInDocs } from './docs/AnimateInDocs';
+import { CodeBlockDocs } from './docs/CodeBlockDocs';
 
 function App() {
   return (
@@ -82,6 +83,7 @@ function App() {
                 <Route path="callout" element={<CalloutDocs />} />
                 <Route path="sidebar" element={<SidebarDocs />} />
                 <Route path="animate-in" element={<AnimateInDocs />} />
+                <Route path="code-block" element={<CodeBlockDocs />} />
               </Routes>
             </DocsLayout>
           }

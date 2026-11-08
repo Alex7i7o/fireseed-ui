@@ -54,7 +54,8 @@ export const docsMenu: MenuSection[] = [
       { label: 'Card Modular', href: '/docs/card' },
       { label: 'Callout', href: '/docs/callout' },
       { label: 'Sidebar', href: '/docs/sidebar' },
-      { label: 'AnimateIn', href: '/docs/animate-in' }
+      { label: 'AnimateIn', href: '/docs/animate-in' },
+      { label: 'CodeBlock', href: '/docs/code-block' }
     ]
   }
 ];

@@ -19,7 +19,7 @@ export function Badge({
   ...props
 }: BadgeProps) {
   const baseStyles =
-    'inline-flex items-center gap-1.5 font-medium rounded-full transition-colors select-none';
+    'inline-flex items-center gap-1.5 font-medium rounded-full transition-colors select-none whitespace-nowrap shrink-0';
 
   const variants: Record<string, string> = {
     solid: 'bg-accent-main/20 text-accent-main border border-accent-main/30',

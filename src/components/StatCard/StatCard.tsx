@@ -43,17 +43,21 @@ export function StatCard({
       </div>
 
       {change !== undefined && (
-        <div className="flex items-center gap-2 pt-1 text-xs">
-          <span
-            className={cn(
-              'inline-flex items-center gap-1 px-2 py-0.5 rounded-full font-semibold border',
-              trendColors[trend]
-            )}
-          >
-            <TrendIcon className="w-3 h-3 stroke-[2.5]" />
-            <span>{change}</span>
-          </span>
-          <span className="text-white/40">{changePeriod}</span>
+        <div className="space-y-1.5 pt-1 text-xs">
+          <div className="flex items-center gap-1.5">
+            <span
+              className={cn(
+                'inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full font-semibold border whitespace-nowrap shrink-0 text-[11px]',
+                trendColors[trend]
+              )}
+            >
+              <TrendIcon className="w-3 h-3 stroke-[2.5]" />
+              <span>{change}</span>
+            </span>
+          </div>
+          {changePeriod && (
+            <p className="text-white/50 text-xs leading-snug line-clamp-2">{changePeriod}</p>
+          )}
         </div>
       )}
     </Card>
