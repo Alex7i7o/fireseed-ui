@@ -45,7 +45,8 @@ export const docsMenu: MenuSection[] = [
       { label: 'StarRating', href: '/docs/star-rating' },
       { label: 'Accordion', href: '/docs/accordion' },
       { label: 'StatCard (Métricas)', href: '/docs/stat-card' },
-      { label: 'EmptyState', href: '/docs/empty-state' }
+      { label: 'EmptyState', href: '/docs/empty-state' },
+      { label: 'Calendar (Calendario)', href: '/docs/calendar' }
     ]
   },
   {

@@ -29,6 +29,7 @@ import { StarRatingDocs } from './docs/StarRatingDocs';
 import { AccordionDocs } from './docs/AccordionDocs';
 import { StatCardDocs } from './docs/StatCardDocs';
 import { EmptyStateDocs } from './docs/EmptyStateDocs';
+import { CalendarDocs } from './docs/CalendarDocs';
 
 // Organismos
 import { CardDocs } from './docs/CardDocs';
@@ -77,6 +78,7 @@ function App() {
                 <Route path="accordion" element={<AccordionDocs />} />
                 <Route path="stat-card" element={<StatCardDocs />} />
                 <Route path="empty-state" element={<EmptyStateDocs />} />
+                <Route path="calendar" element={<CalendarDocs />} />
 
                 {/* Organismos */}
                 <Route path="card" element={<CardDocs />} />

@@ -37,6 +37,7 @@ Una librería de componentes interactivos, modulares y de alto rendimiento, dise
 - **`Accordion`:** Secciones desplegables animadas con cálculo elástico de altura.
 - **`StatCard`:** Tarjeta de métricas ejecutivas con indicadores de variación porcentual.
 - **`EmptyState`:** Estado visual guiado para listas o grillas vacías.
+- **`Calendar`:** Cuadrícula mensual interactiva con modo individual, rango de fechas, indicadores de eventos y feedback háptico.
 
 ### 🔷 Organismos
 - **`Card`:** Conjunto modular (`Card`, `CardHeader`, `CardTitle`, `CardDescription`, `CardContent`, `CardFooter`).

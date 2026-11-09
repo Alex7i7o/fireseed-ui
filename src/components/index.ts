@@ -21,6 +21,7 @@ export * from './Tabs';
 export * from './Accordion';
 export * from './StatCard';
 export * from './EmptyState';
+export * from './Calendar';
 
 // Organismos & Decoradores
 export * from './Card';
