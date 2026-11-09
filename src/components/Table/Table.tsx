@@ -10,12 +10,12 @@ export function Table({ className, containerClassName, ...props }: TableProps) {
   return (
     <div
       className={cn(
-        'w-full overflow-x-auto rounded-2xl border border-[#9EA2E2]/20 bg-[#120524]/90 shadow-2xl backdrop-blur-xl',
+        'w-full overflow-x-auto rounded-2xl border border-white/10 bg-primary-main/90 shadow-2xl backdrop-blur-xl',
         containerClassName
       )}
     >
       <table
-        className={cn('w-full text-left text-xs text-[#FFF6DF] caption-bottom', className)}
+        className={cn('w-full text-left text-xs text-cream-silk caption-bottom', className)}
         {...props}
       />
     </div>
@@ -29,7 +29,7 @@ export function TableHeader({
   return (
     <thead
       className={cn(
-        'border-b border-[#9EA2E2]/20 bg-[#180a2b] font-mono text-[11px] uppercase tracking-wider text-[#FBBF24]',
+        'border-b border-white/10 bg-primary-surface font-mono text-[11px] uppercase tracking-wider text-accent-main',
         className
       )}
       {...props}
@@ -43,7 +43,7 @@ export function TableBody({
 }: React.HTMLAttributes<HTMLTableSectionElement>) {
   return (
     <tbody
-      className={cn('divide-y divide-[#9EA2E2]/10 [&_tr:last-child]:border-0', className)}
+      className={cn('divide-y divide-white/5 [&_tr:last-child]:border-0', className)}
       {...props}
     />
   );
@@ -56,7 +56,7 @@ export function TableFooter({
   return (
     <tfoot
       className={cn(
-        'border-t border-[#9EA2E2]/20 bg-[#140628] font-medium text-white',
+        'border-t border-white/10 bg-primary-surface font-medium text-white',
         className
       )}
       {...props}
@@ -71,7 +71,7 @@ export function TableRow({
   return (
     <tr
       className={cn(
-        'transition-colors hover:bg-white/[0.04] data-[state=selected]:bg-[#FBBF24]/10',
+        'transition-colors hover:bg-white/[0.04] data-[state=selected]:bg-accent-main/10',
         className
       )}
       {...props}
@@ -86,7 +86,7 @@ export function TableHead({
   return (
     <th
       className={cn(
-        'h-11 px-4 text-left align-middle font-semibold text-[#FBBF24] [&:has([role=checkbox])]:pr-0',
+        'h-11 px-4 text-left align-middle font-semibold text-accent-main [&:has([role=checkbox])]:pr-0',
         className
       )}
       {...props}
@@ -112,7 +112,7 @@ export function TableCaption({
 }: React.HTMLAttributes<HTMLTableCaptionElement>) {
   return (
     <caption
-      className={cn('mt-4 text-xs font-mono text-[#9EA2E2]/60', className)}
+      className={cn('mt-4 text-xs font-mono text-tech-periwinkle/60', className)}
       {...props}
     />
   );

@@ -18,7 +18,7 @@ export interface BreadcrumbProps {
 
 export function Breadcrumb({
   items,
-  separator = <ChevronRight className="w-3.5 h-3.5 text-[#9EA2E2]/40" />,
+  separator = <ChevronRight className="w-3.5 h-3.5 text-tech-periwinkle/50" />,
   className
 }: BreadcrumbProps) {
   return (
@@ -34,7 +34,7 @@ export function Breadcrumb({
               {isLast ? (
                 <span
                   aria-current="page"
-                  className="flex items-center gap-1.5 text-[#FBBF24] font-semibold"
+                  className="flex items-center gap-1.5 text-accent-main font-semibold"
                 >
                   {item.icon && <span className="w-3.5 h-3.5 shrink-0">{item.icon}</span>}
                   <span>{item.label}</span>
@@ -48,7 +48,7 @@ export function Breadcrumb({
                       item.onClick();
                     }
                   }}
-                  className="flex items-center gap-1.5 text-[#9EA2E2] hover:text-[#FFF6DF] transition-colors"
+                  className="flex items-center gap-1.5 text-tech-periwinkle hover:text-cream-silk transition-colors"
                 >
                   {item.icon && <span className="w-3.5 h-3.5 shrink-0">{item.icon}</span>}
                   <span>{item.label}</span>
@@ -57,7 +57,7 @@ export function Breadcrumb({
                 <button
                   type="button"
                   onClick={item.onClick}
-                  className="flex items-center gap-1.5 text-[#9EA2E2] hover:text-[#FFF6DF] transition-colors cursor-pointer"
+                  className="flex items-center gap-1.5 text-tech-periwinkle hover:text-cream-silk transition-colors cursor-pointer"
                 >
                   {item.icon && <span className="w-3.5 h-3.5 shrink-0">{item.icon}</span>}
                   <span>{item.label}</span>

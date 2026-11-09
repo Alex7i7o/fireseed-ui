@@ -23,8 +23,8 @@ export function Separator({
         className={cn(
           'inline-block w-px self-stretch min-h-[1em]',
           gradient
-            ? 'bg-gradient-to-b from-transparent via-[#9EA2E2]/25 to-transparent'
-            : 'bg-[#9EA2E2]/20',
+            ? 'bg-gradient-to-b from-transparent via-white/15 to-transparent'
+            : 'bg-white/10',
           className
         )}
         {...props}
@@ -44,19 +44,19 @@ export function Separator({
           className={cn(
             'flex-1 h-px',
             gradient
-              ? 'bg-gradient-to-r from-transparent to-[#9EA2E2]/30'
-              : 'bg-[#9EA2E2]/20'
+              ? 'bg-gradient-to-r from-transparent to-white/15'
+              : 'bg-white/10'
           )}
         />
-        <span className="px-3 text-xs font-mono font-medium text-[#9EA2E2]/70 uppercase tracking-wider">
+        <span className="px-3 text-xs font-mono font-medium text-tech-periwinkle/80 uppercase tracking-wider">
           {label}
         </span>
         <div
           className={cn(
             'flex-1 h-px',
             gradient
-              ? 'bg-gradient-to-l from-transparent to-[#9EA2E2]/30'
-              : 'bg-[#9EA2E2]/20'
+              ? 'bg-gradient-to-l from-transparent to-white/15'
+              : 'bg-white/10'
           )}
         />
       </div>
@@ -70,8 +70,8 @@ export function Separator({
       className={cn(
         'w-full h-px my-4',
         gradient
-          ? 'bg-gradient-to-r from-transparent via-[#9EA2E2]/25 to-transparent'
-          : 'bg-[#9EA2E2]/20',
+          ? 'bg-gradient-to-r from-transparent via-white/15 to-transparent'
+          : 'bg-white/10',
         className
       )}
       {...props}

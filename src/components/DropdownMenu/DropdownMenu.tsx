@@ -80,14 +80,14 @@ export function DropdownMenu({
             transition={{ duration: 0.15, ease: 'easeOut' }}
             className={cn(
               'absolute top-full mt-1.5 z-50 min-w-[200px] p-1.5 rounded-2xl shadow-2xl',
-              'bg-[#120524]/95 border border-[#9EA2E2]/20 backdrop-blur-xl text-[#FFF6DF]',
+              'bg-primary-main/95 border border-white/15 backdrop-blur-xl text-cream-silk',
               align === 'right' ? 'right-0' : 'left-0'
             )}
           >
             {items.map((item, idx) => (
               <React.Fragment key={item.id || idx}>
                 {item.divider && (
-                  <div className="h-px my-1 bg-[#9EA2E2]/15 mx-1" />
+                  <div className="h-px my-1 bg-white/10 mx-1" />
                 )}
                 <button
                   type="button"
@@ -97,7 +97,7 @@ export function DropdownMenu({
                     'w-full flex items-center justify-between gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-colors cursor-pointer text-left',
                     item.destructive
                       ? 'text-rose-400 hover:bg-rose-500/15 hover:text-rose-300'
-                      : 'text-[#FFF6DF] hover:bg-white/10 hover:text-white',
+                      : 'text-cream-silk hover:bg-white/10 hover:text-white',
                     item.disabled && 'opacity-35 cursor-not-allowed pointer-events-none'
                   )}
                 >
@@ -107,7 +107,7 @@ export function DropdownMenu({
                   </div>
 
                   {item.shortcut && (
-                    <kbd className="font-mono text-[10px] bg-[#241142] text-[#9EA2E2] px-1.5 py-0.5 rounded border border-[#9EA2E2]/20">
+                    <kbd className="font-mono text-[10px] bg-primary-surface text-tech-periwinkle px-1.5 py-0.5 rounded border border-white/15">
                       {item.shortcut}
                     </kbd>
                   )}

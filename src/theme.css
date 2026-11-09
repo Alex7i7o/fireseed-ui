@@ -1,7 +1,6 @@
 /* Developed by FireSeed - Fueling Innovation */
 
-@theme {
-  /* 🌟 Los 6 Colores Oficiales del Manual de Marca Master FireSeed */
+:root {
   --color-primary-main: #120524;       /* 1. Midnight Violet (Fondo Principal) */
   --color-primary-surface: #241142;    /* 2. Royal Aubergine (Superficies secundarias, luz interior) */
   --color-primary-hover: #31165a;
@@ -21,6 +20,28 @@
   --color-foreground: #FFF6DF;
   --color-muted: #9EA2E2;
   --color-border: rgba(158, 162, 226, 0.22);
+}
+
+@theme {
+  /* 🌟 Variables reactivas vinculadas a tokens semánticos */
+  --color-primary-main: var(--color-primary-main, #120524);
+  --color-primary-surface: var(--color-primary-surface, #241142);
+  --color-primary-hover: var(--color-primary-hover, #31165a);
+  --color-primary-light: var(--color-primary-light, #9EA2E2);
+
+  --color-accent-main: var(--color-accent-main, #FBBF24);
+  --color-accent-hover: var(--color-accent-hover, #f59e0b);
+  --color-accent-amber: var(--color-accent-amber, #E67E22);
+  --color-accent-glow: var(--color-accent-glow, rgba(251, 191, 36, 0.35));
+
+  --color-tech-periwinkle: var(--color-tech-periwinkle, #9EA2E2);
+  --color-cream-silk: var(--color-cream-silk, #FFF6DF);
+
+  --color-background: var(--color-background, #0D041A);
+  --color-card: var(--color-card, #120524);
+  --color-foreground: var(--color-foreground, #FFF6DF);
+  --color-muted: var(--color-muted, #9EA2E2);
+  --color-border: var(--color-border, rgba(158, 162, 226, 0.22));
 
   /* Tipografías del Sistema */
   --font-display: 'PosteramaCustom', system-ui, sans-serif;
@@ -30,7 +51,7 @@
   /* Sombras y Elevaciones de Lujo */
   --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
   --shadow-glass: 0 10px 40px -10px rgba(0, 0, 0, 0.55);
-  --shadow-glow: 0 0 35px -5px rgba(251, 191, 36, 0.3);
+  --shadow-glow: 0 0 35px -5px var(--color-accent-glow, rgba(251, 191, 36, 0.3));
   --shadow-card-elevated: 0 12px 28px rgba(0, 0, 0, 0.45);
 }
 
@@ -82,26 +103,90 @@
 
 /* Sombras y Resplandores (Glow Effects) */
 @utility shadow-glow {
-  @apply relative z-0 before:absolute before:-inset-1 before:bg-inherit before:blur-xl before:opacity-50 before:-z-10 before:rounded-[inherit] transition-all duration-300 ease-in-out;
+  position: relative;
+  z-index: 0;
+  transition: all 300ms ease-in-out;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: inherit;
+    filter: blur(24px);
+    opacity: 0.5;
+    z-index: -10;
+    border-radius: inherit;
+  }
 }
 
 @utility glow-xl {
-  @apply relative z-0 before:absolute before:-inset-1 before:bg-inherit before:blur-xl before:opacity-40 before:-z-10 before:rounded-[inherit] transition-all duration-300;
+  position: relative;
+  z-index: 0;
+  transition: all 300ms ease;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: inherit;
+    filter: blur(24px);
+    opacity: 0.4;
+    z-index: -10;
+    border-radius: inherit;
+  }
 }
 
 @utility glow-md {
-  @apply relative z-0 before:absolute before:inset-0 before:bg-inherit before:blur-md before:opacity-30 before:-z-10 before:rounded-[inherit] transition-all duration-300;
+  position: relative;
+  z-index: 0;
+  transition: all 300ms ease;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    filter: blur(12px);
+    opacity: 0.3;
+    z-index: -10;
+    border-radius: inherit;
+  }
 }
 
 @utility glow-bottom {
-  @apply relative z-0 before:absolute before:top-2 before:bottom-[-8px] before:left-2 before:right-2 before:bg-inherit before:blur-lg before:opacity-45 before:-z-10 before:rounded-[inherit] transition-all duration-300;
+  position: relative;
+  z-index: 0;
+  transition: all 300ms ease;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    bottom: -8px;
+    left: 8px;
+    right: 8px;
+    background: inherit;
+    filter: blur(16px);
+    opacity: 0.45;
+    z-index: -10;
+    border-radius: inherit;
+  }
 }
 
 /* Glassmorphism Técnico Periwinkle */
 @utility glass-panel {
-  @apply bg-[#120524]/80 backdrop-blur-xl border border-[#9EA2E2]/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)];
+  background-color: var(--color-primary-main, #120524);
+  opacity: 0.95;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
 @utility glass-card {
-  @apply bg-[#241142]/40 hover:bg-[#241142]/60 backdrop-blur-lg border border-[#9EA2E2]/15 hover:border-[#FBBF24]/40 transition-all duration-200;
+  background-color: var(--color-primary-surface, #241142);
+  opacity: 0.85;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 200ms ease;
+  &:hover {
+    border-color: var(--color-accent-main, #FBBF24);
+  }
 }

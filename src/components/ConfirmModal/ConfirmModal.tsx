@@ -40,21 +40,23 @@ export function ConfirmModal({
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={title}>
-      <p className="text-white/70 mb-6 text-sm leading-relaxed whitespace-pre-wrap">{message}</p>
-      {children}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
-        <Button variant="outline" className="w-full order-2 sm:order-1" onClick={onClose}>
-          {cancelText}
-        </Button>
-        <FeedbackButton
-          variant={isDestructive ? 'destructive' : 'solid'}
-          className="w-full order-1 sm:order-2"
-          initialText={confirmText}
-          onClick={async () => {
-            await onConfirm();
-            onClose();
-          }}
-        />
+      <div className="space-y-5">
+        <p className="text-white/80 text-sm leading-relaxed whitespace-pre-wrap">{message}</p>
+        {children}
+        <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-3 pt-3 border-t border-white/10">
+          <Button variant="outline" className="w-full sm:w-auto min-h-[44px]" onClick={onClose}>
+            {cancelText}
+          </Button>
+          <FeedbackButton
+            variant={isDestructive ? 'destructive' : 'solid'}
+            className="w-full sm:w-auto min-h-[44px]"
+            initialText={confirmText}
+            onClick={async () => {
+              await onConfirm();
+              onClose();
+            }}
+          />
+        </div>
       </div>
     </Modal>
   );

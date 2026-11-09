@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
+/* Developed by FireSeed - Fueling Innovation */
+import { motion, type HTMLMotionProps } from 'framer-motion';
 import { cn } from '../../utils/cn';
-import {type HTMLMotionProps } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
 
-interface AnimateInProps extends HTMLMotionProps<'div'> {
+export interface AnimateInProps extends HTMLMotionProps<'div'> {
   variant?: 'solid' | 'glow' | 'inset';
   size?: 'sm' | 'md' | 'lg';
+  triggerKey?: unknown;
 }
 
 export function AnimateIn({
@@ -13,45 +13,37 @@ export function AnimateIn({
   className,
   variant = 'solid',
   size = 'md',
+  triggerKey,
   ...props
 }: AnimateInProps) {
+  const baseStyles = 'rounded-2xl transition-all duration-300';
 
-    const baseStyles = 'rounded-lg'
-    
-    const variants = {
-      solid: 'bg-primary-main text-white',
-      glow: ' bg-primary-main brightness-200 border-accent-main/30 text-black glow-md',
-      inset: 'inset-shadow-sm inset-shadow-black/70 bg-primary-main bg-linear-to-t from-white/5 to-white/0 text-white'
-  
-    };
+  const variants = {
+    solid: 'bg-primary-surface text-white border border-white/10 shadow-lg',
+    glow: 'bg-primary-surface border border-accent-main/40 text-white shadow-[0_0_30px_rgba(251,191,36,0.15)]',
+    inset: 'inset-shadow-sm inset-shadow-black/70 bg-primary-main bg-gradient-to-t from-white/5 to-transparent text-white border border-white/10'
+  };
 
-    const sizes = {
-      sm: 'p-4 text-sm',
-      md: 'p-6 text-base',
-      lg: 'p-8 text-lg'
-    };
-
-    const location = useLocation();
+  const sizes = {
+    sm: 'p-4 text-sm',
+    md: 'p-6 text-base',
+    lg: 'p-8 text-lg'
+  };
 
   const defaultAnimation: HTMLMotionProps<'div'> = {
-      initial: { opacity: 0, y: 12, scale: 0.99 },
-      animate: { opacity: 1, y: 0, scale: 1 },
-      transition: { duration: 0.4, ease: [0.215, 0.610, 0.355, 1.000] } 
+    initial: { opacity: 0, y: 14, scale: 0.98 },
+    animate: { opacity: 1, y: 0, scale: 1 },
+    transition: { type: 'spring', stiffness: 350, damping: 25 }
   };
-  
 
   return (
     <motion.div
-      key={location.pathname}
+      key={triggerKey !== undefined ? String(triggerKey) : undefined}
       {...defaultAnimation}
-      
-      // 4. Combinamos los estilos base, la variante, el tamaño y lo que venga de afuera
-      className= {cn(baseStyles, variants[variant], sizes[size], className, )}
+      className={cn(baseStyles, variants[variant], sizes[size], className)}
       {...props}
     >
-        
-    {children} 
-
+      {children}
     </motion.div>
   );
 }

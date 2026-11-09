@@ -67,7 +67,7 @@ export function RadioGroup({
         className={cn('flex flex-col gap-2', className)}
       >
         {label && (
-          <span className="text-xs font-semibold text-[#9EA2E2] uppercase tracking-wider mb-1">
+          <span className="text-xs font-semibold text-tech-periwinkle uppercase tracking-wider mb-1">
             {label}
           </span>
         )}

@@ -69,7 +69,7 @@ export function Avatar({
       <div
         className={cn(
           'relative w-full h-full overflow-hidden flex items-center justify-center font-bold tracking-tight',
-          'bg-gradient-to-br from-[#241142] to-[#120524] text-[#FBBF24] border border-[#9EA2E2]/20 shadow-inner',
+          'bg-gradient-to-br from-primary-surface to-primary-main text-accent-main border border-white/15 shadow-inner',
           shapeClass
         )}
       >
@@ -87,7 +87,7 @@ export function Avatar({
         ) : fallback ? (
           fallback
         ) : (
-          <User size={sizeClasses[size].icon} className="text-[#9EA2E2]/70" />
+          <User size={sizeClasses[size].icon} className="text-tech-periwinkle/70" />
         )}
       </div>
 
@@ -95,7 +95,7 @@ export function Avatar({
       {status && (
         <span
           className={cn(
-            'absolute bottom-0 right-0 rounded-full ring-[#120524]',
+            'absolute bottom-0 right-0 rounded-full ring-primary-main',
             sizeClasses[size].status,
             statusColors[status]
           )}

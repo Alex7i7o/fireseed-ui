@@ -78,7 +78,7 @@ export function Drawer({
             exit={{ x: isRight ? '100%' : '-100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 350 }}
             className={cn(
-              'relative z-50 w-full h-full bg-[#120524] border-white/10 text-white shadow-2xl flex flex-col pointer-events-auto overflow-hidden custom-scrollbar',
+              'relative z-50 w-full h-full bg-primary-main border-white/10 text-white shadow-2xl flex flex-col pointer-events-auto overflow-hidden custom-scrollbar',
               isRight ? 'ml-auto border-l' : 'mr-auto border-r',
               sizeClasses[size],
               className
@@ -86,22 +86,22 @@ export function Drawer({
           >
             {/* Cabecera */}
             {(title || showCloseButton) && (
-              <div className="flex items-center justify-between border-b border-[#9EA2E2]/15 px-6 py-4 shrink-0 bg-[#140628]">
+              <div className="flex items-center justify-between border-b border-white/10 px-6 py-4 shrink-0 bg-primary-surface">
                 <div className="pr-3">
                   {title && (
-                    <h2 className="text-lg font-bold font-['PosteramaCustom',sans-serif] tracking-tight text-[#FFF6DF]">
+                    <h2 className="text-lg font-bold font-['PosteramaCustom',sans-serif] tracking-tight text-cream-silk">
                       {title}
                     </h2>
                   )}
                   {description && (
-                    <p className="text-xs text-[#9EA2E2]/70 mt-0.5">{description}</p>
+                    <p className="text-xs text-tech-periwinkle/80 mt-0.5">{description}</p>
                   )}
                 </div>
                 {showCloseButton && (
                   <button
                     type="button"
                     onClick={onClose}
-                    className="rounded-full p-2 text-[#9EA2E2]/60 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                    className="rounded-full p-2 text-tech-periwinkle/60 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
                     aria-label="Cerrar panel"
                   >
                     <X size={18} />

@@ -43,33 +43,28 @@ export function Slider({
     onChange(nextVal);
   };
 
-  // Posicionamiento geométrico exacto 1:1 con el thumb del input nativo
-  // El centro del thumb recorre desde 10px hasta 100% - 10px
-  const thumbPosition = `calc(10px + ${(percentage / 100)} * (100% - 20px))`;
-  const trackWidth = percentage === 0 ? '0%' : thumbPosition;
-
   return (
     <div className={cn('flex flex-col gap-2 w-full select-none', className)}>
       {(label || showValue) && (
         <div className="flex items-center justify-between text-xs font-semibold">
           {label && (
-            <span className="uppercase tracking-wider text-[#9EA2E2]">{label}</span>
+            <span className="uppercase tracking-wider text-tech-periwinkle font-medium">{label}</span>
           )}
           {showValue && (
-            <span className="font-mono text-[#FBBF24] font-bold bg-[#241142] px-2 py-0.5 rounded-md border border-[#FBBF24]/30">
+            <span className="font-mono text-accent-main font-bold bg-primary-surface px-2.5 py-0.5 rounded-lg border border-accent-main/30 shadow-sm">
               {formatValue(value)}
             </span>
           )}
         </div>
       )}
 
-      <div className="relative flex items-center w-full h-7 group">
+      <div className="relative flex items-center w-full h-8 group">
         {/* Barra de Fondo */}
-        <div className="absolute w-full h-2 rounded-full bg-[#120524] border border-[#9EA2E2]/25 overflow-hidden">
-          {/* Barra Activa Iluminada (Sin retardo de transición para respuesta táctil instantánea a 120 FPS) */}
+        <div className="relative w-full h-2 rounded-full bg-primary-main border border-white/15 overflow-hidden">
+          {/* Barra Activa Iluminada (Sincronizada 1:1 exactamente con el centro del thumb) */}
           <div
-            className="h-full bg-gradient-to-r from-[#8B5CF6] to-[#FBBF24]"
-            style={{ width: trackWidth }}
+            className="h-full bg-gradient-to-r from-accent-main/40 via-accent-main/80 to-accent-main rounded-full"
+            style={{ width: `${percentage}%` }}
           />
         </div>
 
@@ -83,19 +78,19 @@ export function Slider({
           disabled={disabled}
           onChange={handleChange}
           className={cn(
-            'absolute w-full h-full opacity-0 cursor-pointer z-20',
+            'absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20',
             disabled && 'cursor-not-allowed pointer-events-none'
           )}
         />
 
-        {/* Thumb Visual Estilizado (Bloqueado al centro del cursor en tiempo real) */}
+        {/* Thumb Visual Estilizado (Alineado exactamente al porcentaje del track) */}
         <div
           className={cn(
-            'absolute top-1/2 -translate-y-1/2 w-5 h-5 -ml-2.5 rounded-full pointer-events-none shadow-md z-10',
-            'bg-[#FBBF24] border-2 border-[#120524] shadow-[#FBBF24]/50',
+            'absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-5 h-5 rounded-full pointer-events-none shadow-[0_0_12px_rgba(251,191,36,0.6)] z-10',
+            'bg-accent-main border-2 border-primary-main',
             'transition-transform duration-100 group-hover:scale-125 group-active:scale-110'
           )}
-          style={{ left: thumbPosition }}
+          style={{ left: `${percentage}%` }}
         />
       </div>
     </div>

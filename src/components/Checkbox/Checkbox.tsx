@@ -88,11 +88,11 @@ export function Checkbox({
           }}
           className={cn(
             'relative shrink-0 mt-0.5 flex items-center justify-center transition-all duration-200 border',
-            'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FBBF24] focus-visible:ring-offset-2 focus-visible:ring-offset-[#120524]',
+            'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-main focus-visible:ring-offset-2 focus-visible:ring-offset-primary-main',
             boxSizes[size],
             isChecked || indeterminate
-              ? 'bg-[#FBBF24] border-[#FBBF24] text-[#120524] shadow-md shadow-[#FBBF24]/20'
-              : 'bg-[#120524] border-[#9EA2E2]/30 text-transparent group-hover:border-[#FBBF24]/60'
+              ? 'bg-accent-main border-accent-main text-primary-main shadow-md shadow-accent-main/20'
+              : 'bg-primary-main border-white/20 text-transparent group-hover:border-accent-main/60'
           )}
         >
           {indeterminate ? (
@@ -118,12 +118,12 @@ export function Checkbox({
         {(label || description) && (
           <div className="flex flex-col text-left">
             {label && (
-              <span className="text-xs sm:text-sm font-medium text-[#FFF6DF] group-hover:text-white transition-colors">
+              <span className="text-xs sm:text-sm font-medium text-cream-silk group-hover:text-white transition-colors">
                 {label}
               </span>
             )}
             {description && (
-              <span className="text-[11px] sm:text-xs text-[#9EA2E2]/70 leading-normal mt-0.5">
+              <span className="text-[11px] sm:text-xs text-tech-periwinkle/80 leading-normal mt-0.5">
                 {description}
               </span>
             )}

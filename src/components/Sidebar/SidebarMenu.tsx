@@ -85,18 +85,18 @@ export function SidebarMenu({
     <div className="space-y-5">
       {/* Buscador Rápido del Sidebar */}
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#9EA2E2]/50" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-tech-periwinkle/50" />
         <input
           type="text"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
           placeholder="Filtrar Legos..."
-          className="w-full pl-8 pr-7 py-2 text-xs bg-[#241142]/30 hover:bg-[#241142]/50 border border-[#9EA2E2]/20 rounded-xl text-[#FFF6DF] placeholder:text-[#9EA2E2]/40 outline-none focus:border-[#FBBF24]/60 transition-all"
+          className="w-full pl-8 pr-7 py-2 text-xs bg-primary-surface/30 hover:bg-primary-surface/50 border border-white/15 rounded-xl text-cream-silk placeholder:text-tech-periwinkle/40 outline-none focus:border-accent-main/60 transition-all"
         />
         {filter && (
           <button
             onClick={() => setFilter('')}
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#9EA2E2]/60 hover:text-[#FFF6DF]"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-tech-periwinkle/60 hover:text-cream-silk"
           >
             <X className="w-3 h-3" />
           </button>
@@ -113,20 +113,20 @@ export function SidebarMenu({
               <button
                 type="button"
                 onClick={() => toggleSection(section.title)}
-                className="w-full flex items-center justify-between px-2.5 py-2 text-[11px] font-['PosteramaCustom',sans-serif] font-bold uppercase tracking-wider text-[#9EA2E2]/80 hover:text-[#FFF6DF] rounded-xl hover:bg-[#241142]/40 transition-all cursor-pointer select-none group min-h-[38px]"
+                className="w-full flex items-center justify-between px-2.5 py-2 text-[11px] font-['PosteramaCustom',sans-serif] font-bold uppercase tracking-wider text-tech-periwinkle/80 hover:text-cream-silk rounded-xl hover:bg-primary-surface/40 transition-all cursor-pointer select-none group min-h-[38px]"
               >
                 <div className="flex items-center gap-2">
                   <motion.div
                     animate={{ rotate: isOpen ? 0 : -90 }}
                     transition={{ duration: 0.2, ease: 'easeInOut' }}
-                    className="text-[#9EA2E2]/50 group-hover:text-[#FBBF24] transition-colors"
+                    className="text-tech-periwinkle/50 group-hover:text-accent-main transition-colors"
                   >
                     <ChevronDown className="w-3.5 h-3.5" />
                   </motion.div>
-                  <span className="group-hover:text-[#FFF6DF] transition-colors">{section.title}</span>
+                  <span className="group-hover:text-cream-silk transition-colors">{section.title}</span>
                 </div>
 
-                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-[#241142]/80 text-[#9EA2E2]/70 border border-[#9EA2E2]/20 group-hover:text-[#FBBF24] group-hover:border-[#FBBF24]/40 transition-colors">
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-primary-surface/80 text-tech-periwinkle/70 border border-white/15 group-hover:text-accent-main group-hover:border-accent-main/40 transition-colors">
                   {section.items.length}
                 </span>
               </button>
@@ -141,7 +141,7 @@ export function SidebarMenu({
                     transition={{ duration: 0.2, ease: 'easeInOut' }}
                     className="overflow-hidden"
                   >
-                    <ul className="space-y-0.5 pt-0.5 pl-3 border-l border-[#9EA2E2]/15 ml-3" onClick={onClick}>
+                    <ul className="space-y-0.5 pt-0.5 pl-3 border-l border-white/10 ml-3" onClick={onClick}>
                       {section.items.map((item) => {
                         const isActive = currentPath === item.href;
                         return (

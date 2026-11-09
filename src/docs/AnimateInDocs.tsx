@@ -191,6 +191,12 @@ export function AnimateInDocs() {
                 <td className="py-3 px-4 font-mono text-white/50">—</td>
                 <td className="py-3 px-4 text-white/80">Elementos React o componentes que serán animados al montar.</td>
               </tr>
+              <tr>
+                <td className="py-3 px-4 font-mono text-[#FBBF24]">triggerKey</td>
+                <td className="py-3 px-4 font-mono text-[#9EA2E2]">unknown</td>
+                <td className="py-3 px-4 font-mono text-white/50">undefined</td>
+                <td className="py-3 px-4 text-white/80">Valor de estado o clave reactiva que dispara nuevamente la animación al cambiar sin recargar la página.</td>
+              </tr>
             </tbody>
           </table>
         </div>

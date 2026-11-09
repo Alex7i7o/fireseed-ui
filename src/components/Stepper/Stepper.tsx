@@ -62,12 +62,12 @@ export function Stepper({
                 className={cn(
                   'w-9 h-9 rounded-xl flex items-center justify-center font-mono font-bold text-xs shrink-0 transition-all duration-200 border',
                   isCompleted &&
-                    'bg-[#FBBF24] border-[#FBBF24] text-[#120524] shadow-md shadow-[#FBBF24]/20',
+                    'bg-accent-main border-accent-main text-primary-main shadow-md shadow-accent-main/20',
                   isCurrent &&
-                    'bg-[#241142] border-[#FBBF24] text-[#FBBF24] ring-2 ring-[#FBBF24]/30 shadow-lg shadow-[#FBBF24]/30 animate-pulse',
+                    'bg-primary-surface border-accent-main text-accent-main ring-2 ring-accent-main/30 shadow-lg shadow-accent-main/30 animate-pulse',
                   !isCompleted &&
                     !isCurrent &&
-                    'bg-[#120524] border-[#9EA2E2]/25 text-[#9EA2E2]/60'
+                    'bg-primary-main border-white/15 text-tech-periwinkle/60'
                 )}
               >
                 {isCompleted ? (
@@ -84,13 +84,13 @@ export function Stepper({
                 <span
                   className={cn(
                     'text-xs sm:text-sm font-semibold transition-colors',
-                    isCurrent ? 'text-[#FBBF24]' : isCompleted ? 'text-[#FFF6DF]' : 'text-[#9EA2E2]/60'
+                    isCurrent ? 'text-accent-main' : isCompleted ? 'text-cream-silk' : 'text-tech-periwinkle/60'
                   )}
                 >
                   {step.title}
                 </span>
                 {step.description && (
-                  <span className="text-[11px] text-[#9EA2E2]/50 font-normal leading-tight">
+                  <span className="text-[11px] text-tech-periwinkle/60 font-normal leading-tight">
                     {step.description}
                   </span>
                 )}
@@ -99,9 +99,9 @@ export function Stepper({
 
             {/* Barra conectora horizontal */}
             {!isLast && !isVertical && (
-              <div className="flex-1 mx-3 h-0.5 bg-[#9EA2E2]/15 relative overflow-hidden rounded-full">
+              <div className="flex-1 mx-3 h-0.5 bg-white/10 relative overflow-hidden rounded-full">
                 <div
-                  className="h-full bg-[#FBBF24] transition-all duration-300"
+                  className="h-full bg-accent-main transition-all duration-300"
                   style={{ width: isCompleted ? '100%' : '0%' }}
                 />
               </div>

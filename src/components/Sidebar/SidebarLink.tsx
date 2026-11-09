@@ -30,8 +30,8 @@ export function SidebarLink({
         className={cn(
           'relative flex items-center justify-between rounded-xl px-3 py-2 text-xs sm:text-sm font-medium transition-colors select-none z-10',
           isActive
-            ? 'text-[#FBBF24] font-semibold'
-            : 'text-[#FFF6DF]/70 hover:text-[#FFF6DF] hover:bg-[#241142]/40'
+            ? 'text-accent-main font-semibold'
+            : 'text-cream-silk/70 hover:text-cream-silk hover:bg-primary-surface/40'
         )}
       >
         <span>{label}</span>
@@ -39,7 +39,7 @@ export function SidebarLink({
         {isActive && (
           <motion.div
             layoutId="activeSidebarPill"
-            className="absolute inset-0 -z-10 rounded-xl bg-gradient-to-r from-[#FBBF24]/15 to-[#E67E22]/10 border border-[#FBBF24]/30 shadow-[0_0_15px_rgba(251,191,36,0.15)]"
+            className="absolute inset-0 -z-10 rounded-xl bg-gradient-to-r from-accent-main/15 to-accent-main/5 border border-accent-main/30 shadow-[0_0_15px_rgba(251,191,36,0.15)]"
             transition={{ type: 'spring', stiffness: 500, damping: 35 }}
           />
         )}

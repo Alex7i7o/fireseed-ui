@@ -60,10 +60,10 @@ export function Radio({
         }}
         className={cn(
           'relative shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center border transition-all duration-200',
-          'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FBBF24] focus-visible:ring-offset-2 focus-visible:ring-offset-[#120524]',
+          'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-main focus-visible:ring-offset-2 focus-visible:ring-offset-primary-main',
           isChecked
-            ? 'border-[#FBBF24] bg-[#120524] shadow-md shadow-[#FBBF24]/20'
-            : 'border-[#9EA2E2]/30 bg-[#120524] group-hover:border-[#FBBF24]/60'
+            ? 'border-accent-main bg-primary-main shadow-md shadow-accent-main/20'
+            : 'border-white/20 bg-primary-main group-hover:border-accent-main/60'
         )}
       >
         {/* Punto Interior Animado */}
@@ -72,7 +72,7 @@ export function Radio({
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-            className="w-2.5 h-2.5 rounded-full bg-[#FBBF24] shadow-sm shadow-[#FBBF24]/50"
+            className="w-2.5 h-2.5 rounded-full bg-accent-main shadow-sm shadow-accent-main/50"
           />
         )}
       </div>
@@ -81,12 +81,12 @@ export function Radio({
       {(label || description) && (
         <div className="flex flex-col text-left">
           {label && (
-            <span className="text-xs sm:text-sm font-medium text-[#FFF6DF] group-hover:text-white transition-colors">
+            <span className="text-xs sm:text-sm font-medium text-cream-silk group-hover:text-white transition-colors">
               {label}
             </span>
           )}
           {description && (
-            <span className="text-[11px] sm:text-xs text-[#9EA2E2]/70 leading-normal mt-0.5">
+            <span className="text-[11px] sm:text-xs text-tech-periwinkle/80 leading-normal mt-0.5">
               {description}
             </span>
           )}

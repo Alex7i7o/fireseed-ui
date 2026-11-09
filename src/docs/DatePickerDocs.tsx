@@ -62,7 +62,7 @@ export function DatePickerDocs() {
           description="Hacé clic en el input para desplegar el calendario interactivo:"
           code={codigoDatePicker}
           filename="DatePickerDemo.tsx"
-          previewClassName="p-8 min-h-[520px] items-start justify-center"
+          previewClassName="p-8 min-h-[580px] items-start justify-center pb-20"
         >
           <div className="w-full max-w-xs">
             <DatePicker

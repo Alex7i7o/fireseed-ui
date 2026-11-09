@@ -86,8 +86,8 @@ export function Pagination({
         aria-label="Página anterior"
         className={cn(
           'w-9 h-9 rounded-xl flex items-center justify-center text-xs font-semibold transition-all cursor-pointer border',
-          'bg-[#120524] border-[#9EA2E2]/20 text-[#FFF6DF] hover:border-[#FBBF24]/50 hover:bg-[#241142]',
-          currentPage === 1 && 'opacity-30 cursor-not-allowed hover:border-[#9EA2E2]/20 hover:bg-[#120524]'
+          'bg-primary-main border-white/15 text-cream-silk hover:border-accent-main/50 hover:bg-primary-surface',
+          currentPage === 1 && 'opacity-30 cursor-not-allowed hover:border-white/15 hover:bg-primary-main'
         )}
       >
         <ChevronLeft className="w-4 h-4" />
@@ -99,7 +99,7 @@ export function Pagination({
           return (
             <div
               key={`dots-${idx}`}
-              className="w-8 h-9 flex items-center justify-center text-[#9EA2E2]/50"
+              className="w-8 h-9 flex items-center justify-center text-tech-periwinkle/50"
             >
               <MoreHorizontal className="w-4 h-4" />
             </div>
@@ -117,8 +117,8 @@ export function Pagination({
             className={cn(
               'min-w-[36px] h-9 px-2 rounded-xl flex items-center justify-center text-xs font-mono font-bold transition-all cursor-pointer border',
               isCurrent
-                ? 'bg-[#FBBF24] border-[#FBBF24] text-[#120524] shadow-md shadow-[#FBBF24]/30'
-                : 'bg-[#120524] border-[#9EA2E2]/20 text-[#FFF6DF] hover:border-[#FBBF24]/50 hover:bg-[#241142]'
+                ? 'bg-accent-main border-accent-main text-primary-main shadow-md shadow-accent-main/30'
+                : 'bg-primary-main border-white/15 text-cream-silk hover:border-accent-main/50 hover:bg-primary-surface'
             )}
           >
             {pageNumber}
@@ -134,8 +134,8 @@ export function Pagination({
         aria-label="Página siguiente"
         className={cn(
           'w-9 h-9 rounded-xl flex items-center justify-center text-xs font-semibold transition-all cursor-pointer border',
-          'bg-[#120524] border-[#9EA2E2]/20 text-[#FFF6DF] hover:border-[#FBBF24]/50 hover:bg-[#241142]',
-          currentPage === totalPages && 'opacity-30 cursor-not-allowed hover:border-[#9EA2E2]/20 hover:bg-[#120524]'
+          'bg-primary-main border-white/15 text-cream-silk hover:border-accent-main/50 hover:bg-primary-surface',
+          currentPage === totalPages && 'opacity-30 cursor-not-allowed hover:border-white/15 hover:bg-primary-main'
         )}
       >
         <ChevronRight className="w-4 h-4" />
