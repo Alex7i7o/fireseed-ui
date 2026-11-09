@@ -89,7 +89,6 @@ export function FeedbackButton({
 
   return (
     <motion.button
-      layout
       disabled={disabled || status !== 'idle'}
       onClick={handleClick}
       transition={{ type: 'spring', stiffness: 400, damping: 25 }}

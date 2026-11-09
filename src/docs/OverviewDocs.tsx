@@ -204,7 +204,7 @@ export function OverviewDocs() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <StatCard
             title="Catálogo Modular"
-            value="24+ Legos"
+            value="38+ Legos"
             changePeriod="Átomos, Moléculas y Organismos"
             icon={<Blocks className="w-5 h-5 text-[#FBBF24]" />}
             change="Atomic Design"
