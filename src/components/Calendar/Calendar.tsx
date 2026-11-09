@@ -267,7 +267,7 @@ export function Calendar({
   return (
     <div
       className={cn(
-        'w-full max-w-sm sm:max-w-md select-none rounded-2xl p-4 sm:p-5',
+        'w-full max-w-[350px] sm:max-w-[370px] select-none rounded-2xl p-4 sm:p-5',
         'bg-[#120524]/95 border border-[#9EA2E2]/20 shadow-2xl backdrop-blur-xl',
         'font-sans text-[#FFF6DF]',
         className
@@ -331,7 +331,7 @@ export function Calendar({
       </div>
 
       {/* 3. GRILLA DE DÍAS ANIMADA */}
-      <div className="relative overflow-hidden min-h-[250px]">
+      <div className="relative overflow-hidden min-h-[290px] p-1">
         <AnimatePresence mode="wait" initial={false} custom={direction}>
           <motion.div
             key={`${year}-${month}`}
@@ -340,7 +340,7 @@ export function Calendar({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -direction * 20 }}
             transition={{ duration: 0.18, ease: 'easeOut' }}
-            className="grid grid-cols-7 gap-1 sm:gap-1.5"
+            className="grid grid-cols-7 gap-1 sm:gap-1.5 p-0.5"
           >
             {gridDays.map(({ date, isCurrentMonth, dayNumber }) => {
               const disabled = isDateDisabled(date);

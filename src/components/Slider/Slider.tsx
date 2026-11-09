@@ -43,6 +43,11 @@ export function Slider({
     onChange(nextVal);
   };
 
+  // Posicionamiento geométrico exacto 1:1 con el thumb del input nativo
+  // El centro del thumb recorre desde 10px hasta 100% - 10px
+  const thumbPosition = `calc(10px + ${(percentage / 100)} * (100% - 20px))`;
+  const trackWidth = percentage === 0 ? '0%' : thumbPosition;
+
   return (
     <div className={cn('flex flex-col gap-2 w-full select-none', className)}>
       {(label || showValue) && (
@@ -58,13 +63,13 @@ export function Slider({
         </div>
       )}
 
-      <div className="relative flex items-center w-full h-6 group">
+      <div className="relative flex items-center w-full h-7 group">
         {/* Barra de Fondo */}
         <div className="absolute w-full h-2 rounded-full bg-[#120524] border border-[#9EA2E2]/25 overflow-hidden">
-          {/* Barra Activa Iluminada */}
+          {/* Barra Activa Iluminada (Sin retardo de transición para respuesta táctil instantánea a 120 FPS) */}
           <div
-            className="h-full bg-gradient-to-r from-[#8B5CF6] to-[#FBBF24] transition-all"
-            style={{ width: `${percentage}%` }}
+            className="h-full bg-gradient-to-r from-[#8B5CF6] to-[#FBBF24]"
+            style={{ width: trackWidth }}
           />
         </div>
 
@@ -78,19 +83,19 @@ export function Slider({
           disabled={disabled}
           onChange={handleChange}
           className={cn(
-            'absolute w-full h-full opacity-0 cursor-pointer z-10',
-            disabled && 'cursor-not-allowed'
+            'absolute w-full h-full opacity-0 cursor-pointer z-20',
+            disabled && 'cursor-not-allowed pointer-events-none'
           )}
         />
 
-        {/* Thumb Visual Estilizado */}
+        {/* Thumb Visual Estilizado (Bloqueado al centro del cursor en tiempo real) */}
         <div
           className={cn(
-            'absolute w-5 h-5 -ml-2.5 rounded-full pointer-events-none transition-transform duration-100 shadow-md',
-            'bg-[#FBBF24] border-2 border-[#120524] shadow-[#FBBF24]/40',
-            'group-hover:scale-125'
+            'absolute top-1/2 -translate-y-1/2 w-5 h-5 -ml-2.5 rounded-full pointer-events-none shadow-md z-10',
+            'bg-[#FBBF24] border-2 border-[#120524] shadow-[#FBBF24]/50',
+            'transition-transform duration-100 group-hover:scale-125 group-active:scale-110'
           )}
-          style={{ left: `${percentage}%` }}
+          style={{ left: thumbPosition }}
         />
       </div>
     </div>

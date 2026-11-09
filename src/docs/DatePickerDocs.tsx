@@ -62,14 +62,16 @@ export function DatePickerDocs() {
           description="Hacé clic en el input para desplegar el calendario interactivo:"
           code={codigoDatePicker}
           filename="DatePickerDemo.tsx"
-          previewClassName="p-8 min-h-[420px] items-start max-w-sm mx-auto"
+          previewClassName="p-8 min-h-[520px] items-start justify-center"
         >
-          <DatePicker
-            label="Fecha de Reserva"
-            value={fecha}
-            onChange={setFecha}
-            placeholder="Selecciona una fecha..."
-          />
+          <div className="w-full max-w-xs">
+            <DatePicker
+              label="Fecha de Reserva"
+              value={fecha}
+              onChange={setFecha}
+              placeholder="Selecciona una fecha..."
+            />
+          </div>
         </ComponentPlayground>
       </div>
 

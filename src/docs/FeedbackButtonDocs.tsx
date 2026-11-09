@@ -1,19 +1,21 @@
 /* Developed by FireSeed - Fueling Innovation */
 import { FeedbackButton } from '../components/FeedbackButton';
 import { Callout } from '../components/Callout';
-import { CodeBlock } from '../components/CodeBlock/CodeBlock';
+import { ComponentPlayground } from './ComponentPlayground';
+import { Sparkles } from 'lucide-react';
 
 const codigoFeedback = `import { FeedbackButton } from 'fireseed-ui';
 
 export default function GuardarDatos() {
   const handleSave = async () => {
-    // Simulación de petición de red
+    // Simular llamada a API o base de datos
     await new Promise((res) => setTimeout(res, 1500));
   };
 
   return (
     <FeedbackButton
       initialText="Guardar Cambios"
+      loadingText="Guardando..."
       successText="¡Guardado con Éxito!"
       variant="solid"
       onClick={handleSave}
@@ -27,97 +29,123 @@ export function FeedbackButtonDocs() {
   };
 
   return (
-    <div className="max-w-4xl space-y-12 pb-16 text-white">
+    <div className="max-w-4xl space-y-12 pb-20 text-[#FFF6DF]">
+      {/* 1. CABECERA */}
       <div className="space-y-3">
-        <h1 className="text-4xl font-extrabold tracking-tight text-white flex items-center gap-3">
-          FeedbackButton{' '}
-          <span className="text-sm font-mono font-normal text-accent-main bg-accent-main/10 px-2 py-0.5 rounded-md border border-accent-main/20">
-            v1.0.0
-          </span>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FBBF24]/10 border border-[#FBBF24]/30 text-xs font-mono font-medium text-[#FBBF24]">
+          <span className="w-2 h-2 rounded-full bg-[#FBBF24] animate-pulse"></span>
+          MOLÉCULA • ACCIÓN CON ESTADO ASÍNCRONO
+        </div>
+
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#FFF6DF] font-['PosteramaCustom',sans-serif]">
+          FeedbackButton
         </h1>
-        <p className="text-lg text-white/60">
-          Botón interactivo con máquina de estados asíncrona (Idle → Loading → Success). Incluye animación de
-          resorte y confirmación con vibración háptica al finalizar.
+
+        <p className="text-lg text-[#FFF6DF]/75 leading-relaxed font-sans">
+          Botón interactivo con máquina de estados asíncrona (Idle → Loading → Success). Preserva automáticamente su ancho durante la carga para evitar compresiones en botones contiguos y efectúa transiciones suaves sin saltos bruscos.
         </p>
       </div>
 
-      <hr className="border-white/5" />
+      <hr className="border-[#9EA2E2]/15" />
 
-      <Callout variant="glow" title="Microinteracción de Clase Mundial">
-        Elimina la necesidad de mostrar spinners externos o estados de guardado desordenados. Al hacer clic, el botón
-        bloquea pulsaciones dobles, muestra un spinner centrado y transiciona fluidamente a una tilde de confirmación
-        verde antes de regresar a su estado original.
+      {/* 2. FILOSOFÍA DE ARQUITECTURA */}
+      <Callout variant="glow">
+        <div className="space-y-2 text-xs leading-relaxed text-[#FFF6DF]/85">
+          <p className="font-semibold text-sm text-[#FBBF24] flex items-center gap-1.5">
+            <Sparkles className="w-4 h-4" /> Ancho Bloqueado & Transición Elástica
+          </p>
+          <p>
+            Al pulsar el botón, <code className="font-mono text-[#FBBF24]">preserveWidth</code> bloquea reactivamente las dimensiones calculadas para que el spinner o el texto de carga no encojan el botón ni desplacen los elementos vecinos.
+          </p>
+        </div>
       </Callout>
 
+      {/* 3. PLAYGROUND INTERACTIVO */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-bold text-white tracking-tight">Ejemplo de Uso</h2>
-        <CodeBlock code={codigoFeedback} language="tsx" filename="FeedbackButtonDemo.tsx" />
+        <h2 className="text-2xl font-bold text-[#FFF6DF] font-['PosteramaCustom',sans-serif]">
+          Demostración Interactiva
+        </h2>
+        <p className="text-xs text-[#9EA2E2]/70">
+          Haz clic en cualquiera de los botones para ver la transición fluida de guardado sin desfasajes de layout:
+        </p>
 
-        {/* SHOWCASE INTERACTIVO */}
-        <div className="mt-6 space-y-4 rounded-2xl border border-white/5 bg-black/20 p-8 backdrop-blur-sm">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-white/60">
-            Pruébalo en Vivo (Hacé click para ver la transición)
-          </h3>
-          <div className="flex flex-wrap items-center gap-4">
-            <FeedbackButton
-              initialText="Guardar Registro"
-              successText="¡Listo!"
-              variant="solid"
-              onClick={handleDemoAction}
-            />
-            <FeedbackButton
-              initialText="Eliminar Cuenta"
-              successText="Eliminado"
-              variant="destructive"
-              onClick={handleDemoAction}
-            />
-            <FeedbackButton
-              initialText="Procesar Pago"
-              successText="Aprobado"
-              variant="glow"
-              onClick={handleDemoAction}
-            />
-          </div>
-        </div>
+        <ComponentPlayground
+          title="Botones con Feedback Asíncrono"
+          description="Observá cómo cada botón mantiene su estabilidad geométrica durante la carga:"
+          code={codigoFeedback}
+          filename="FeedbackButtonDemo.tsx"
+          previewClassName="py-12 px-6 flex flex-wrap items-center justify-center gap-4"
+        >
+          <FeedbackButton
+            initialText="Guardar Registro"
+            loadingText="Guardando..."
+            successText="¡Registro Guardado!"
+            variant="solid"
+            onClick={handleDemoAction}
+          />
+          <FeedbackButton
+            initialText="Eliminar Cuenta"
+            loadingText="Eliminando..."
+            successText="Eliminado"
+            variant="destructive"
+            onClick={handleDemoAction}
+          />
+          <FeedbackButton
+            initialText="Procesar Pago"
+            loadingText="Procesando..."
+            successText="¡Pago Aprobado!"
+            variant="glow"
+            onClick={handleDemoAction}
+          />
+        </ComponentPlayground>
       </div>
 
-      {/* PROPS */}
+      {/* 4. TABLA DE PROPS */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-bold text-white tracking-tight">API Reference</h2>
-        <div className="overflow-x-auto rounded-xl border border-white/5 bg-black/20">
-          <table className="w-full text-left border-collapse text-sm text-white/70">
-            <thead className="bg-white/5 font-semibold text-white border-b border-white/5">
+        <h2 className="text-2xl font-bold text-[#FFF6DF] font-['PosteramaCustom',sans-serif]">
+          Referencia de Propiedades (API)
+        </h2>
+
+        <div className="overflow-x-auto rounded-2xl border border-[#9EA2E2]/20 bg-[#0d041a]/95">
+          <table className="w-full text-left text-xs text-[#FFF6DF]">
+            <thead className="border-b border-[#9EA2E2]/20 bg-[#120524] text-[#FBBF24] font-mono uppercase tracking-wider">
               <tr>
-                <th className="p-4">Propiedad</th>
-                <th className="p-4">Tipo</th>
-                <th className="p-4">Por Defecto</th>
-                <th className="p-4">Descripción</th>
+                <th className="py-3 px-4">Prop</th>
+                <th className="py-3 px-4">Tipo</th>
+                <th className="py-3 px-4">Por Defecto</th>
+                <th className="py-3 px-4">Descripción</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/5 font-mono text-xs">
+            <tbody className="divide-y divide-[#9EA2E2]/10 font-sans">
               <tr>
-                <td className="p-4 text-accent-main font-semibold">initialText</td>
-                <td className="p-4 text-purple-400">React.ReactNode</td>
-                <td className="p-4 text-white/40">Requerido</td>
-                <td className="p-4 text-white/60 font-sans">Texto o contenido visible en estado idle.</td>
+                <td className="py-3 px-4 font-mono text-[#FBBF24]">initialText</td>
+                <td className="py-3 px-4 font-mono text-[#9EA2E2]">React.ReactNode</td>
+                <td className="py-3 px-4 font-mono text-white/50">—</td>
+                <td className="py-3 px-4 text-white/80">Texto o contenido visible en estado Idle (inactivo).</td>
               </tr>
               <tr>
-                <td className="p-4 text-accent-main font-semibold">successText</td>
-                <td className="p-4 text-purple-400">string</td>
-                <td className="p-4 text-white/40">'Completado'</td>
-                <td className="p-4 text-white/60 font-sans">Texto que se muestra tras resolver la acción.</td>
+                <td className="py-3 px-4 font-mono text-[#FBBF24]">loadingText</td>
+                <td className="py-3 px-4 font-mono text-[#9EA2E2]">string</td>
+                <td className="py-3 px-4 font-mono text-white/50">initialText</td>
+                <td className="py-3 px-4 text-white/80">Texto que acompaña al spinner durante la ejecución asíncrona.</td>
               </tr>
               <tr>
-                <td className="p-4 text-accent-main font-semibold">onClick</td>
-                <td className="p-4 text-purple-400">() =&gt; Promise&lt;unknown&gt;</td>
-                <td className="p-4 text-white/40">-</td>
-                <td className="p-4 text-white/60 font-sans">Función asíncrona que desencadena los estados.</td>
+                <td className="py-3 px-4 font-mono text-[#FBBF24]">successText</td>
+                <td className="py-3 px-4 font-mono text-[#9EA2E2]">string</td>
+                <td className="py-3 px-4 font-mono text-white/50">'Completado'</td>
+                <td className="py-3 px-4 text-white/80">Texto mostrado con la tilde de éxito.</td>
               </tr>
               <tr>
-                <td className="p-4 text-accent-main font-semibold">status</td>
-                <td className="p-4 text-purple-400">'idle' | 'loading' | 'success'</td>
-                <td className="p-4 text-white/40">undefined</td>
-                <td className="p-4 text-white/60 font-sans">Modo controlado para controlar el estado externamente.</td>
+                <td className="py-3 px-4 font-mono text-[#FBBF24]">preserveWidth</td>
+                <td className="py-3 px-4 font-mono text-[#9EA2E2]">boolean</td>
+                <td className="py-3 px-4 font-mono text-white/50">true</td>
+                <td className="py-3 px-4 text-white/80">Bloquea el ancho para evitar achicamientos bruscos.</td>
+              </tr>
+              <tr>
+                <td className="py-3 px-4 font-mono text-[#FBBF24]">onClick</td>
+                <td className="py-3 px-4 font-mono text-[#9EA2E2]">() =&gt; Promise&lt;unknown&gt; | void</td>
+                <td className="py-3 px-4 font-mono text-white/50">—</td>
+                <td className="py-3 px-4 text-white/80">Función ejecutada al pulsar el botón.</td>
               </tr>
             </tbody>
           </table>

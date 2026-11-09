@@ -132,7 +132,7 @@ export function DatePicker({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 6, scale: 0.96 }}
             transition={{ duration: 0.16, ease: 'easeOut' }}
-            className="absolute top-full left-0 z-50 mt-2 shadow-2xl"
+            className="absolute top-full left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-0 z-50 mt-2 shadow-2xl"
           >
             <Calendar
               mode="single"
