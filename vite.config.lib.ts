@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
-import react, { reactCompilerPreset } from '@vitejs/plugin-react';
-import babel from '@rolldown/plugin-babel';
+import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import tailwindcss from '@tailwindcss/vite';
 import { resolve } from 'path';
@@ -8,7 +7,6 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [
     react(),
-    babel({ presets: [reactCompilerPreset()] }),
     tailwindcss(),
     dts({ 
       tsconfigPath: './tsconfig.app.json',
