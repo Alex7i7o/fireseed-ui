@@ -1,47 +1,111 @@
 /* Developed by FireSeed - Fueling Innovation */
 
 :root {
-  --color-primary-main: #120524;       /* 1. Midnight Violet (Fondo Principal) */
-  --color-primary-surface: #241142;    /* 2. Royal Aubergine (Superficies secundarias, luz interior) */
-  --color-primary-hover: #31165a;
-  --color-primary-light: #9EA2E2;
+  /* ==========================================================================
+     TOKENS SEMÁNTICOS (ESTÁNDAR PROFESIONAL DE DISEÑO)
+     Tokens funcionales que definen la semántica de la interfaz.
+     Cualquier empresa (ej: Violett Pilates) los sobreescribe sin tocar nombres literales.
+     ========================================================================== */
+  --color-background: #0D041A;
+  --color-foreground: #FFF6DF;
 
-  --color-accent-main: #FBBF24;        /* 4. Solar Gold (Acento Principal 'SEED', CTAs) */
-  --color-accent-hover: #f59e0b;
-  --color-accent-amber: #E67E22;       /* 5. Flame Amber (Energía Cálida, degradados) */
+  /* Superficies y Tarjetas */
+  --color-card: #241142;
+  --color-card-foreground: #FFF6DF;
+  --color-surface-sunken: #120524;
+  --color-surface-elevated: #241142;
+
+  /* Colores de Marca y Acción */
+  --color-primary: #120524;
+  --color-primary-foreground: #FFF6DF;
+  --color-primary-hover: #31165a;
+
+  --color-secondary: #241142;
+  --color-secondary-foreground: #FFF6DF;
+  --color-secondary-hover: #31165a;
+
+  /* Acento de Alto Impacto (En FireSeed: Oro Solar #FBBF24) */
+  --color-accent: #FBBF24;
+  --color-accent-foreground: #120524;
+  --color-accent-hover: #F59E0B;
+  --color-accent-active: #E67E22;
   --color-accent-glow: rgba(251, 191, 36, 0.35);
 
-  --color-tech-periwinkle: #9EA2E2;    /* 3. Periwinkle Tech (Color Técnico de UI, bordes, grillas) */
-  --color-cream-silk: #FFF6DF;         /* 6. Warm Silk Cream (Luz y Texto Principal 'FIRE') */
-
-  /* Superficies y Neutros del Ecosistema */
-  --color-background: #0D041A;
-  --color-card: #120524;
-  --color-foreground: #FFF6DF;
+  /* Neutros, Bordes y Foco */
   --color-muted: #9EA2E2;
+  --color-muted-foreground: rgba(255, 246, 223, 0.7);
   --color-border: rgba(158, 162, 226, 0.22);
+  --color-border-hover: rgba(251, 191, 36, 0.4);
+  --color-ring: #FBBF24;
+
+  /* Feedback de Sistema */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-destructive: #EF4444;
+
+  /* ==========================================================================
+     COMPATIBILIDAD CON ALIAS PREVIOS & PALETA LITERAL
+     ========================================================================== */
+  --color-primary-main: var(--color-primary);
+  --color-primary-surface: var(--color-card);
+  --color-primary-light: var(--color-muted);
+
+  --color-accent-main: var(--color-accent);
+  --color-accent-amber: var(--color-accent-active);
+
+  --color-solar-gold: var(--color-accent);
+  --color-midnight-violet: var(--color-primary);
+  --color-royal-aubergine: var(--color-card);
+  --color-periwinkle-tech: var(--color-muted);
+  --color-cream-silk: var(--color-foreground);
+  --color-flame-amber: var(--color-accent-active);
 }
 
 @theme {
   /* 🌟 Variables reactivas vinculadas a tokens semánticos */
-  --color-primary-main: var(--color-primary-main, #120524);
-  --color-primary-surface: var(--color-primary-surface, #241142);
-  --color-primary-hover: var(--color-primary-hover, #31165a);
-  --color-primary-light: var(--color-primary-light, #9EA2E2);
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
 
-  --color-accent-main: var(--color-accent-main, #FBBF24);
-  --color-accent-hover: var(--color-accent-hover, #f59e0b);
-  --color-accent-amber: var(--color-accent-amber, #E67E22);
-  --color-accent-glow: var(--color-accent-glow, rgba(251, 191, 36, 0.35));
+  --color-card: var(--color-card);
+  --color-card-foreground: var(--color-card-foreground);
+  --color-surface-sunken: var(--color-surface-sunken);
+  --color-surface-elevated: var(--color-surface-elevated);
 
-  --color-tech-periwinkle: var(--color-tech-periwinkle, #9EA2E2);
-  --color-cream-silk: var(--color-cream-silk, #FFF6DF);
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-foreground);
+  --color-primary-hover: var(--color-primary-hover);
 
-  --color-background: var(--color-background, #0D041A);
-  --color-card: var(--color-card, #120524);
-  --color-foreground: var(--color-foreground, #FFF6DF);
-  --color-muted: var(--color-muted, #9EA2E2);
-  --color-border: var(--color-border, rgba(158, 162, 226, 0.22));
+  --color-secondary: var(--color-secondary);
+  --color-secondary-foreground: var(--color-secondary-foreground);
+  --color-secondary-hover: var(--color-secondary-hover);
+
+  --color-accent: var(--color-accent);
+  --color-accent-foreground: var(--color-accent-foreground);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-accent-active: var(--color-accent-active);
+  --color-accent-glow: var(--color-accent-glow);
+
+  --color-muted: var(--color-muted);
+  --color-muted-foreground: var(--color-muted-foreground);
+  --color-border: var(--color-border);
+  --color-border-hover: var(--color-border-hover);
+  --color-ring: var(--color-ring);
+
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-destructive: var(--color-destructive);
+
+  /* Alias anteriores para retrocompatibilidad total */
+  --color-primary-main: var(--color-primary-main);
+  --color-primary-surface: var(--color-primary-surface);
+  --color-primary-light: var(--color-primary-light);
+  --color-accent-main: var(--color-accent-main);
+  --color-solar-gold: var(--color-solar-gold);
+  --color-midnight-violet: var(--color-midnight-violet);
+  --color-royal-aubergine: var(--color-royal-aubergine);
+  --color-periwinkle-tech: var(--color-periwinkle-tech);
+  --color-cream-silk: var(--color-cream-silk);
+  --color-flame-amber: var(--color-flame-amber);
 
   /* Tipografías del Sistema */
   --font-display: 'PosteramaCustom', system-ui, sans-serif;
