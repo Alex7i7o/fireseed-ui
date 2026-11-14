@@ -46,6 +46,10 @@ export * from './AnimateIn';
 export * from './CodeBlock';
 export * from './Table';
 export * from './Drawer';
+export * from './TypingIndicator';
+export * from './ChatBubble';
+export * from './ChatInput';
+export * from './Chat';
 
 // Provider & Theming Multi-Empresa
 export * from './Provider';

@@ -64,6 +64,7 @@ export const docsMenu: MenuSection[] = [
   {
     title: 'Organismos & Utilidades',
     items: [
+      { label: 'Chat & Mensajería IA', href: '/docs/chat' },
       { label: 'Table & DataTable', href: '/docs/table' },
       { label: 'Drawer (Panel)', href: '/docs/drawer' },
       { label: 'Card Modular', href: '/docs/card' },

@@ -44,6 +44,7 @@ import { StatCardDocs } from './docs/StatCardDocs';
 import { EmptyStateDocs } from './docs/EmptyStateDocs';
 
 // Organismos
+import { ChatDocs } from './docs/ChatDocs';
 import { TableDocs } from './docs/TableDocs';
 import { DrawerDocs } from './docs/DrawerDocs';
 import { CardDocs } from './docs/CardDocs';
@@ -107,6 +108,7 @@ function App() {
                 <Route path="empty-state" element={<EmptyStateDocs />} />
 
                 {/* Organismos */}
+                <Route path="chat" element={<ChatDocs />} />
                 <Route path="table" element={<TableDocs />} />
                 <Route path="drawer" element={<DrawerDocs />} />
                 <Route path="card" element={<CardDocs />} />
