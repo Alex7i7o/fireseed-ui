@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React from 'react';
 import { motion, type HTMLMotionProps } from 'framer-motion';
 import { cn } from '../../utils/cn';
@@ -31,16 +31,16 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      'inline-flex items-center justify-center font-medium rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-main disabled:opacity-50 disabled:pointer-events-none cursor-pointer select-none whitespace-nowrap shrink-0';
+      'inline-flex items-center justify-center font-medium rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-50 disabled:pointer-events-none cursor-pointer select-none whitespace-nowrap shrink-0';
 
     const variants: Record<string, string> = {
-      solid: 'bg-accent-main text-primary-main hover:brightness-105 active:brightness-95 shadow-sm font-semibold',
-      glow: 'bg-accent-main border border-black/20 text-primary-main glow-bottom font-semibold',
-      inset: 'inset-shadow-sm inset-shadow-black/70 bg-primary-main bg-gradient-to-t from-white/10 to-transparent text-white border border-white/10 hover:border-white/20',
-      outline: 'border border-primary-main/20 bg-transparent text-foreground hover:bg-primary-main/5 dark:border-white/20 dark:text-white dark:hover:bg-white/5',
+      solid: 'bg-accent text-primary hover:brightness-105 active:brightness-95 shadow-sm font-semibold',
+      glow: 'bg-accent border border-black/20 text-primary glow-bottom font-semibold',
+      inset: 'inset-shadow-sm inset-shadow-black/70 bg-primary bg-gradient-to-t from-white/10 to-transparent text-white border border-white/10 hover:border-white/20',
+      outline: 'border border-primary/20 bg-transparent text-foreground hover:bg-primary/5 dark:border-white/20 dark:text-white dark:hover:bg-white/5',
       ghost: 'bg-transparent text-foreground hover:bg-black/5 dark:text-white dark:hover:bg-white/10',
       destructive: 'bg-rose-500 text-white hover:bg-rose-600 active:bg-rose-700 shadow-sm',
-      link: 'text-accent-main underline-offset-4 hover:underline p-0 h-auto'
+      link: 'text-accent underline-offset-4 hover:underline p-0 h-auto'
     };
 
     const sizes: Record<string, string> = {
@@ -100,3 +100,4 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 Button.displayName = 'Button';
+

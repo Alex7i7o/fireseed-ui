@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { useState } from 'react';
 import { CodeBlock } from '../components/CodeBlock/CodeBlock';
 import { Callout } from '../components/Callout';
@@ -24,8 +24,8 @@ export function Dashboard() {
 const codigoEjemploCSS = `@import "tailwindcss";
 
 @theme {
-  --color-primary-main: #120524;
-  --color-accent-main: #FBBF24;
+  --color-primary: #120524;
+  --color-accent: #FBBF24;
   --color-silk-cream: #FFF6DF;
 }
 
@@ -240,3 +240,4 @@ export function MiDocumentacion() {
     </div>
   );
 }
+

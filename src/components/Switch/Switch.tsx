@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn';
@@ -61,8 +61,8 @@ export function Switch({
         tabIndex={disabled ? -1 : 0}
         onKeyDown={handleKeyDown}
         className={cn(
-          'relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-main',
-          checked ? 'bg-accent-main' : 'bg-white/20'
+          'relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-accent',
+          checked ? 'bg-accent' : 'bg-white/20'
         )}
       >
         <motion.span
@@ -70,10 +70,11 @@ export function Switch({
           transition={{ type: 'spring', stiffness: 500, damping: 30 }}
           className={cn(
             'pointer-events-none inline-block h-6 w-6 rounded-full shadow-lg ring-0 transition-colors',
-            checked ? 'bg-primary-main ml-5' : 'bg-white ml-0'
+            checked ? 'bg-primary ml-5' : 'bg-white ml-0'
           )}
         />
       </div>
     </div>
   );
 }
+

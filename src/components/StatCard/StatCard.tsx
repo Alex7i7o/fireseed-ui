@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React from 'react';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import { Card } from '../Card';
@@ -35,7 +35,7 @@ export function StatCard({
     <Card hoverEffect className={cn('p-6 space-y-3 relative overflow-hidden', className)}>
       <div className="flex items-center justify-between text-white/60">
         <span className="text-xs font-semibold uppercase tracking-wider">{title}</span>
-        {icon && <div className="p-2 rounded-xl bg-white/5 text-accent-main shrink-0">{icon}</div>}
+        {icon && <div className="p-2 rounded-xl bg-white/5 text-accent shrink-0">{icon}</div>}
       </div>
 
       <div className="space-y-1">
@@ -63,3 +63,4 @@ export function StatCard({
     </Card>
   );
 }
+

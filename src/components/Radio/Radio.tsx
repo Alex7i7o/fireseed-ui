@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn';
@@ -60,10 +60,10 @@ export function Radio({
         }}
         className={cn(
           'relative shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center border transition-all duration-200',
-          'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-main focus-visible:ring-offset-2 focus-visible:ring-offset-primary-main',
+          'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary',
           isChecked
-            ? 'border-accent-main bg-primary-main shadow-md shadow-accent-main/20'
-            : 'border-white/20 bg-primary-main group-hover:border-accent-main/60'
+            ? 'border-accent bg-primary shadow-md shadow-accent/20'
+            : 'border-white/20 bg-primary group-hover:border-accent/60'
         )}
       >
         {/* Punto Interior Animado */}
@@ -72,7 +72,7 @@ export function Radio({
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-            className="w-2.5 h-2.5 rounded-full bg-accent-main shadow-sm shadow-accent-main/50"
+            className="w-2.5 h-2.5 rounded-full bg-accent shadow-sm shadow-accent/50"
           />
         )}
       </div>
@@ -81,12 +81,12 @@ export function Radio({
       {(label || description) && (
         <div className="flex flex-col text-left">
           {label && (
-            <span className="text-xs sm:text-sm font-medium text-cream-silk group-hover:text-white transition-colors">
+            <span className="text-xs sm:text-sm font-medium text-foreground group-hover:text-white transition-colors">
               {label}
             </span>
           )}
           {description && (
-            <span className="text-[11px] sm:text-xs text-tech-periwinkle/80 leading-normal mt-0.5">
+            <span className="text-[11px] sm:text-xs text-muted/80 leading-normal mt-0.5">
               {description}
             </span>
           )}
@@ -95,3 +95,4 @@ export function Radio({
     </label>
   );
 }
+

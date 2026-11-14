@@ -13,10 +13,8 @@ export interface NavbarProps {
 export function Navbar({ onOpenSearch, onOpenMobileMenu }: NavbarProps) {
   const [copied, setCopied] = useState(false);
 
-  // En local redirige a :5180 (landing de desarrollo); en producción a / (fireseed.tech)
-  const mainSiteUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' && window.location.port !== '80'
-    ? 'http://localhost:5180/'
-    : '/';
+  // En cualquier entorno (local 5173 o producción), la web raíz es /
+  const mainSiteUrl = '/';
 
   const copyInstall = async () => {
     try {

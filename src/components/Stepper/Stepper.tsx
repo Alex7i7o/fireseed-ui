@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React from 'react';
 import { Check } from 'lucide-react';
 import { cn } from '../../utils/cn';
@@ -62,12 +62,12 @@ export function Stepper({
                 className={cn(
                   'w-9 h-9 rounded-xl flex items-center justify-center font-mono font-bold text-xs shrink-0 transition-all duration-200 border',
                   isCompleted &&
-                    'bg-accent-main border-accent-main text-primary-main shadow-md shadow-accent-main/20',
+                    'bg-accent border-accent text-primary shadow-md shadow-accent/20',
                   isCurrent &&
-                    'bg-primary-surface border-accent-main text-accent-main ring-2 ring-accent-main/30 shadow-lg shadow-accent-main/30 animate-pulse',
+                    'bg-card border-accent text-accent ring-2 ring-accent/30 shadow-lg shadow-accent/30 animate-pulse',
                   !isCompleted &&
                     !isCurrent &&
-                    'bg-primary-main border-white/15 text-tech-periwinkle/60'
+                    'bg-primary border-white/15 text-muted/60'
                 )}
               >
                 {isCompleted ? (
@@ -84,13 +84,13 @@ export function Stepper({
                 <span
                   className={cn(
                     'text-xs sm:text-sm font-semibold transition-colors',
-                    isCurrent ? 'text-accent-main' : isCompleted ? 'text-cream-silk' : 'text-tech-periwinkle/60'
+                    isCurrent ? 'text-accent' : isCompleted ? 'text-foreground' : 'text-muted/60'
                   )}
                 >
                   {step.title}
                 </span>
                 {step.description && (
-                  <span className="text-[11px] text-tech-periwinkle/60 font-normal leading-tight">
+                  <span className="text-[11px] text-muted/60 font-normal leading-tight">
                     {step.description}
                   </span>
                 )}
@@ -101,7 +101,7 @@ export function Stepper({
             {!isLast && !isVertical && (
               <div className="flex-1 mx-3 h-0.5 bg-white/10 relative overflow-hidden rounded-full">
                 <div
-                  className="h-full bg-accent-main transition-all duration-300"
+                  className="h-full bg-accent transition-all duration-300"
                   style={{ width: isCompleted ? '100%' : '0%' }}
                 />
               </div>
@@ -112,3 +112,4 @@ export function Stepper({
     </div>
   );
 }
+

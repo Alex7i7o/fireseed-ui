@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { Accordion } from '../components/Accordion';
 import { Callout } from '../components/Callout';
 import { CodeBlock } from '../components/CodeBlock/CodeBlock';
@@ -59,7 +59,7 @@ export function AccordionDocs() {
       <div className="space-y-3">
         <h1 className="text-4xl font-extrabold tracking-tight text-white flex items-center gap-3">
           Accordion (Colapsable){' '}
-          <span className="text-sm font-mono font-normal text-accent-main bg-accent-main/10 px-2 py-0.5 rounded-md border border-accent-main/20">
+          <span className="text-sm font-mono font-normal text-accent bg-accent/10 px-2 py-0.5 rounded-md border border-accent/20">
             v1.0.0
           </span>
         </h1>
@@ -88,3 +88,4 @@ export function AccordionDocs() {
     </div>
   );
 }
+

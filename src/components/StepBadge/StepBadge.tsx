@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn';
 import {type HTMLMotionProps } from 'framer-motion';
 
@@ -18,9 +18,9 @@ export function StepBadge({
     const baseStyles = 'flex h-6 w-6 shrink-0 items-center justify-center rounded-full font-bold text-xs font-mono'
     
     const variants = {
-      solid: 'bg-accent-main text-primary-main',
-      glow: ' bg-accent-main/10 text-accent-main border border-accent-main/20 glow-bottom',
-      inset: 'inset-shadow-sm inset-shadow-black/70 bg-primary-main bg-linear-to-t from-white/5 to-white/0 text-white'
+      solid: 'bg-accent text-primary',
+      glow: ' bg-accent/10 text-accent border border-accent/20 glow-bottom',
+      inset: 'inset-shadow-sm inset-shadow-black/70 bg-primary bg-linear-to-t from-white/5 to-white/0 text-white'
   
     };
 

@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { useState } from 'react';
 import { Button } from '../components/Button';
 import { Callout } from '../components/Callout';
@@ -43,7 +43,7 @@ export function ButtonDocs() {
       {/* 1. CABECERA */}
       <div className="space-y-3">
         <div className="flex items-center gap-2">
-          <span className="text-xs font-mono font-semibold text-accent-main bg-accent-main/15 px-2 py-0.5 rounded border border-accent-main/30">
+          <span className="text-xs font-mono font-semibold text-accent bg-accent/15 px-2 py-0.5 rounded border border-accent/30">
             Átomo
           </span>
           <span className="text-xs text-zinc-500 font-mono">Interactive Button Component</span>
@@ -125,7 +125,7 @@ export function ButtonDocs() {
             </thead>
             <tbody className="divide-y divide-white/10 font-mono text-xs">
               <tr>
-                <td className="p-4 text-accent-main font-semibold">variant</td>
+                <td className="p-4 text-accent font-semibold">variant</td>
                 <td className="p-4 text-purple-400">
                   'solid' | 'glow' | 'inset' | 'outline' | 'ghost' | 'destructive' | 'link'
                 </td>
@@ -135,7 +135,7 @@ export function ButtonDocs() {
                 </td>
               </tr>
               <tr>
-                <td className="p-4 text-accent-main font-semibold">size</td>
+                <td className="p-4 text-accent font-semibold">size</td>
                 <td className="p-4 text-purple-400">'sm' | 'md' | 'lg' | 'icon'</td>
                 <td className="p-4 text-zinc-400">'md'</td>
                 <td className="p-4 text-zinc-400 font-sans">
@@ -143,7 +143,7 @@ export function ButtonDocs() {
                 </td>
               </tr>
               <tr>
-                <td className="p-4 text-accent-main font-semibold">isLoading</td>
+                <td className="p-4 text-accent font-semibold">isLoading</td>
                 <td className="p-4 text-purple-400">boolean</td>
                 <td className="p-4 text-zinc-400">false</td>
                 <td className="p-4 text-zinc-400 font-sans">
@@ -151,7 +151,7 @@ export function ButtonDocs() {
                 </td>
               </tr>
               <tr>
-                <td className="p-4 text-accent-main font-semibold">enableHaptics</td>
+                <td className="p-4 text-accent font-semibold">enableHaptics</td>
                 <td className="p-4 text-purple-400">boolean</td>
                 <td className="p-4 text-zinc-400">true</td>
                 <td className="p-4 text-zinc-400 font-sans">
@@ -159,7 +159,7 @@ export function ButtonDocs() {
                 </td>
               </tr>
               <tr>
-                <td className="p-4 text-accent-main font-semibold">leftIcon / rightIcon</td>
+                <td className="p-4 text-accent font-semibold">leftIcon / rightIcon</td>
                 <td className="p-4 text-purple-400">React.ReactNode</td>
                 <td className="p-4 text-zinc-400">-</td>
                 <td className="p-4 text-zinc-400 font-sans">Iconos decorativos laterales.</td>
@@ -171,3 +171,4 @@ export function ButtonDocs() {
     </div>
   );
 }
+

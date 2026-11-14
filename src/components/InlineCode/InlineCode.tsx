@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn';
 import {type HTMLMotionProps } from 'framer-motion';
 
@@ -18,7 +18,7 @@ export function Inlinecode({
     const baseStyles = 'rounded px-1.5 py-0.5 font-mono font-mono'
     
     const variants = {
-      solid: ' bg-white/5 text-accent-main text-xs',
+      solid: ' bg-white/5 text-accent text-xs',
       terminal: 'text-emerald-500 bg-emerald-950 border-b-emerald-700 font-bold',
     };
 

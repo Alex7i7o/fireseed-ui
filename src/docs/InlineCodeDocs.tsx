@@ -1,4 +1,4 @@
-import { Inlinecode } from '../components/InlineCode/InlineCode';
+﻿import { Inlinecode } from '../components/InlineCode/InlineCode';
 import { Callout } from '../components/Callout';
 import { CodeBlock } from '../components/CodeBlock/CodeBlock';
 
@@ -19,7 +19,7 @@ export function InlineCodeDocs() {
       {/* 1. CABECERA */}
       <div className="space-y-3">
         <h1 className="text-4xl font-extrabold tracking-tight text-white">
-          InlineCode <span className="text-sm font-mono font-normal text-accent-main bg-accent-main/10 px-2 py-0.5 rounded-md border border-accent-main/20 ml-2">v1.0.0</span>
+          InlineCode <span className="text-sm font-mono font-normal text-accent bg-accent/10 px-2 py-0.5 rounded-md border border-accent/20 ml-2">v1.0.0</span>
         </h1>
         <p className="text-lg text-white/60">
           Componente para mostrar pequeños fragmentos de código o comandos directamente dentro de párrafos de texto.
@@ -80,13 +80,13 @@ export function InlineCodeDocs() {
               </thead>
               <tbody className="divide-y divide-white/5 font-mono text-xs">
                 <tr>
-                  <td className="p-3 text-accent-main font-semibold">variant</td>
+                  <td className="p-3 text-accent font-semibold">variant</td>
                   <td className="p-3 text-purple-400">'solid' | 'terminal'</td>
                   <td className="p-3">'solid'</td>
                   <td className="p-3 text-white/60 font-sans">Estilo de renderizado, 'terminal' simula una consola clásica.</td>
                 </tr>
                 <tr>
-                  <td className="p-3 text-accent-main font-semibold">size</td>
+                  <td className="p-3 text-accent font-semibold">size</td>
                   <td className="p-3 text-purple-400">'sm' | 'md' | 'lg'</td>
                   <td className="p-3">'md'</td>
                   <td className="p-3 text-white/60 font-sans">Ajuste opcional de tamaño.</td>
@@ -99,3 +99,4 @@ export function InlineCodeDocs() {
     </div>
   );
 }
+

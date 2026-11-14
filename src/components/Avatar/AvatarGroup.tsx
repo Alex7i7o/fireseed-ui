@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React from 'react';
 import { cn } from '../../utils/cn';
 import { type AvatarSize } from './Avatar';
@@ -36,7 +36,7 @@ export function AvatarGroup({
       {...props}
     >
       {visibleChildren.map((child, idx) => (
-        <div key={idx} className="relative ring-2 ring-primary-main rounded-full transition-transform hover:z-20 hover:scale-105">
+        <div key={idx} className="relative ring-2 ring-primary rounded-full transition-transform hover:z-20 hover:scale-105">
           {React.isValidElement(child)
             ? React.cloneElement(child as React.ReactElement<any>, { size })
             : child}
@@ -47,7 +47,7 @@ export function AvatarGroup({
         <div
           className={cn(
             'relative z-10 flex items-center justify-center font-mono font-bold rounded-full',
-            'bg-primary-surface text-accent-main border border-accent-main/40 ring-2 ring-primary-main shadow-md',
+            'bg-card text-accent border border-accent/40 ring-2 ring-primary shadow-md',
             sizeClasses[size].box,
             sizeClasses[size].text
           )}
@@ -58,3 +58,4 @@ export function AvatarGroup({
     </div>
   );
 }
+

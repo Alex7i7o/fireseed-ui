@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Loader2 } from 'lucide-react';
@@ -91,10 +91,10 @@ export function FeedbackButton({
   };
 
   const variants: Record<string, string> = {
-    solid: 'bg-accent-main text-primary-main hover:brightness-105 active:brightness-95 shadow-sm font-semibold',
-    glow: 'bg-accent-main border border-black/20 text-primary-main glow-bottom font-semibold',
-    inset: 'inset-shadow-sm inset-shadow-black/70 bg-primary-main bg-gradient-to-t from-white/10 to-transparent text-white border border-white/10',
-    outline: 'border border-primary-main/20 bg-transparent text-foreground hover:bg-primary-main/5 dark:border-white/20 dark:text-white',
+    solid: 'bg-accent text-primary hover:brightness-105 active:brightness-95 shadow-sm font-semibold',
+    glow: 'bg-accent border border-black/20 text-primary glow-bottom font-semibold',
+    inset: 'inset-shadow-sm inset-shadow-black/70 bg-primary bg-gradient-to-t from-white/10 to-transparent text-white border border-white/10',
+    outline: 'border border-primary/20 bg-transparent text-foreground hover:bg-primary/5 dark:border-white/20 dark:text-white',
     ghost: 'bg-transparent text-foreground hover:bg-black/5 dark:text-white',
     destructive: 'bg-rose-500 text-white hover:bg-rose-600 shadow-sm font-semibold'
   };
@@ -115,7 +115,7 @@ export function FeedbackButton({
         ...style
       }}
       className={cn(
-        'relative inline-flex items-center justify-center font-medium rounded-xl select-none overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-main disabled:opacity-85 disabled:pointer-events-none cursor-pointer whitespace-nowrap shrink-0',
+        'relative inline-flex items-center justify-center font-medium rounded-xl select-none overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-85 disabled:pointer-events-none cursor-pointer whitespace-nowrap shrink-0',
         // Transición elástica de ancho suave (evita saltos bruscos)
         'transition-[background-color,border-color,color,min-width,width,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]',
         variants[variant] || variants.solid,
@@ -169,3 +169,4 @@ export function FeedbackButton({
     </motion.button>
   );
 }
+

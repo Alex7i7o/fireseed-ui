@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Check } from 'lucide-react';
@@ -124,7 +124,7 @@ export function SelectField({
           'w-full min-h-[44px] h-11 rounded-2xl border px-4 py-2.5 flex items-center justify-between text-sm transition-all cursor-pointer select-none outline-none',
           'bg-[#0d041a] text-white',
           isOpen
-            ? 'border-accent-main ring-2 ring-accent-main/30 shadow-[0_0_20px_rgba(253,204,4,0.15)]'
+            ? 'border-accent ring-2 ring-accent/30 shadow-[0_0_20px_rgba(253,204,4,0.15)]'
             : 'border-white/10 hover:border-white/20',
           error ? 'border-rose-500/80 ring-rose-500/30' : '',
           disabled ? 'opacity-50 cursor-not-allowed' : '',
@@ -171,12 +171,12 @@ export function SelectField({
                     opt.disabled
                       ? 'opacity-40 cursor-not-allowed text-white/30'
                       : isSelected
-                      ? 'bg-accent-main/15 text-accent-main font-semibold'
+                      ? 'bg-accent/15 text-accent font-semibold'
                       : 'text-zinc-200 hover:bg-white/10 hover:text-white'
                   )}
                 >
                   <span className="truncate">{opt.label}</span>
-                  {isSelected && <Check className="w-4 h-4 text-accent-main shrink-0 stroke-[2.5]" />}
+                  {isSelected && <Check className="w-4 h-4 text-accent shrink-0 stroke-[2.5]" />}
                 </div>
               );
             })}
@@ -189,3 +189,4 @@ export function SelectField({
     </div>
   );
 }
+

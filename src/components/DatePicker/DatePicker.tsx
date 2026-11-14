@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar as CalendarIcon, X } from 'lucide-react';
@@ -82,7 +82,7 @@ export function DatePicker({
   return (
     <div ref={containerRef} className={cn('relative flex flex-col gap-1.5 w-full select-none', className)}>
       {label && (
-        <label className="text-xs font-semibold uppercase tracking-wider text-tech-periwinkle">
+        <label className="text-xs font-semibold uppercase tracking-wider text-muted">
           {label}
         </label>
       )}
@@ -97,16 +97,16 @@ export function DatePicker({
         }}
         className={cn(
           'flex items-center justify-between px-3.5 py-2.5 rounded-xl border text-sm transition-all cursor-pointer',
-          'bg-primary-main text-cream-silk border-white/15',
-          'hover:border-accent-main/50 focus:border-accent-main',
-          isOpen && 'border-accent-main ring-2 ring-accent-main/30',
+          'bg-primary text-foreground border-white/15',
+          'hover:border-accent/50 focus:border-accent',
+          isOpen && 'border-accent ring-2 ring-accent/30',
           disabled && 'opacity-40 cursor-not-allowed pointer-events-none',
           error && 'border-rose-500'
         )}
       >
         <div className="flex items-center gap-2.5">
-          <CalendarIcon className="w-4 h-4 text-accent-main shrink-0" />
-          <span className={cn(selectedDate ? 'text-cream-silk font-medium' : 'text-tech-periwinkle/50')}>
+          <CalendarIcon className="w-4 h-4 text-accent shrink-0" />
+          <span className={cn(selectedDate ? 'text-foreground font-medium' : 'text-muted/50')}>
             {selectedDate ? formattedDate : placeholder}
           </span>
         </div>
@@ -115,7 +115,7 @@ export function DatePicker({
           <button
             type="button"
             onClick={handleClear}
-            className="p-1 rounded-md text-tech-periwinkle/60 hover:text-white hover:bg-white/10 transition-colors"
+            className="p-1 rounded-md text-muted/60 hover:text-white hover:bg-white/10 transition-colors"
           >
             <X className="w-3.5 h-3.5" />
           </button>
@@ -141,7 +141,7 @@ export function DatePicker({
               minDate={minDate}
               maxDate={maxDate}
               locale="es"
-              className="border border-accent-main/30 shadow-2xl"
+              className="border border-accent/30 shadow-2xl"
             />
           </motion.div>
         )}
@@ -149,3 +149,4 @@ export function DatePicker({
     </div>
   );
 }
+

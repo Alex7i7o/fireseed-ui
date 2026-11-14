@@ -10,6 +10,10 @@ export default defineConfig({
     outDir: 'dist-docs',
     emptyOutDir: true
   },
+  server: {
+    port: 5175,
+    strictPort: true
+  },
   plugins: [
     react(),
     tailwindcss(),

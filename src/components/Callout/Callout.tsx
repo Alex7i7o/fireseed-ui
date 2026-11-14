@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import type { ReactNode } from 'react';
 import { motion, type HTMLMotionProps } from 'framer-motion';
 import { cn } from '../../utils/cn';
@@ -26,7 +26,7 @@ export function Callout({
     success: 'bg-emerald-500/10 border-emerald-500/25 text-emerald-200',
     warning: 'bg-amber-500/10 border-amber-500/25 text-amber-200',
     error: 'bg-rose-500/10 border-rose-500/25 text-rose-200',
-    glow: 'bg-accent-main/10 border-accent-main/30 text-white glow-md'
+    glow: 'bg-accent/10 border-accent/30 text-white glow-md'
   };
 
   const defaultIcons: Record<string, string> = {
@@ -54,3 +54,4 @@ export function Callout({
     </motion.div>
   );
 }
+

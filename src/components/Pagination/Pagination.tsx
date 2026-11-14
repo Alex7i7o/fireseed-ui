@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React from 'react';
 import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react';
 import { cn } from '../../utils/cn';
@@ -86,8 +86,8 @@ export function Pagination({
         aria-label="Página anterior"
         className={cn(
           'w-9 h-9 rounded-xl flex items-center justify-center text-xs font-semibold transition-all cursor-pointer border',
-          'bg-primary-main border-white/15 text-cream-silk hover:border-accent-main/50 hover:bg-primary-surface',
-          currentPage === 1 && 'opacity-30 cursor-not-allowed hover:border-white/15 hover:bg-primary-main'
+          'bg-primary border-white/15 text-foreground hover:border-accent/50 hover:bg-card',
+          currentPage === 1 && 'opacity-30 cursor-not-allowed hover:border-white/15 hover:bg-primary'
         )}
       >
         <ChevronLeft className="w-4 h-4" />
@@ -99,7 +99,7 @@ export function Pagination({
           return (
             <div
               key={`dots-${idx}`}
-              className="w-8 h-9 flex items-center justify-center text-tech-periwinkle/50"
+              className="w-8 h-9 flex items-center justify-center text-muted/50"
             >
               <MoreHorizontal className="w-4 h-4" />
             </div>
@@ -117,8 +117,8 @@ export function Pagination({
             className={cn(
               'min-w-[36px] h-9 px-2 rounded-xl flex items-center justify-center text-xs font-mono font-bold transition-all cursor-pointer border',
               isCurrent
-                ? 'bg-accent-main border-accent-main text-primary-main shadow-md shadow-accent-main/30'
-                : 'bg-primary-main border-white/15 text-cream-silk hover:border-accent-main/50 hover:bg-primary-surface'
+                ? 'bg-accent border-accent text-primary shadow-md shadow-accent/30'
+                : 'bg-primary border-white/15 text-foreground hover:border-accent/50 hover:bg-card'
             )}
           >
             {pageNumber}
@@ -134,8 +134,8 @@ export function Pagination({
         aria-label="Página siguiente"
         className={cn(
           'w-9 h-9 rounded-xl flex items-center justify-center text-xs font-semibold transition-all cursor-pointer border',
-          'bg-primary-main border-white/15 text-cream-silk hover:border-accent-main/50 hover:bg-primary-surface',
-          currentPage === totalPages && 'opacity-30 cursor-not-allowed hover:border-white/15 hover:bg-primary-main'
+          'bg-primary border-white/15 text-foreground hover:border-accent/50 hover:bg-card',
+          currentPage === totalPages && 'opacity-30 cursor-not-allowed hover:border-white/15 hover:bg-primary'
         )}
       >
         <ChevronRight className="w-4 h-4" />
@@ -143,3 +143,4 @@ export function Pagination({
     </nav>
   );
 }
+

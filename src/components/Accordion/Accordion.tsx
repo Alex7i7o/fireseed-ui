@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
@@ -59,7 +59,7 @@ export function Accordion({
               className="w-full flex items-center justify-between p-4 sm:p-5 text-left text-sm sm:text-base font-semibold text-white focus:outline-none min-h-[44px]"
             >
               <div className="flex items-center gap-3">
-                {item.icon && <span className="text-accent-main shrink-0">{item.icon}</span>}
+                {item.icon && <span className="text-accent shrink-0">{item.icon}</span>}
                 <span>{item.title}</span>
               </div>
               <motion.div
@@ -92,3 +92,4 @@ export function Accordion({
     </div>
   );
 }
+

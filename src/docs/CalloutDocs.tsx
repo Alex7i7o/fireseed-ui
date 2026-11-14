@@ -1,4 +1,4 @@
-import { Callout } from '../components/Callout';
+﻿import { Callout } from '../components/Callout';
 import { CodeBlock } from '../components/CodeBlock/CodeBlock';
 
 const codigoEjemploCallout = `import { Callout } from 'fireseed-ui';
@@ -19,7 +19,7 @@ export function CalloutDocs() {
       {/* 1. CABECERA */}
       <div className="space-y-3">
         <h1 className="text-4xl font-extrabold tracking-tight text-white">
-          Callout <span className="text-sm font-mono font-normal text-accent-main bg-accent-main/10 px-2 py-0.5 rounded-md border border-accent-main/20 ml-2">v1.0.0</span>
+          Callout <span className="text-sm font-mono font-normal text-accent bg-accent/10 px-2 py-0.5 rounded-md border border-accent/20 ml-2">v1.0.0</span>
         </h1>
         <p className="text-lg text-white/60">
           Cajas de llamada para resaltar información importante en la documentación o la interfaz.
@@ -81,13 +81,13 @@ export function CalloutDocs() {
               </thead>
               <tbody className="divide-y divide-white/5 font-mono text-xs">
                 <tr>
-                  <td className="p-3 text-accent-main font-semibold">variant</td>
+                  <td className="p-3 text-accent font-semibold">variant</td>
                   <td className="p-3 text-purple-400">'solid' | 'glow' | 'inset'</td>
                   <td className="p-3">'solid'</td>
                   <td className="p-3 text-white/60 font-sans">El diseño de fondo y bordes de la caja.</td>
                 </tr>
                 <tr>
-                  <td className="p-3 text-accent-main font-semibold">size</td>
+                  <td className="p-3 text-accent font-semibold">size</td>
                   <td className="p-3 text-purple-400">'sm' | 'md' | 'lg'</td>
                   <td className="p-3">'md'</td>
                   <td className="p-3 text-white/60 font-sans">Ajusta dimensiones base de la caja.</td>
@@ -100,3 +100,4 @@ export function CalloutDocs() {
     </div>
   );
 }
+

@@ -3,8 +3,8 @@
 :root {
   /* ==========================================================================
      TOKENS SEMÁNTICOS (ESTÁNDAR PROFESIONAL DE DISEÑO)
-     Tokens funcionales que definen la semántica de la interfaz.
-     Cualquier empresa (ej: Violett Pilates) los sobreescribe sin tocar nombres literales.
+     Tokens funcionales que definen la semántica y jerarquía de la interfaz.
+     Cualquier cliente (ej: Violett Pilates) los sobreescribe sin tocar nombres literales.
      ========================================================================== */
   --color-background: #0D041A;
   --color-foreground: #FFF6DF;
@@ -42,23 +42,6 @@
   --color-success: #10B981;
   --color-warning: #F59E0B;
   --color-destructive: #EF4444;
-
-  /* ==========================================================================
-     COMPATIBILIDAD CON ALIAS PREVIOS & PALETA LITERAL
-     ========================================================================== */
-  --color-primary-main: var(--color-primary);
-  --color-primary-surface: var(--color-card);
-  --color-primary-light: var(--color-muted);
-
-  --color-accent-main: var(--color-accent);
-  --color-accent-amber: var(--color-accent-active);
-
-  --color-solar-gold: var(--color-accent);
-  --color-midnight-violet: var(--color-primary);
-  --color-royal-aubergine: var(--color-card);
-  --color-periwinkle-tech: var(--color-muted);
-  --color-cream-silk: var(--color-foreground);
-  --color-flame-amber: var(--color-accent-active);
 }
 
 @theme {
@@ -95,33 +78,21 @@
   --color-warning: var(--color-warning);
   --color-destructive: var(--color-destructive);
 
-  /* Alias anteriores para retrocompatibilidad total */
-  --color-primary-main: var(--color-primary-main);
-  --color-primary-surface: var(--color-primary-surface);
-  --color-primary-light: var(--color-primary-light);
-  --color-accent-main: var(--color-accent-main);
-  --color-solar-gold: var(--color-solar-gold);
-  --color-midnight-violet: var(--color-midnight-violet);
-  --color-royal-aubergine: var(--color-royal-aubergine);
-  --color-periwinkle-tech: var(--color-periwinkle-tech);
-  --color-cream-silk: var(--color-cream-silk);
-  --color-flame-amber: var(--color-flame-amber);
-
   /* Tipografías del Sistema */
   --font-display: 'PosteramaCustom', system-ui, sans-serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-  /* Sombras y Elevaciones de Lujo */
+  /* Sombras y Elevaciones */
   --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
   --shadow-glass: 0 10px 40px -10px rgba(0, 0, 0, 0.55);
   --shadow-glow: 0 0 35px -5px var(--color-accent-glow, rgba(251, 191, 36, 0.3));
   --shadow-card-elevated: 0 12px 28px rgba(0, 0, 0, 0.45);
 }
 
-/* 🎨 CLASES MAESTRAS DEL MANUAL DE MARCA FIRESEED */
+/* 🎨 UTILIDADES MAESTRAS DE SUPERFICIE */
 
-/* A. Superficie Amarilla / Oro Solar (Tarjetas de Alto Impacto, Banners) */
+/* Superficie de Acento Dorado */
 @utility fs-surface-gold {
   background: linear-gradient(160deg, #FBBF24 0%, #E67E22 100%);
   color: #120524;
@@ -129,7 +100,7 @@
   border: none;
 }
 
-/* B. Botón Primario Dorado Oficial */
+/* Botón Primario de Acento */
 @utility fs-btn-gold {
   background: linear-gradient(90deg, #FBBF24 0%, #E67E22 100%);
   color: #120524;
@@ -139,16 +110,16 @@
   transition: all 0.2s ease-in-out;
 }
 
-/* C. Superficie Violeta Hero (Foco de Luz Radial) */
-@utility fs-surface-violet-hero {
+/* Superficie Radial Hero */
+@utility fs-surface-hero {
   background: radial-gradient(circle at 20% 20%, #241142 0%, #120524 75%);
   color: #FFF6DF;
   border-radius: 24px;
   border: 1px solid rgba(158, 162, 226, 0.22);
 }
 
-/* D. Superficie Violeta Elevada (Tarjetas de Sistema) */
-@utility fs-surface-violet-card {
+/* Superficie Elevada para Tarjetas */
+@utility fs-surface-card {
   background: linear-gradient(180deg, #241142 0%, #150726 100%);
   color: #FFF6DF;
   border-radius: 20px;
@@ -156,7 +127,7 @@
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
 }
 
-/* E. Grilla Técnica de Puntos (Dot Matrix) */
+/* Grilla Técnica de Puntos (Dot Matrix) */
 @utility fs-surface-tech-grid {
   background-color: #120524;
   background-image: radial-gradient(rgba(158, 162, 226, 0.22) 1.5px, transparent 1.5px);
@@ -233,9 +204,9 @@
   }
 }
 
-/* Glassmorphism Técnico Periwinkle */
+/* Glassmorphism */
 @utility glass-panel {
-  background-color: var(--color-primary-main, #120524);
+  background-color: var(--color-primary, #120524);
   opacity: 0.95;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -244,13 +215,100 @@
 }
 
 @utility glass-card {
-  background-color: var(--color-primary-surface, #241142);
+  background-color: var(--color-card, #241142);
   opacity: 0.85;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 200ms ease;
   &:hover {
-    border-color: var(--color-accent-main, #FBBF24);
+    border-color: var(--color-accent, #FBBF24);
   }
+}
+
+/* ==========================================================================
+   RESALTADO DE SINTAXIS (PRISM THEME - FIRESEED DARK)
+   Resuelve el texto en blanco en bloques de código dotando de colores de marca.
+   ========================================================================== */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: var(--color-foreground, #FFF6DF);
+  text-shadow: none;
+  font-family: var(--font-mono, monospace);
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.6;
+  tab-size: 2;
+  hyphens: none;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #9EA2E2 !important;
+  opacity: 0.65;
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #9EA2E2 !important;
+  opacity: 0.85;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #F87171 !important; /* Coral / Rose */
+}
+
+.token.boolean,
+.token.number {
+  color: #FB923C !important; /* Flame Amber / Naranja */
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #34D399 !important; /* Esmeralda / Menta */
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: #F472B6 !important; /* Pink / Magenta */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #FBBF24 !important; /* Solar Gold / Accent */
+  font-weight: 600;
+}
+
+.token.function,
+.token.class-name {
+  color: #60A5FA !important; /* Azul Eléctrico */
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #C084FC !important; /* Púrpura Orquídea */
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
 }

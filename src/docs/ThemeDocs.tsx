@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { Callout } from '../components/Callout';
 import { Inlinecode } from '../components/InlineCode/InlineCode';
 import { CodeBlock } from '../components/CodeBlock/CodeBlock';
@@ -49,11 +49,11 @@ const codigoThemeMaster = `@import "tailwindcss";
   --color-destructive: #EF4444;
 
   /* Retrocompatibilidad con nombres literales de marca */
-  --color-solar-gold: var(--color-accent);
-  --color-midnight-violet: var(--color-primary);
-  --color-royal-aubergine: var(--color-card);
-  --color-periwinkle-tech: var(--color-muted);
-  --color-flame-amber: var(--color-accent-active);
+  --color-accent: var(--color-accent);
+  --color-primary: var(--color-primary);
+  --color-card: var(--color-card);
+  --color-muted: var(--color-muted);
+  --color-accent-active: var(--color-accent-active);
   --color-silk-cream: var(--color-foreground);
 }
 
@@ -196,7 +196,7 @@ export function ThemeDocs() {
             <span>🎯</span> ¿Por qué usamos --color-accent en vez de nombres de colores literales?
           </h3>
           <p className="text-sm leading-relaxed text-[#FFF6DF]/85">
-            Si definiéramos el botón como <Inlinecode variant="solid">bg-solar-gold</Inlinecode>, cuando un cliente como <strong>Violett Pilates</strong> quiera usar la librería con su propia paleta morada/rosa, se vería obligado a redefinir <Inlinecode variant="solid">--color-solar-gold: #C084FC</Inlinecode>, lo cual resulta confuso y anti-patrón en código profesional.
+            Si definiéramos el botón como <Inlinecode variant="solid">bg-accent</Inlinecode>, cuando un cliente como <strong>Violett Pilates</strong> quiera usar la librería con su propia paleta morada/rosa, se vería obligado a redefinir <Inlinecode variant="solid">--color-accent: #C084FC</Inlinecode>, lo cual resulta confuso y anti-patrón en código profesional.
           </p>
           <p className="text-sm leading-relaxed text-[#FFF6DF]/85">
             Al utilizar <strong>tokens semánticos</strong>, cualquier aplicación externa cambia todo el tema de la librería modificando únicamente <Inlinecode variant="solid">--color-accent</Inlinecode> y <Inlinecode variant="solid">--color-primary</Inlinecode>. Además, dentro de Tailwind v4 se generan automáticamente clases directas como <Inlinecode variant="solid">bg-accent</Inlinecode>, <Inlinecode variant="solid">text-accent</Inlinecode>, <Inlinecode variant="solid">border-border</Inlinecode> y <Inlinecode variant="solid">ring-accent</Inlinecode>.
@@ -381,3 +381,4 @@ export function ThemeDocs() {
     </div>
   );
 }
+

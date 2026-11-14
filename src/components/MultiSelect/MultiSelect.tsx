@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React, { useState, useRef, useEffect } from 'react';
 import { X, Check, Search, ChevronDown } from 'lucide-react';
 import { cn } from '../../utils/cn';
@@ -83,7 +83,7 @@ export function MultiSelect<T = MultiSelectOption>({
 
       <div
         className={cn(
-          'min-h-[44px] w-full p-2 rounded-xl border bg-black/40 text-sm cursor-text flex flex-wrap gap-1.5 items-center transition-all focus-within:ring-2 focus-within:ring-accent-main/50 focus-within:border-accent-main',
+          'min-h-[44px] w-full p-2 rounded-xl border bg-black/40 text-sm cursor-text flex flex-wrap gap-1.5 items-center transition-all focus-within:ring-2 focus-within:ring-accent/50 focus-within:border-accent',
           error ? 'border-rose-500/80' : 'border-white/10 hover:border-white/20'
         )}
         onClick={() => {
@@ -97,7 +97,7 @@ export function MultiSelect<T = MultiSelectOption>({
           return (
             <span
               key={val}
-              className="bg-accent-main/15 text-accent-main border border-accent-main/20 px-2.5 py-1 rounded-lg text-xs font-medium flex items-center gap-1.5 select-none"
+              className="bg-accent/15 text-accent border border-accent/20 px-2.5 py-1 rounded-lg text-xs font-medium flex items-center gap-1.5 select-none"
             >
               <span>{getLabel(item)}</span>
               <button
@@ -140,7 +140,7 @@ export function MultiSelect<T = MultiSelectOption>({
                   key={val}
                   className={cn(
                     'p-3 px-4 text-sm cursor-pointer hover:bg-white/10 flex items-center justify-between transition-colors text-white/90',
-                    isSelected ? 'bg-white/5 font-semibold text-accent-main' : ''
+                    isSelected ? 'bg-white/5 font-semibold text-accent' : ''
                   )}
                   onClick={() => {
                     toggleItem(val);
@@ -148,7 +148,7 @@ export function MultiSelect<T = MultiSelectOption>({
                   }}
                 >
                   <span>{getLabel(item)}</span>
-                  {isSelected && <Check className="w-4 h-4 text-accent-main" />}
+                  {isSelected && <Check className="w-4 h-4 text-accent" />}
                 </div>
               );
             })
@@ -165,3 +165,4 @@ export function MultiSelect<T = MultiSelectOption>({
     </div>
   );
 }
+

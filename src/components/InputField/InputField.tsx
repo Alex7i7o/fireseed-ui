@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React from 'react';
 import { cn } from '../../utils/cn';
 
@@ -53,7 +53,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
             disabled={disabled}
             aria-invalid={Boolean(error)}
             className={cn(
-              'w-full min-h-[44px] h-11 rounded-xl border bg-black/30 px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 transition-all outline-none focus:ring-2 focus:ring-accent-main/50 focus:border-accent-main disabled:opacity-50 disabled:cursor-not-allowed',
+              'w-full min-h-[44px] h-11 rounded-xl border bg-black/30 px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 transition-all outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent disabled:opacity-50 disabled:cursor-not-allowed',
               error
                 ? 'border-rose-500/80 focus:ring-rose-500/30 focus:border-rose-500'
                 : 'border-white/10 hover:border-white/20',
@@ -81,3 +81,4 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
 InputField.displayName = 'InputField';
 
 export { Textarea, type TextareaProps } from '../Textarea';
+

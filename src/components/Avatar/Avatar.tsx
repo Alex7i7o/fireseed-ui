@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React, { useState } from 'react';
 import { User } from 'lucide-react';
 import { cn } from '../../utils/cn';
@@ -69,7 +69,7 @@ export function Avatar({
       <div
         className={cn(
           'relative w-full h-full overflow-hidden flex items-center justify-center font-bold tracking-tight',
-          'bg-gradient-to-br from-primary-surface to-primary-main text-accent-main border border-white/15 shadow-inner',
+          'bg-gradient-to-br from-card to-primary text-accent border border-white/15 shadow-inner',
           shapeClass
         )}
       >
@@ -87,7 +87,7 @@ export function Avatar({
         ) : fallback ? (
           fallback
         ) : (
-          <User size={sizeClasses[size].icon} className="text-tech-periwinkle/70" />
+          <User size={sizeClasses[size].icon} className="text-muted/70" />
         )}
       </div>
 
@@ -95,7 +95,7 @@ export function Avatar({
       {status && (
         <span
           className={cn(
-            'absolute bottom-0 right-0 rounded-full ring-primary-main',
+            'absolute bottom-0 right-0 rounded-full ring-primary',
             sizeClasses[size].status,
             statusColors[status]
           )}
@@ -104,3 +104,4 @@ export function Avatar({
     </div>
   );
 }
+

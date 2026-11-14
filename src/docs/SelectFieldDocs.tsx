@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { useState } from 'react';
 import { SelectField } from '../components/SelectField';
 import { Callout } from '../components/Callout';
@@ -33,7 +33,7 @@ export function SelectFieldDocs() {
       {/* 1. CABECERA */}
       <div className="space-y-3">
         <div className="flex items-center gap-2">
-          <span className="text-xs font-mono font-semibold text-accent-main bg-accent-main/15 px-2 py-0.5 rounded border border-accent-main/30">
+          <span className="text-xs font-mono font-semibold text-accent bg-accent/15 px-2 py-0.5 rounded border border-accent/30">
             Átomo
           </span>
           <span className="text-xs text-zinc-500 font-mono">Custom Dropdown Menu</span>
@@ -81,3 +81,4 @@ export function SelectFieldDocs() {
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, Minus } from 'lucide-react';
@@ -88,11 +88,11 @@ export function Checkbox({
           }}
           className={cn(
             'relative shrink-0 mt-0.5 flex items-center justify-center transition-all duration-200 border',
-            'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-main focus-visible:ring-offset-2 focus-visible:ring-offset-primary-main',
+            'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary',
             boxSizes[size],
             isChecked || indeterminate
-              ? 'bg-accent-main border-accent-main text-primary-main shadow-md shadow-accent-main/20'
-              : 'bg-primary-main border-white/20 text-transparent group-hover:border-accent-main/60'
+              ? 'bg-accent border-accent text-primary shadow-md shadow-accent/20'
+              : 'bg-primary border-white/20 text-transparent group-hover:border-accent/60'
           )}
         >
           {indeterminate ? (
@@ -118,12 +118,12 @@ export function Checkbox({
         {(label || description) && (
           <div className="flex flex-col text-left">
             {label && (
-              <span className="text-xs sm:text-sm font-medium text-cream-silk group-hover:text-white transition-colors">
+              <span className="text-xs sm:text-sm font-medium text-foreground group-hover:text-white transition-colors">
                 {label}
               </span>
             )}
             {description && (
-              <span className="text-[11px] sm:text-xs text-tech-periwinkle/80 leading-normal mt-0.5">
+              <span className="text-[11px] sm:text-xs text-muted/80 leading-normal mt-0.5">
                 {description}
               </span>
             )}
@@ -139,3 +139,4 @@ export function Checkbox({
     </div>
   );
 }
+

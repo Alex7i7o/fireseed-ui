@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React from 'react';
 import { motion, type HTMLMotionProps } from 'framer-motion';
 import { cn } from '../../utils/cn';
@@ -14,8 +14,8 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
 
     const variants: Record<string, string> = {
       default: 'bg-white/5 border-white/10 text-white backdrop-blur-sm',
-      glow: 'bg-white/5 border-accent-main/30 text-white glow-md',
-      inset: 'inset-shadow-sm inset-shadow-black/70 bg-primary-main/90 border-white/10 text-white',
+      glow: 'bg-white/5 border-accent/30 text-white glow-md',
+      inset: 'inset-shadow-sm inset-shadow-black/70 bg-primary/90 border-white/10 text-white',
       elevated: 'bg-white/10 border-white/15 text-white shadow-xl',
       ghost: 'bg-transparent border-transparent text-white'
     };
@@ -73,3 +73,4 @@ export const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<
   )
 );
 CardFooter.displayName = 'CardFooter';
+

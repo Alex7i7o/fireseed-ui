@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { useState } from 'react';
 import { Tabs } from '../components/Tabs';
 import { Callout } from '../components/Callout';
@@ -33,7 +33,7 @@ export function TabsDocs() {
       <div className="space-y-3">
         <h1 className="text-4xl font-extrabold tracking-tight text-white flex items-center gap-3">
           Tabs (Pestañas Flotantes){' '}
-          <span className="text-sm font-mono font-normal text-accent-main bg-accent-main/10 px-2 py-0.5 rounded-md border border-accent-main/20">
+          <span className="text-sm font-mono font-normal text-accent bg-accent/10 px-2 py-0.5 rounded-md border border-accent/20">
             v1.0.0
           </span>
         </h1>
@@ -69,10 +69,11 @@ export function TabsDocs() {
           </div>
 
           <div className="p-6 rounded-xl bg-white/5 border border-white/10 text-sm text-white/70">
-            Pestaña activa actual: <span className="text-accent-main font-bold font-mono">{activeTab}</span>
+            Pestaña activa actual: <span className="text-accent font-bold font-mono">{activeTab}</span>
           </div>
         </div>
       </div>
     </div>
   );
 }
+

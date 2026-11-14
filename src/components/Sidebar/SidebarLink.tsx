@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn';
 import { haptics } from '../../utils/haptics';
@@ -30,8 +30,8 @@ export function SidebarLink({
         className={cn(
           'relative flex items-center justify-between rounded-xl px-3 py-2 text-xs sm:text-sm font-medium transition-colors select-none z-10',
           isActive
-            ? 'text-accent-main font-semibold'
-            : 'text-cream-silk/70 hover:text-cream-silk hover:bg-primary-surface/40'
+            ? 'text-accent font-semibold'
+            : 'text-foreground/70 hover:text-foreground hover:bg-card/40'
         )}
       >
         <span>{label}</span>
@@ -39,7 +39,7 @@ export function SidebarLink({
         {isActive && (
           <motion.div
             layoutId="activeSidebarPill"
-            className="absolute inset-0 -z-10 rounded-xl bg-gradient-to-r from-accent-main/15 to-accent-main/5 border border-accent-main/30 shadow-[0_0_15px_rgba(251,191,36,0.15)]"
+            className="absolute inset-0 -z-10 rounded-xl bg-gradient-to-r from-accent/15 to-accent/5 border border-accent/30 shadow-[0_0_15px_rgba(251,191,36,0.15)]"
             transition={{ type: 'spring', stiffness: 500, damping: 35 }}
           />
         )}
@@ -47,3 +47,4 @@ export function SidebarLink({
     </li>
   );
 }
+

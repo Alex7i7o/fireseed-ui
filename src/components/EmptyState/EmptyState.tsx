@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React from 'react';
 import { Inbox } from 'lucide-react';
 import { cn } from '../../utils/cn';
@@ -25,7 +25,7 @@ export function EmptyState({
         className
       )}
     >
-      <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-accent-main shadow-inner">
+      <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-accent shadow-inner">
         {icon || <Inbox className="w-7 h-7 stroke-[1.5]" />}
       </div>
 
@@ -38,3 +38,4 @@ export function EmptyState({
     </div>
   );
 }
+

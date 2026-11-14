@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React from 'react';
 import { cn } from '../../utils/cn';
 
@@ -48,7 +48,7 @@ export function Separator({
               : 'bg-white/10'
           )}
         />
-        <span className="px-3 text-xs font-mono font-medium text-tech-periwinkle/80 uppercase tracking-wider">
+        <span className="px-3 text-xs font-mono font-medium text-muted/80 uppercase tracking-wider">
           {label}
         </span>
         <div
@@ -78,3 +78,4 @@ export function Separator({
     />
   );
 }
+

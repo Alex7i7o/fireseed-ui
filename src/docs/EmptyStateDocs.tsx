@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { EmptyState } from '../components/EmptyState';
 import { Button } from '../components/Button';
 import { Callout } from '../components/Callout';
@@ -11,7 +11,7 @@ import { CalendarX, Plus } from 'lucide-react';
 export default function SinTurnos() {
   return (
     <EmptyState
-      icon={<CalendarX className="w-7 h-7 text-accent-main" />}
+      icon={<CalendarX className="w-7 h-7 text-accent" />}
       title="No tienes turnos agendados"
       description="Explora las clases disponibles de esta semana y reserva tu camilla de Pilates Reformer."
       action={
@@ -29,7 +29,7 @@ export function EmptyStateDocs() {
       <div className="space-y-3">
         <h1 className="text-4xl font-extrabold tracking-tight text-white flex items-center gap-3">
           EmptyState{' '}
-          <span className="text-sm font-mono font-normal text-accent-main bg-accent-main/10 px-2 py-0.5 rounded-md border border-accent-main/20">
+          <span className="text-sm font-mono font-normal text-accent bg-accent/10 px-2 py-0.5 rounded-md border border-accent/20">
             v1.0.0
           </span>
         </h1>
@@ -66,3 +66,4 @@ export function EmptyStateDocs() {
     </div>
   );
 }
+

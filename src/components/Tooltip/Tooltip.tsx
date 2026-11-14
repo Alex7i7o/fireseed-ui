@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../../utils/cn';
@@ -73,7 +73,7 @@ export function Tooltip({
             transition={{ duration: 0.15, ease: 'easeOut' }}
             className={cn(
               'absolute z-50 pointer-events-none whitespace-nowrap px-3 py-1.5 rounded-xl text-xs font-medium',
-              'bg-primary-main/95 text-cream-silk border border-accent-main/30 shadow-xl shadow-black/50 backdrop-blur-md',
+              'bg-primary/95 text-foreground border border-accent/30 shadow-xl shadow-black/50 backdrop-blur-md',
               positionClasses[position],
               className
             )}
@@ -85,3 +85,4 @@ export function Tooltip({
     </div>
   );
 }
+

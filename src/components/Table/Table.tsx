@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React from 'react';
 import { cn } from '../../utils/cn';
 
@@ -10,12 +10,12 @@ export function Table({ className, containerClassName, ...props }: TableProps) {
   return (
     <div
       className={cn(
-        'w-full overflow-x-auto rounded-2xl border border-white/10 bg-primary-main/90 shadow-2xl backdrop-blur-xl',
+        'w-full overflow-x-auto rounded-2xl border border-white/10 bg-primary/90 shadow-2xl backdrop-blur-xl',
         containerClassName
       )}
     >
       <table
-        className={cn('w-full text-left text-xs text-cream-silk caption-bottom', className)}
+        className={cn('w-full text-left text-xs text-foreground caption-bottom', className)}
         {...props}
       />
     </div>
@@ -29,7 +29,7 @@ export function TableHeader({
   return (
     <thead
       className={cn(
-        'border-b border-white/10 bg-primary-surface font-mono text-[11px] uppercase tracking-wider text-accent-main',
+        'border-b border-white/10 bg-card font-mono text-[11px] uppercase tracking-wider text-accent',
         className
       )}
       {...props}
@@ -56,7 +56,7 @@ export function TableFooter({
   return (
     <tfoot
       className={cn(
-        'border-t border-white/10 bg-primary-surface font-medium text-white',
+        'border-t border-white/10 bg-card font-medium text-white',
         className
       )}
       {...props}
@@ -71,7 +71,7 @@ export function TableRow({
   return (
     <tr
       className={cn(
-        'transition-colors hover:bg-white/[0.04] data-[state=selected]:bg-accent-main/10',
+        'transition-colors hover:bg-white/[0.04] data-[state=selected]:bg-accent/10',
         className
       )}
       {...props}
@@ -86,7 +86,7 @@ export function TableHead({
   return (
     <th
       className={cn(
-        'h-11 px-4 text-left align-middle font-semibold text-accent-main [&:has([role=checkbox])]:pr-0',
+        'h-11 px-4 text-left align-middle font-semibold text-accent [&:has([role=checkbox])]:pr-0',
         className
       )}
       {...props}
@@ -112,8 +112,9 @@ export function TableCaption({
 }: React.HTMLAttributes<HTMLTableCaptionElement>) {
   return (
     <caption
-      className={cn('mt-4 text-xs font-mono text-tech-periwinkle/60', className)}
+      className={cn('mt-4 text-xs font-mono text-muted/60', className)}
       {...props}
     />
   );
 }
+

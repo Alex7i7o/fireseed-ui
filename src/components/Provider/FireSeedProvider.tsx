@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React, { createContext, useContext, useMemo, useEffect } from 'react';
 
 export interface FireSeedThemeTokens {
@@ -102,15 +102,15 @@ export function FireSeedProvider({
 
   const cssVariables = useMemo(() => {
     const vars: Record<string, string> = {};
-    if (tokens.primaryMain) vars['--color-primary-main'] = tokens.primaryMain;
-    if (tokens.primarySurface) vars['--color-primary-surface'] = tokens.primarySurface;
+    if (tokens.primaryMain) vars['--color-primary'] = tokens.primaryMain;
+    if (tokens.primarySurface) vars['--color-card'] = tokens.primarySurface;
     if (tokens.primaryHover) vars['--color-primary-hover'] = tokens.primaryHover;
-    if (tokens.accentMain) vars['--color-accent-main'] = tokens.accentMain;
+    if (tokens.accentMain) vars['--color-accent'] = tokens.accentMain;
     if (tokens.accentHover) vars['--color-accent-hover'] = tokens.accentHover;
-    if (tokens.accentAmber) vars['--color-accent-amber'] = tokens.accentAmber;
+    if (tokens.accentAmber) vars['--color-accent-active'] = tokens.accentAmber;
     if (tokens.accentGlow) vars['--color-accent-glow'] = tokens.accentGlow;
-    if (tokens.techPeriwinkle) vars['--color-tech-periwinkle'] = tokens.techPeriwinkle;
-    if (tokens.creamSilk) vars['--color-cream-silk'] = tokens.creamSilk;
+    if (tokens.techPeriwinkle) vars['--color-muted'] = tokens.techPeriwinkle;
+    if (tokens.creamSilk) vars['--color-foreground'] = tokens.creamSilk;
     if (tokens.background) vars['--color-background'] = tokens.background;
     if (tokens.card) vars['--color-card'] = tokens.card;
     if (tokens.foreground) vars['--color-foreground'] = tokens.foreground;
@@ -145,3 +145,4 @@ export function FireSeedProvider({
     </FireSeedContext.Provider>
   );
 }
+

@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { useState, useMemo } from 'react';
 import { Button } from '../components/Button';
 import { Badge } from '../components/Badge';
@@ -137,10 +137,10 @@ const codigoGlobalTheme = `/* src/theme.css — Tailwind CSS v4 */
 
 @theme {
   /* Si tu marca usa Azul en lugar de Dorado, cambiá esta variable: */
-  --color-primary-main: #0B1120;  /* Fondo oscuro azulado */
-  --color-accent-main: #3B82F6;   /* Azul Eléctrico para botones y acentos */
-  --color-royal-aubergine: #1E293B;
-  --color-periwinkle-tech: #60A5FA;
+  --color-primary: #0B1120;  /* Fondo oscuro azulado */
+  --color-accent: #3B82F6;   /* Azul Eléctrico para botones y acentos */
+  --color-card: #1E293B;
+  --color-muted: #60A5FA;
   --color-silk-cream: #F8FAFC;
 }`;
 
@@ -598,3 +598,4 @@ export function MiBoton() {
     </div>
   );
 }
+

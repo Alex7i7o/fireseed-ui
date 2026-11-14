@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { Inlinecode } from "../components/InlineCode/InlineCode";
 import { StepBadge } from "../components/StepBadge";
 import { Callout } from "../components/Callout";
@@ -14,10 +14,10 @@ const codigoThemeCSS = `@import "tailwindcss";
   /* ============================================================
      VARIABLES GLOBALES DE FIRESEED UI (CSS NATIVO)
      ============================================================ */
-  --color-primary-main: #120524; /* Fondo principal de tarjetas y modales */
-  --color-accent-main: #FBBF24;  /* Color de acción para botones primarios y acentos */
-  --color-royal-aubergine: #241142;
-  --color-periwinkle-tech: #9EA2E2;
+  --color-primary: #120524; /* Fondo principal de tarjetas y modales */
+  --color-accent: #FBBF24;  /* Color de acción para botones primarios y acentos */
+  --color-card: #241142;
+  --color-muted: #9EA2E2;
   --color-silk-cream: #FFF6DF;
 }
 
@@ -144,7 +144,7 @@ export function InstallationDocs() {
               Si declarás estas variables en tu archivo CSS principal (por ejemplo <Inlinecode variant="solid">src/theme.css</Inlinecode> o <Inlinecode variant="solid">src/index.css</Inlinecode>), todos los componentes adoptarán automáticamente los fondos oscuros profundos y los botones de alta visibilidad.
             </p>
             <p className="text-[#9EA2E2]">
-              <strong>¿Querés usar tus propios colores de marca?</strong> Podés cambiar <Inlinecode variant="solid">--color-accent-main</Inlinecode> por el color que quieras (azul, verde, rojo, etc.) o sobrescribir cualquier color directamente en cada componente usando <Inlinecode variant="solid">className="bg-..."</Inlinecode>.
+              <strong>¿Querés usar tus propios colores de marca?</strong> Podés cambiar <Inlinecode variant="solid">--color-accent</Inlinecode> por el color que quieras (azul, verde, rojo, etc.) o sobrescribir cualquier color directamente en cada componente usando <Inlinecode variant="solid">className="bg-..."</Inlinecode>.
             </p>
           </div>
         </Callout>
@@ -207,3 +207,4 @@ export function InstallationDocs() {
     </div>
   );
 }
+

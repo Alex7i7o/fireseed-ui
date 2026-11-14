@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React, { useRef, useEffect } from 'react';
 import { cn } from '../../utils/cn';
 
@@ -72,7 +72,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         {label && (
           <label
             htmlFor={textareaId}
-            className="text-xs font-semibold uppercase tracking-wider text-tech-periwinkle"
+            className="text-xs font-semibold uppercase tracking-wider text-muted"
           >
             {label}
           </label>
@@ -91,8 +91,8 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             aria-invalid={!!error}
             className={cn(
               'w-full px-4 py-3 rounded-xl text-sm font-sans transition-all duration-200 outline-none resize-y',
-              'bg-primary-main text-cream-silk border border-white/15 placeholder:text-tech-periwinkle/40',
-              'focus:border-accent-main focus:ring-2 focus:ring-accent-main/30 focus:shadow-lg focus:shadow-accent-main/10',
+              'bg-primary text-foreground border border-white/15 placeholder:text-muted/40',
+              'focus:border-accent focus:ring-2 focus:ring-accent/30 focus:shadow-lg focus:shadow-accent/10',
               disabled && 'opacity-40 cursor-not-allowed bg-black/40',
               error && 'border-rose-500 focus:border-rose-500 focus:ring-rose-500/30',
               className
@@ -107,14 +107,14 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             {error ? (
               <span className="text-rose-400 font-medium">{error}</span>
             ) : hint ? (
-              <span className="text-tech-periwinkle/60">{hint}</span>
+              <span className="text-muted/60">{hint}</span>
             ) : null}
           </div>
 
           {showCount && maxLength && (
             <span
               className={cn(
-                'text-tech-periwinkle/60 ml-auto',
+                'text-muted/60 ml-auto',
                 currentLength >= maxLength && 'text-rose-400 font-bold'
               )}
             >
@@ -128,3 +128,4 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 );
 
 Textarea.displayName = 'Textarea';
+

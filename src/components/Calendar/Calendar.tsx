@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Calendar as CalendarIcon, RotateCcw } from 'lucide-react';
@@ -268,17 +268,17 @@ export function Calendar({
     <div
       className={cn(
         'w-full max-w-[350px] sm:max-w-[370px] select-none rounded-2xl p-4 sm:p-5',
-        'bg-primary-main/95 border border-primary-light/20 shadow-2xl backdrop-blur-xl',
-        'font-sans text-cream-silk',
+        'bg-primary/95 border border-primary-light/20 shadow-2xl backdrop-blur-xl',
+        'font-sans text-foreground',
         className
       )}
     >
       {/* 1. CABECERA: Mes / Año y Navegadores */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <CalendarIcon className="w-5 h-5 text-accent-main" />
-          <h2 className="text-base sm:text-lg font-bold font-['PosteramaCustom',sans-serif] tracking-tight text-cream-silk">
-            {monthNames[month]} <span className="text-tech-periwinkle font-mono">{year}</span>
+          <CalendarIcon className="w-5 h-5 text-accent" />
+          <h2 className="text-base sm:text-lg font-bold font-['PosteramaCustom',sans-serif] tracking-tight text-foreground">
+            {monthNames[month]} <span className="text-muted font-mono">{year}</span>
           </h2>
         </div>
 
@@ -288,7 +288,7 @@ export function Calendar({
               type="button"
               onClick={handleGoToday}
               title="Ir a hoy"
-              className="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-lg bg-primary-surface text-accent-main border border-accent-main/30 hover:bg-accent-main hover:text-primary-main transition-all cursor-pointer"
+              className="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-lg bg-card text-accent border border-accent/30 hover:bg-accent hover:text-primary transition-all cursor-pointer"
             >
               <RotateCcw className="w-3 h-3" />
               <span className="hidden sm:inline">Hoy</span>
@@ -299,7 +299,7 @@ export function Calendar({
             type="button"
             onClick={handlePrevMonth}
             aria-label="Mes anterior"
-            className="p-1.5 rounded-lg text-tech-periwinkle hover:text-cream-silk hover:bg-white/10 active:scale-95 transition-all cursor-pointer"
+            className="p-1.5 rounded-lg text-muted hover:text-foreground hover:bg-white/10 active:scale-95 transition-all cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -308,7 +308,7 @@ export function Calendar({
             type="button"
             onClick={handleNextMonth}
             aria-label="Mes siguiente"
-            className="p-1.5 rounded-lg text-tech-periwinkle hover:text-cream-silk hover:bg-white/10 active:scale-95 transition-all cursor-pointer"
+            className="p-1.5 rounded-lg text-muted hover:text-foreground hover:bg-white/10 active:scale-95 transition-all cursor-pointer"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -322,7 +322,7 @@ export function Calendar({
             key={day}
             className={cn(
               'text-[11px] sm:text-xs font-mono font-semibold py-1 uppercase tracking-wider',
-              idx >= 5 ? 'text-accent-main/70' : 'text-tech-periwinkle/70'
+              idx >= 5 ? 'text-accent/70' : 'text-muted/70'
             )}
           >
             {day}
@@ -370,13 +370,13 @@ export function Calendar({
                 <div key={date.toISOString()} className="relative flex items-center justify-center">
                   {/* Relleno de fondo continuo para rango */}
                   {inRange && !isRangeStart && !isRangeEnd && (
-                    <div className="absolute inset-x-0 h-9 sm:h-10 bg-accent-main/15 z-0" />
+                    <div className="absolute inset-x-0 h-9 sm:h-10 bg-accent/15 z-0" />
                   )}
                   {isRangeStart && selectedRange?.end && !isSameDay(selectedRange.start, selectedRange.end) && (
-                    <div className="absolute right-0 w-1/2 h-9 sm:h-10 bg-accent-main/15 z-0" />
+                    <div className="absolute right-0 w-1/2 h-9 sm:h-10 bg-accent/15 z-0" />
                   )}
                   {isRangeEnd && selectedRange?.start && !isSameDay(selectedRange.start, selectedRange.end) && (
-                    <div className="absolute left-0 w-1/2 h-9 sm:h-10 bg-accent-main/15 z-0" />
+                    <div className="absolute left-0 w-1/2 h-9 sm:h-10 bg-accent/15 z-0" />
                   )}
 
                   <button
@@ -388,16 +388,16 @@ export function Calendar({
                       // Ergonomía táctil para mobile
                       'min-w-[36px] min-h-[36px] sm:min-w-[40px] sm:min-h-[40px]',
                       // Estados según mes y selección
-                      !isCurrentMonth && 'text-tech-periwinkle/30',
-                      isCurrentMonth && !isSelected && 'text-cream-silk hover:bg-white/10',
+                      !isCurrentMonth && 'text-muted/30',
+                      isCurrentMonth && !isSelected && 'text-foreground hover:bg-white/10',
                       disabled && 'opacity-20 cursor-not-allowed line-through hover:bg-transparent',
                       // Selección activa
                       isSelected && [
-                        'bg-accent-main text-primary-main font-bold shadow-lg shadow-accent-main/30',
+                        'bg-accent text-primary font-bold shadow-lg shadow-accent/30',
                         'scale-100 active:scale-95'
                       ],
                       // Hoy (borde sutil si no está seleccionado)
-                      isTodayDate && !isSelected && 'border border-accent-main/60 font-bold text-accent-main'
+                      isTodayDate && !isSelected && 'border border-accent/60 font-bold text-accent'
                     )}
                   >
                     <span>{dayNumber}</span>
@@ -410,10 +410,10 @@ export function Calendar({
                             key={i}
                             className={cn(
                               'w-1 h-1 rounded-full',
-                              isSelected ? 'bg-primary-main' : 'bg-accent-main'
+                              isSelected ? 'bg-primary' : 'bg-accent'
                             )}
                             style={{
-                              backgroundColor: isSelected ? 'var(--color-primary-main, #120524)' : (ev.color || 'var(--color-accent-main, #FBBF24)')
+                              backgroundColor: isSelected ? 'var(--color-primary, #120524)' : (ev.color || 'var(--color-accent, #FBBF24)')
                             }}
                           />
                         ))}
@@ -429,3 +429,4 @@ export function Calendar({
     </div>
   );
 }
+

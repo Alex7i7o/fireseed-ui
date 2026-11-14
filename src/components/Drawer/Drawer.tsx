@@ -1,5 +1,5 @@
 /* Developed by FireSeed - Fueling Innovation */
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useId } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
@@ -31,22 +31,84 @@ export function Drawer({
   className,
   enableHaptics = true
 }: DrawerProps) {
+  const titleId = useId();
+  const descId = useId();
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const previousActiveElementRef = useRef<HTMLElement | null>(null);
+
+  // Bloqueo de scroll y gestión de foco al abrir/cerrar
   useEffect(() => {
     if (typeof document === 'undefined') return;
     if (isOpen) {
+      previousActiveElementRef.current = document.activeElement as HTMLElement;
       if (enableHaptics) haptics.light();
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       document.body.style.paddingRight = `${scrollbarWidth}px`;
       document.body.style.overflow = 'hidden';
+
+      // Poner foco dentro del drawer
+      setTimeout(() => {
+        if (drawerRef.current) {
+          const focusable = drawerRef.current.querySelectorAll<HTMLElement>(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          );
+          if (focusable.length > 0) {
+            focusable[0].focus();
+          } else {
+            drawerRef.current.focus();
+          }
+        }
+      }, 50);
     } else {
       document.body.style.paddingRight = '0px';
       document.body.style.overflow = 'unset';
+      if (previousActiveElementRef.current) {
+        previousActiveElementRef.current.focus();
+      }
     }
     return () => {
       document.body.style.paddingRight = '0px';
       document.body.style.overflow = 'unset';
     };
   }, [isOpen, enableHaptics]);
+
+  // Accesibilidad WAI-ARIA: Soporte de tecla Escape y Trampa de Foco (Focus Trap)
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (e.key === 'Tab' && drawerRef.current) {
+        const focusables = drawerRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length === 0) return;
+
+        const firstElement = focusables[0];
+        const lastElement = focusables[focusables.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   const sizeClasses = {
     sm: 'max-w-xs',
@@ -68,17 +130,24 @@ export function Drawer({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={onClose}
+            aria-hidden="true"
             className="fixed inset-0 bg-black/60 backdrop-blur-sm pointer-events-auto"
           />
 
-          {/* Panel Lateral */}
+          {/* Panel Lateral con Roles WAI-ARIA */}
           <motion.div
+            ref={drawerRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={title ? titleId : undefined}
+            aria-describedby={description ? descId : undefined}
+            tabIndex={-1}
             initial={{ x: isRight ? '100%' : '-100%' }}
             animate={{ x: 0 }}
             exit={{ x: isRight ? '100%' : '-100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 350 }}
             className={cn(
-              'relative z-50 w-full h-full bg-primary-main border-white/10 text-white shadow-2xl flex flex-col pointer-events-auto overflow-hidden custom-scrollbar',
+              'relative z-50 w-full h-full bg-primary border-border text-foreground shadow-2xl flex flex-col pointer-events-auto overflow-hidden custom-scrollbar outline-none',
               isRight ? 'ml-auto border-l' : 'mr-auto border-r',
               sizeClasses[size],
               className
@@ -86,22 +155,22 @@ export function Drawer({
           >
             {/* Cabecera */}
             {(title || showCloseButton) && (
-              <div className="flex items-center justify-between border-b border-white/10 px-6 py-4 shrink-0 bg-primary-surface">
+              <div className="flex items-center justify-between border-b border-border px-6 py-4 shrink-0 bg-card">
                 <div className="pr-3">
                   {title && (
-                    <h2 className="text-lg font-bold font-['PosteramaCustom',sans-serif] tracking-tight text-cream-silk">
+                    <h2 id={titleId} className="text-lg font-bold font-['PosteramaCustom',sans-serif] tracking-tight text-foreground">
                       {title}
                     </h2>
                   )}
                   {description && (
-                    <p className="text-xs text-tech-periwinkle/80 mt-0.5">{description}</p>
+                    <p id={descId} className="text-xs text-muted mt-0.5">{description}</p>
                   )}
                 </div>
                 {showCloseButton && (
                   <button
                     type="button"
                     onClick={onClose}
-                    className="rounded-full p-2 text-tech-periwinkle/60 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                    className="rounded-full p-2 text-muted hover:text-foreground hover:bg-white/10 transition-colors cursor-pointer"
                     aria-label="Cerrar panel"
                   >
                     <X size={18} />

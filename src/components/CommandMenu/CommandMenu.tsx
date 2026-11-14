@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, ArrowRight, Layers, Sparkles, Box } from 'lucide-react';
@@ -47,7 +47,7 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
   };
 
   const getCategoryIcon = (category: string) => {
-    if (category.includes('Átomos')) return <Box className="w-3.5 h-3.5 text-accent-main" />;
+    if (category.includes('Átomos')) return <Box className="w-3.5 h-3.5 text-accent" />;
     if (category.includes('Moléculas')) return <Sparkles className="w-3.5 h-3.5 text-purple-400" />;
     return <Layers className="w-3.5 h-3.5 text-emerald-400" />;
   };
@@ -76,7 +76,7 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
           >
             {/* Input Header */}
             <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/10 bg-white/[0.02]">
-              <Search className="w-5 h-5 text-accent-main shrink-0" />
+              <Search className="w-5 h-5 text-accent shrink-0" />
               <input
                 autoFocus
                 type="text"
@@ -113,14 +113,14 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
                         {getCategoryIcon(item.category)}
                       </div>
                       <div>
-                        <span className="text-sm font-semibold text-white group-hover:text-accent-main transition-colors">
+                        <span className="text-sm font-semibold text-white group-hover:text-accent transition-colors">
                           {item.label}
                         </span>
                         <span className="text-xs text-white/40 block">{item.category}</span>
                       </div>
                     </div>
 
-                    <ArrowRight className="w-4 h-4 text-white/20 group-hover:text-accent-main group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-4 h-4 text-white/20 group-hover:text-accent group-hover:translate-x-1 transition-all" />
                   </div>
                 ))
               ) : (
@@ -133,7 +133,7 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
             {/* Footer */}
             <div className="px-4 py-2 border-t border-white/5 bg-black/30 flex items-center justify-between text-[11px] text-white/40">
               <span>Navega con flechas o clic</span>
-              <span className="text-accent-main font-mono">FireSeed UI Engine</span>
+              <span className="text-accent font-mono">FireSeed UI Engine</span>
             </div>
           </motion.div>
         </div>
@@ -141,3 +141,4 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
     </AnimatePresence>
   );
 }
+

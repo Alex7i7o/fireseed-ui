@@ -1,4 +1,4 @@
-import { StepBadge } from '../components/StepBadge/StepBadge';
+﻿import { StepBadge } from '../components/StepBadge/StepBadge';
 import { Callout } from '../components/Callout';
 import { CodeBlock } from '../components/CodeBlock/CodeBlock';
 
@@ -30,7 +30,7 @@ export function StepBadgeDocs() {
       {/* 1. CABECERA */}
       <div className="space-y-3">
         <h1 className="text-4xl font-extrabold tracking-tight text-white">
-          StepBadge <span className="text-sm font-mono font-normal text-accent-main bg-accent-main/10 px-2 py-0.5 rounded-md border border-accent-main/20 ml-2">v1.0.0</span>
+          StepBadge <span className="text-sm font-mono font-normal text-accent bg-accent/10 px-2 py-0.5 rounded-md border border-accent/20 ml-2">v1.0.0</span>
         </h1>
         <p className="text-lg text-white/60">
           Indicadores circulares numéricos, perfectos para listas de pasos, tutoriales o instrucciones secuenciales.
@@ -100,13 +100,13 @@ export function StepBadgeDocs() {
               </thead>
               <tbody className="divide-y divide-white/5 font-mono text-xs">
                 <tr>
-                  <td className="p-3 text-accent-main font-semibold">variant</td>
+                  <td className="p-3 text-accent font-semibold">variant</td>
                   <td className="p-3 text-purple-400">'solid' | 'glow' | 'inset'</td>
                   <td className="p-3">'solid'</td>
                   <td className="p-3 text-white/60 font-sans">El diseño visual del círculo indicador.</td>
                 </tr>
                 <tr>
-                  <td className="p-3 text-accent-main font-semibold">size</td>
+                  <td className="p-3 text-accent font-semibold">size</td>
                   <td className="p-3 text-purple-400">'sm' | 'md' | 'lg'</td>
                   <td className="p-3">'md'</td>
                   <td className="p-3 text-white/60 font-sans">El diámetro del contenedor circular.</td>
@@ -119,3 +119,4 @@ export function StepBadgeDocs() {
     </div>
   );
 }
+

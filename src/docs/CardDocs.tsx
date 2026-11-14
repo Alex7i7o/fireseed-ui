@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../components/Card';
 import { Button } from '../components/Button';
 import { Callout } from '../components/Callout';
@@ -50,7 +50,7 @@ export function CardDocs() {
       <div className="space-y-3">
         <h1 className="text-4xl font-extrabold tracking-tight text-white flex items-center gap-3">
           Card{' '}
-          <span className="text-sm font-mono font-normal text-accent-main bg-accent-main/10 px-2 py-0.5 rounded-md border border-accent-main/20">
+          <span className="text-sm font-mono font-normal text-accent bg-accent/10 px-2 py-0.5 rounded-md border border-accent/20">
             v2.0.0
           </span>
         </h1>
@@ -113,3 +113,4 @@ export function CardDocs() {
     </div>
   );
 }
+

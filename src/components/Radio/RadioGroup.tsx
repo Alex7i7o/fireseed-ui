@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import React, { createContext, useContext } from 'react';
 import { cn } from '../../utils/cn';
 import { haptics } from '../../utils/haptics';
@@ -67,7 +67,7 @@ export function RadioGroup({
         className={cn('flex flex-col gap-2', className)}
       >
         {label && (
-          <span className="text-xs font-semibold text-tech-periwinkle uppercase tracking-wider mb-1">
+          <span className="text-xs font-semibold text-muted uppercase tracking-wider mb-1">
             {label}
           </span>
         )}
@@ -83,3 +83,4 @@ export function RadioGroup({
     </RadioGroupContext.Provider>
   );
 }
+

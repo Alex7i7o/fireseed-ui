@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { motion, type HTMLMotionProps } from 'framer-motion';
 import { cn } from '../../utils/cn';
 
@@ -19,9 +19,9 @@ export function AnimateIn({
   const baseStyles = 'rounded-2xl transition-all duration-300';
 
   const variants = {
-    solid: 'bg-primary-surface text-white border border-white/10 shadow-lg',
-    glow: 'bg-primary-surface border border-accent-main/40 text-white shadow-[0_0_30px_rgba(251,191,36,0.15)]',
-    inset: 'inset-shadow-sm inset-shadow-black/70 bg-primary-main bg-gradient-to-t from-white/5 to-transparent text-white border border-white/10'
+    solid: 'bg-card text-white border border-white/10 shadow-lg',
+    glow: 'bg-card border border-accent/40 text-white shadow-[0_0_30px_rgba(251,191,36,0.15)]',
+    inset: 'inset-shadow-sm inset-shadow-black/70 bg-primary bg-gradient-to-t from-white/5 to-transparent text-white border border-white/10'
   };
 
   const sizes = {
@@ -47,3 +47,4 @@ export function AnimateIn({
     </motion.div>
   );
 }
+

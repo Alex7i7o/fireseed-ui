@@ -1,4 +1,4 @@
-/* Developed by FireSeed - Fueling Innovation */
+﻿/* Developed by FireSeed - Fueling Innovation */
 import { useState } from 'react';
 import { Modal } from '../components/Modal';
 import { Button } from '../components/Button';
@@ -43,7 +43,7 @@ export function ModalDocs() {
       <div className="space-y-3">
         <h1 className="text-4xl font-extrabold tracking-tight text-white flex items-center gap-3">
           Modal / Dialog{' '}
-          <span className="text-sm font-mono font-normal text-accent-main bg-accent-main/10 px-2 py-0.5 rounded-md border border-accent-main/20">
+          <span className="text-sm font-mono font-normal text-accent bg-accent/10 px-2 py-0.5 rounded-md border border-accent/20">
             v1.0.0
           </span>
         </h1>
@@ -85,7 +85,7 @@ export function ModalDocs() {
                 Este modal está montado en un Portal directamente en el <code>document.body</code> para evitar
                 problemas de superposición (z-index) y tiene compensación de ancho de scrollbar para evitar saltos.
               </p>
-              <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-accent-main">
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-accent">
                 Prueba redimensionar la ventana o inspeccionar en vista de dispositivo móvil para ver cómo se transforma en Bottom Sheet.
               </div>
               <div className="flex justify-end gap-3 pt-2">
@@ -116,25 +116,25 @@ export function ModalDocs() {
             </thead>
             <tbody className="divide-y divide-white/5 font-mono text-xs">
               <tr>
-                <td className="p-4 text-accent-main font-semibold">isOpen</td>
+                <td className="p-4 text-accent font-semibold">isOpen</td>
                 <td className="p-4 text-purple-400">boolean</td>
                 <td className="p-4 text-white/40">Requerido</td>
                 <td className="p-4 text-white/60 font-sans">Controla la visibilidad del modal.</td>
               </tr>
               <tr>
-                <td className="p-4 text-accent-main font-semibold">onClose</td>
+                <td className="p-4 text-accent font-semibold">onClose</td>
                 <td className="p-4 text-purple-400">() =&gt; void</td>
                 <td className="p-4 text-white/40">Requerido</td>
                 <td className="p-4 text-white/60 font-sans">Callback al presionar el backdrop, botón cerrar o tirador.</td>
               </tr>
               <tr>
-                <td className="p-4 text-accent-main font-semibold">title</td>
+                <td className="p-4 text-accent font-semibold">title</td>
                 <td className="p-4 text-purple-400">string</td>
                 <td className="p-4 text-white/40">-</td>
                 <td className="p-4 text-white/60 font-sans">Título en la cabecera.</td>
               </tr>
               <tr>
-                <td className="p-4 text-accent-main font-semibold">showCloseButton</td>
+                <td className="p-4 text-accent font-semibold">showCloseButton</td>
                 <td className="p-4 text-purple-400">boolean</td>
                 <td className="p-4 text-white/40">true</td>
                 <td className="p-4 text-white/60 font-sans">Muestra u oculta la cruz de cerrar.</td>
@@ -146,3 +146,4 @@ export function ModalDocs() {
     </div>
   );
 }
+
