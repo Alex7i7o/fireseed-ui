@@ -11,6 +11,9 @@ import { ThemeDocs } from './docs/ThemeDocs';
 // Átomos
 import { ButtonDocs } from './docs/ButtonDocs';
 import { BadgeDocs } from './docs/BadgeDocs';
+import { ChatBubbleDocs } from './docs/ChatBubbleDocs';
+import { ChatInputDocs } from './docs/ChatInputDocs';
+import { TypingIndicatorDocs } from './docs/TypingIndicatorDocs';
 import { InputFieldDocs } from './docs/InputFieldDocs';
 import { SelectFieldDocs } from './docs/SelectFieldDocs';
 import { CheckboxDocs } from './docs/CheckboxDocs';
@@ -75,6 +78,9 @@ function App() {
                 {/* Átomos */}
                 <Route path="button" element={<ButtonDocs />} />
                 <Route path="badge" element={<BadgeDocs />} />
+                <Route path="chat-bubble" element={<ChatBubbleDocs />} />
+                <Route path="chat-input" element={<ChatInputDocs />} />
+                <Route path="typing-indicator" element={<TypingIndicatorDocs />} />
                 <Route path="input-field" element={<InputFieldDocs />} />
                 <Route path="select-field" element={<SelectFieldDocs />} />
                 <Route path="checkbox" element={<CheckboxDocs />} />

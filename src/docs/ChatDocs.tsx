@@ -419,6 +419,167 @@ export function ChatDocs() {
       </div>
 
       {/* ======================================================== */}
+      {/* 4. GUÍA TÉCNICA: CÓMO CONECTAR EL CHAT CON MOTORES DE IA */}
+      {/* ======================================================== */}
+      <div className="space-y-6 pt-8 border-t border-[#9EA2E2]/15">
+        <div className="space-y-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono font-medium text-emerald-400">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            GUÍA DE INTEGRACIÓN • BACKEND & AGENTES DE IA
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#FFF6DF] font-['PosteramaCustom',sans-serif]">
+            Cómo Conectar el Chat con un Motor de IA
+          </h2>
+          <p className="text-sm text-[#FFF6DF]/75 leading-relaxed">
+            El sistema de chat de <strong>FireSeed UI</strong> está desacoplado del protocolo de red: podés alimentarlo mediante peticiones REST (Django / FastAPI), WebSockets bidireccionales o Server-Sent Events (SSE) para streaming token a token.
+          </p>
+        </div>
+
+        {/* DIAGRAMA DE FLUJO */}
+        <div className="p-5 rounded-2xl bg-[#120524]/90 border border-[#9EA2E2]/20 space-y-4">
+          <h3 className="text-xs uppercase font-mono font-bold tracking-wider text-[#FBBF24]">
+            Ciclo de Vida de Mensajería & Human-in-the-Loop
+          </h3>
+          <div className="grid gap-3 sm:grid-cols-4 text-xs">
+            <div className="p-3 rounded-xl bg-[#241142]/60 border border-[#9EA2E2]/15 space-y-1.5">
+              <span className="font-mono text-[#FBBF24] font-bold">1. Input Usuario</span>
+              <p className="text-[#FFF6DF]/70 text-[11px]">
+                El mensaje entra a la lista con <code>status: 'sending'</code> y se activa <code>isTyping = true</code>.
+              </p>
+            </div>
+            <div className="p-3 rounded-xl bg-[#241142]/60 border border-[#9EA2E2]/15 space-y-1.5">
+              <span className="font-mono text-[#FBBF24] font-bold">2. Agente / LangGraph</span>
+              <p className="text-[#FFF6DF]/70 text-[11px]">
+                El backend procesa y ejecuta tools en vivo (ej: <code>consultar_agenda</code>, <code>reservar</code>).
+              </p>
+            </div>
+            <div className="p-3 rounded-xl bg-[#241142]/60 border border-[#9EA2E2]/15 space-y-1.5">
+              <span className="font-mono text-[#FBBF24] font-bold">3. Renderizado IA</span>
+              <p className="text-[#FFF6DF]/70 text-[11px]">
+                Se inyecta la burbuja del bot con sus <code>toolsExecuted</code> y se apaga <code>isTyping</code>.
+              </p>
+            </div>
+            <div className="p-3 rounded-xl bg-[#241142]/60 border border-[#9EA2E2]/15 space-y-1.5">
+              <span className="font-mono text-rose-400 font-bold">4. Pausa Humana</span>
+              <p className="text-[#FFF6DF]/70 text-[11px]">
+                Si la dueña presiona <strong>Pausar IA</strong>, el backend frena la autonomía y permite chatear manual.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* EJEMPLO DE CÓDIGO FRONTEND REACT */}
+        <div className="space-y-3">
+          <h3 className="text-sm font-bold text-[#FFF6DF] font-mono">
+            A. Conexión Frontend con un Hook Personalizado (React + TypeScript)
+          </h3>
+          <pre className="p-4 rounded-xl bg-[#0B0217] border border-[#9EA2E2]/20 text-[11px] font-mono text-[#FFF6DF] overflow-x-auto leading-relaxed">
+{`import { useState } from 'react';
+import { ChatView, ChatMessage } from 'fireseed-ui';
+
+export function MiChatConIA() {
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [isTyping, setIsTyping] = useState(false);
+  const [isAIPaused, setIsAIPaused] = useState(false);
+
+  const enviarMensajeAIA = async (texto: string) => {
+    // 1. Inserción optimista del mensaje del cliente
+    const msgId = Date.now().toString();
+    const clienteMsg: ChatMessage = {
+      id: msgId,
+      text: texto,
+      sender: 'user',
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      status: 'sending'
+    };
+    setMessages(prev => [...prev, clienteMsg]);
+
+    // 2. Si la IA está en pausa, no se dispara el bot autónomo
+    if (isAIPaused) return;
+
+    // 3. Encender indicador de escritura
+    setIsTyping(true);
+
+    try {
+      const resp = await fetch('/api/chat/mensaje/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mensaje: texto, canal: 'web' })
+      });
+      const data = await resp.json();
+
+      // 4. Confirmar lectura del mensaje del cliente
+      setMessages(prev => prev.map(m => m.id === msgId ? { ...m, status: 'read' } : m));
+
+      // 5. Inyectar la respuesta del Agente con las tools que corrió
+      const botMsg: ChatMessage = {
+        id: data.id || Date.now().toString(),
+        text: data.respuesta,
+        sender: 'bot',
+        senderName: 'Asistente IA FireSeed',
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        toolsExecuted: data.tools_ejecutadas || [], // e.g. ['consultar_turnos', 'validar_cupo']
+        actions: data.botones_accion || []
+      };
+      setMessages(prev => [...prev, botMsg]);
+    } catch (error) {
+      console.error('Error al consultar agente de IA:', error);
+    } finally {
+      setIsTyping(false);
+    }
+  };
+
+  return (
+    <div className="h-[600px] w-full max-w-xl mx-auto">
+      <ChatView
+        title="Recepcionista IA"
+        subtitle="Disponible 24/7"
+        status={isTyping ? 'typing' : isAIPaused ? 'paused_human' : 'online'}
+        messages={messages}
+        isTyping={isTyping}
+        isAIPaused={isAIPaused}
+        onTogglePauseAI={() => setIsAIPaused(v => !v)}
+        onSendMessage={enviarMensajeAIA}
+        quickPrompts={['Consultar turnos', 'Precios de planes', 'Hablar con humano']}
+      />
+    </div>
+  );
+}`}
+          </pre>
+        </div>
+
+        {/* EJEMPLO DE CÓDIGO BACKEND DJANGO */}
+        <div className="space-y-3">
+          <h3 className="text-sm font-bold text-[#FFF6DF] font-mono">
+            B. Endpoint Receptor en Django REST Framework / LangGraph
+          </h3>
+          <pre className="p-4 rounded-xl bg-[#0B0217] border border-[#9EA2E2]/20 text-[11px] font-mono text-[#FFF6DF] overflow-x-auto leading-relaxed">
+{`# backend/plugins/chat_ia/views.py
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .services import orquestar_agente_langgraph
+
+class EnviarMensajeIAView(APIView):
+    def post(self, request):
+        mensaje = request.data.get("mensaje", "").strip()
+        
+        # 1. Ejecutar el grafo del agente con herramientas
+        resultado = orquestar_agente_langgraph(mensaje=mensaje)
+        
+        # 2. Devolver la respuesta formateada para FireSeed UI
+        return Response({
+            "ok": True,
+            "respuesta": resultado["texto_respuesta"],
+            "tools_ejecutadas": resultado["herramientas_usadas"], # ['consultar_turnos', ...]
+            "botones_accion": [
+                {"label": "Confirmar Turno", "variant": "gold"}
+            ]
+        })`}
+          </pre>
+        </div>
+      </div>
+
+      {/* ======================================================== */}
       {/* REFERENCIA DE PROPIEDADES (API)                          */}
       {/* ======================================================== */}
       <div className="space-y-4 pt-6">

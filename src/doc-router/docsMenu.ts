@@ -25,6 +25,9 @@ export const docsMenu: MenuSection[] = [
     items: [
       { label: 'Button', href: '/docs/button' },
       { label: 'Badge', href: '/docs/badge' },
+      { label: 'ChatBubble (Burbuja)', href: '/docs/chat-bubble' },
+      { label: 'ChatInput (Entrada)', href: '/docs/chat-input' },
+      { label: 'TypingIndicator', href: '/docs/typing-indicator' },
       { label: 'InputField', href: '/docs/input-field' },
       { label: 'SelectField', href: '/docs/select-field' },
       { label: 'Checkbox', href: '/docs/checkbox' },

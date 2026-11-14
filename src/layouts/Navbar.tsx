@@ -1,6 +1,6 @@
 /* Developed by FireSeed - Fueling Innovation */
 import { useState } from 'react';
-import { Search, Copy, Check, Menu } from 'lucide-react';
+import { Search, Copy, Check, Menu, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { haptics } from '../utils/haptics';
 import isotypeF3Capas from '../assets/brand/01_Isotipo/Isotipo_F_3Capas_Oficial_Dark.svg';
@@ -12,6 +12,11 @@ export interface NavbarProps {
 
 export function Navbar({ onOpenSearch, onOpenMobileMenu }: NavbarProps) {
   const [copied, setCopied] = useState(false);
+
+  // En local redirige a :5180 (landing de desarrollo); en producción a / (fireseed.tech)
+  const mainSiteUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' && window.location.port !== '80'
+    ? 'http://localhost:5180/'
+    : '/';
 
   const copyInstall = async () => {
     try {
@@ -75,8 +80,20 @@ export function Navbar({ onOpenSearch, onOpenMobileMenu }: NavbarProps) {
           </button>
         </div>
 
-        {/* Derecha: Acciones rápidas (Copiar npm, GitHub) */}
+        {/* Derecha: Acciones rápidas (Volver a la Web, Copiar npm, GitHub) */}
         <div className="flex items-center gap-1.5 sm:gap-3">
+          {/* Botón hacia la Web Corporativa (fireseed.tech) */}
+          <a
+            href={mainSiteUrl}
+            className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-semibold text-[#FFF6DF] bg-gradient-to-r from-[#FBBF24]/15 to-[#E67E22]/15 hover:from-[#FBBF24]/25 hover:to-[#E67E22]/25 border border-[#FBBF24]/40 transition-all cursor-pointer shadow-2xs group"
+            title="Ir a la web principal de FireSeed"
+          >
+            <ArrowLeft className="w-3.5 h-3.5 text-[#FBBF24] group-hover:-translate-x-0.5 transition-transform" />
+            <span className="font-['PosteramaCustom',sans-serif] text-[10px] sm:text-xs tracking-wider">
+              FIRE<span className="text-[#FBBF24]">SEED</span>.TECH
+            </span>
+          </a>
+
           {/* Mobile search trigger */}
           <button
             onClick={onOpenSearch}

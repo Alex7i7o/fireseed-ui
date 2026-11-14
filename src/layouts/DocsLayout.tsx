@@ -103,6 +103,14 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
                     </button>
                   </div>
 
+                  {/* Acceso a la web corporativa desde menú móvil */}
+                  <a
+                    href={typeof window !== 'undefined' && window.location.hostname === 'localhost' && window.location.port !== '80' ? 'http://localhost:5180/' : '/'}
+                    className="flex items-center justify-center gap-2 px-3 py-2.5 mb-4 rounded-xl bg-gradient-to-r from-[#FBBF24]/20 to-[#E67E22]/20 border border-[#FBBF24]/40 text-xs font-bold text-[#FFF6DF] shadow-sm"
+                  >
+                    <span>← Ir a la Web fireseed.tech</span>
+                  </a>
+
                   <SidebarMenu
                     sections={docsMenu}
                     currentPath={location.pathname}
