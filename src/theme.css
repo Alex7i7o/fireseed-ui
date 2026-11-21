@@ -118,8 +118,23 @@
   border: 1px solid rgba(158, 162, 226, 0.22);
 }
 
+@utility fs-surface-violet-hero {
+  background: radial-gradient(circle at 20% 20%, #241142 0%, #120524 75%);
+  color: #FFF6DF;
+  border-radius: 24px;
+  border: 1px solid rgba(158, 162, 226, 0.22);
+}
+
 /* Superficie Elevada para Tarjetas */
 @utility fs-surface-card {
+  background: linear-gradient(180deg, #241142 0%, #150726 100%);
+  color: #FFF6DF;
+  border-radius: 20px;
+  border: 1px solid rgba(158, 162, 226, 0.20);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+@utility fs-surface-violet-card {
   background: linear-gradient(180deg, #241142 0%, #150726 100%);
   color: #FFF6DF;
   border-radius: 20px;
@@ -311,4 +326,25 @@ pre[class*="language-"] {
 }
 .token.italic {
   font-style: italic;
+}
+
+/* Scrollbar refinado para Modal, Drawer y Dropdown de fireseed-ui */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(158, 162, 226, 0.25);
+  border-radius: 9999px;
+  transition: background 0.2s;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent, #FBBF24);
+}
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(158, 162, 226, 0.25) transparent;
 }

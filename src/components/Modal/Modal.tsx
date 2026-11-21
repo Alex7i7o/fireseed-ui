@@ -16,7 +16,12 @@ export interface ModalProps {
 }
 
 export function useMediaQuery(query: string): boolean {
-  const [matches, setMatches] = useState(false);
+  const [matches, setMatches] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return window.matchMedia(query).matches;
+    }
+    return false;
+  });
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -131,13 +136,13 @@ export function Modal({
   const content = (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col sm:items-center justify-end sm:justify-center pointer-events-none">
-          {/* Backdrop Scrim */}
+        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 overflow-hidden">
+          {/* Backdrop Scrim: Bloquea el fondo al 100% y cierra al hacer clic */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 0.25 } }}
             exit={{ opacity: 0, transition: { duration: 0.25 } }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm pointer-events-auto"
+            className="fixed inset-0 bg-black/75 backdrop-blur-md cursor-pointer"
             onClick={onClose}
             aria-hidden="true"
           />
@@ -150,15 +155,16 @@ export function Modal({
             aria-labelledby={title ? titleId : undefined}
             aria-describedby={description ? descId : undefined}
             tabIndex={-1}
+            onClick={(e) => e.stopPropagation()}
             initial={isMobile ? { y: '100%', opacity: 1 } : { scale: 0.95, opacity: 0 }}
             animate={isMobile ? { y: 0, opacity: 1 } : { scale: 1, opacity: 1 }}
             exit={isMobile ? { y: '100%', opacity: 1 } : { scale: 0.95, opacity: 0 }}
             transition={springConfig}
             className={cn(
-              'relative z-50 w-full bg-card border border-border text-foreground shadow-2xl flex flex-col pointer-events-auto overflow-hidden outline-none',
+              'relative z-10 w-full bg-card text-foreground shadow-2xl flex flex-col overflow-hidden outline-none',
               isMobile
-                ? 'mt-auto rounded-t-[32px] pb-[calc(1rem+env(safe-area-inset-bottom))] max-h-[90dvh]'
-                : 'max-w-lg rounded-2xl sm:w-[90%] m-4 max-h-[88vh]',
+                ? 'mt-auto rounded-t-[32px] rounded-b-none border-t border-border border-x-0 border-b-0 pb-[calc(1rem+env(safe-area-inset-bottom))] max-h-[90dvh]'
+                : 'max-w-lg rounded-2xl sm:w-[90%] m-auto max-h-[88vh] border border-border',
               className
             )}
           >
